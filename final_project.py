@@ -42,9 +42,15 @@ def draw():
     screen.blit(label, (635, 425))
 
 def text_1(words):
-    myfont = pygame.font.SysFont("monospace", 15)
-    label = myfont.render(words, 1, WHITE)
-    screen.blit(label, (25, 425))
+    ycord = 425
+    while len(words) > 0:
+        max = min(65, len(words))
+        tag = words[0:max]
+        myfont = pygame.font.SysFont("monospace", 15)
+        label = myfont.render(tag, 1, WHITE)
+        ycord += 15
+        screen.blit(label, (25, ycord))
+        words = words[max:]
 
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
@@ -111,39 +117,9 @@ while not done:
     if manipulation==True:
         text_1("YOU CHOSE MANIPULATION")
 
+    text_1("Blad hark harold angels sing glory to the neew born kin leelelelelelelelel")
 
-
-    # def text_2(words):
-    #     myfont = pygame.font.SysFont("monospace", 15)
-    #     label = myfont.render(words, 1, WHITE)
-    #     screen.blit(label, (25, 445))
-    #
-    # def text_3(words):
-    #     myfont = pygame.font.SysFont("monospace", 15)
-    #     label = myfont.render(words, 1, WHITE)
-    #     screen.blit(label, (25, 465))
-    #
-    # def text_4(words):
-    #     myfont = pygame.font.SysFont("monospace", 15)
-    #     label = myfont.render(words, 1, WHITE)
-    #     screen.blit(label, (25, 485))
-    #
-    # def text_5(words):
-    #     myfont = pygame.font.SysFont("monospace", 15)
-    #     label = myfont.render(words, 1, WHITE)
-    #     screen.blit(label, (25, 505))
-    #
-    # def question(words):
-    #     myfont = pygame.font.SysFont("monospace", 15)
-    #     label = myfont.render(words, 1, WHITE)
-    #     screen.blit(label, (25, 555))
-    #
-    #text_1("You are walking through the woods and you stumble on and rock and ")
-    # text_2("YOU DIE!")
-    # text_3("THE END")
-    # text_4("YOU LOSE")
-    # text_5("TOUGH")
-    # question("YES OR NO (Y/N)")
+   
     pygame.display.flip()
     # --- Go ahead and update the screen with what we've drawn.
     # pygame.display.flip()
