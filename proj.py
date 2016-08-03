@@ -92,25 +92,19 @@ def mainstory(textput,animationlist):
         # if animationlist[3]==1:
         pygame.display.flip()
        
-        
-
- 
-
-# intro = pygame.image.load("intro_screen.png")
-# box.blit(pygame.transform.scale(intro, (white_x, 25)), white_l, 350)
 
 # Used to manage how fast the screen updates
 clock = pygame.time.Clock()
 
 #The story code goes here
 text_intro= "You wake up with little recollection of who you are. Your surroundings are unfamiliar. Before you are four costumes, each promising to endow you with a new identity. Which do you choose? (1/2/3/4)"
-text1="Our father who art in heaven hollowed by thy name thy kingdom come they will be done on earth as it is in heaven."
-text2="thy kingdom come, thy will be done, on earth as it is in heaven, give us this day our daily bread"
-text3= "and forgive us from our trespasses, as we forgive those who tresspass against us."
+    #class text 
+textstealth_chose="You choose Frankina of the Stealth class. You check your pockets, finding a ninja star and an amulet that seems valuable. You hang the amulet around your neck."
+textstrength_chose="You choose Farra of the Strength class. You check your pockets, finding a mysterious potion and an amulet that seems valuable. You hang the amulet around your neck."
+textmagic_chose= "You choose Asenath of the Magic class. You check your pockets, finding a philosopher’s stone and an amulet that seems valuable. You hang the amulet around your neck."
+textcharisma_chose= "You choose Tempest of the Charisma class. You check your pockets, finding a magic dictionary and an amulet that seems valuable. You hang the amulet around your neck."
+    #main text
 
-#intro
-# mainstory(text_intro,[1])
-# time.sleep(0.5)
 # -------- Main Program Loop -----------
 
 pygame.event.get()
@@ -179,12 +173,14 @@ while pygame.key.get_pressed()[pygame.K_SPACE]==0:
 
 #Story
 time.sleep(1)
-mainstory(text1,[0])
-time.sleep(1)
-mainstory(text2,[0])
-time.sleep(1)
-mainstory(text3,[0])
-
+if stealth == True:
+    mainstory(textstealth_chose,[0])
+elif strength == True: 
+    mainstory(textstrength_chose,[0])
+elif strength == True: 
+    mainstory(text2,[0])
+elif strength == True: 
+    mainstory(text2,[0])
 # --- Game logic should go here --- #
 y=0
 n=0
