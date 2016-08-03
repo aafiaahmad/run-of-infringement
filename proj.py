@@ -21,6 +21,8 @@ white_x=25
 green_l=660
 white_l=650
 
+yess= False
+noo= False
 bar_choice=False
 table_choice=False
 stealth = False
@@ -132,18 +134,25 @@ def mainstory(textput,animationlist):
             screen.blit(img15, (25, 25))
         pygame.display.flip()
 
-# def bartable(textput,animationlist):
-#     pygame.event.get()
-#         textput_wrap=textwrap.wrap(textput,65)
-#         while pygame.key.get_pressed()[pygame.K_SPACE]==0:
-#             pygame.event.get()
-#             if pygame.key.get_pressed()[pygame.K_x]==1:
-#                 sys.exit()
-#             screen.fill(BLACK)
-#             draw(100)
-#             for i in range(len(textput_wrap)):
-#                 text_printer(i,textput_wrap)
-# Used to manage how fast the screen updates
+def yesno(inputed):
+    pygame.event.get()
+    textput_wrap=textwrap.wrap(inputed,65)
+    while yess==False and noo==False:
+        pygame.event.get()
+        if pygame.key.get_pressed()[pygame.K_x]==1:
+            sys.exit()
+        screen.fill(BLACK)
+        draw(100)
+        for i in range(len(textput_wrap)):
+            text_printer(i,textput_wrap)
+        pygame.event.get()
+        if pygame.key.get_pressed()[pygame.K_y]:
+            yess=True
+        elif pygame.key.get_pressed()[pygame.K_n]:
+            noo=True
+        pygame.display.flip()
+
+
 clock = pygame.time.Clock()
 
 #The story code goes here
@@ -164,10 +173,13 @@ charisma_mugging = "You know you’re not the strongest person around, but words
 main_mugging= "After walking for some time along a path that leads through a heavily forested area, you begin to feel uneasy. Suddenly, two menacing figures jump out from among the foliage, blocking your way forward."
 main_tavern ="As you keep walking, you see a small light in the distance. You keep walking, and eventually you are close enough to see that the light is emanating from the window of a small establishment, which you decide to enter. It turns out to be a tavern, its brightly lit interior brimming with rowdy patrons who have claimed nearly every spot at the rough-hewn wooden tables and bar. You scan the room and identify only two open seats; do you choose to sit at the bar or the table in the corner? (bar/table?)"
 main_tablestealth= "You head over to the table in the far corner of the room. After introducing yourself to the people in your vicinity, you order a hearty meal. They ask about your dangerous travels and you explain that you have seen more of the world than you ever wished to, fearsome fauna and threatening terrain. Impressed, they tell you that in a nearby castle lives a dragon, and that it has been terrorizing this town for years. “You seem up for an adventure!” the woman to your left declares. “And there’s a dragon that needs slaying, a bounty on its head that needs claiming. What do you say?” You pause to consider. (y/n?)"
+main_tablestealth_yes= " “Why not?” you hear yourself saying. You wouldn’t mind an influx of money. You linger for a while longer, then pay for your food and head out the door to begin the long journey to the castle."
+main_tablestealth_no = " “I think not!” you tell them. The topic changes, and you while away the night with the other tavern-goers in a blur of drinks and merriment. After some time, the woman across from you makes a comment of a polemic nature. You take offense and respond indignantly. She challenges you to a fight with the condition that the loser must fight the dragon. Of course, you lose. In your defense, you’re not at your stealthiest right now. Gathering your wounded pride and your meager belongings, you leave the tavern and begin the long journey to the castle."
 main_tablestrength= "You head over to the table in the far corner of the room. After introducing yourself to the people in your vicinity, you order a hearty meal. They admire your armour and ask you about your travels. You explain that you have seen more of the world than you ever wished to, fearsome fauna and threatening terrain. Before long, you are the talk of the tavern, and everyone seems to have crowded around your table. They tell you about the dragon that terrorizes their town, offering you riches for its defeat. Under the pressure of the crowd, there’s no answer you can give but yes.  You leave the tavern with their indistinct, supportive shouts at your back. It’ll be a long journey to the castle, but when you return, it’ll be as a hero. "
+
 main_bar= "You stride to the bar and take the last seat. After introducing yourself to the bartender, you explain that you have traveled to many lands, seen many things. At a sudden pang of hunger, you order some food which you promptly devour. The bartender watches you with amusement. Belatedly, you realize that you don’t have any money. You sheepishly say as much when he asks for payment, thinking he might be lenient. Seemingly without any regard for what you just said, he tells you that a dragon has been terrorizing this town for many years. You look at him, baffled, until you realize his meaning. “Me? Kill a dragon? To pay for my food? You must be joking!” He stares at you solemnly, and you realize he’s dead serious. After an uncomfortable moment, you acquiesce. If the mission was that dangerous, he wouldn’t send you, right? Before you leave, he spots the golden amulet hanging around your neck. “That looks valuable,” he says. “Why don’t I hold on to it until you return?” Once more, you have no choice but to agree, and with that, he rudely shoves you out the door. Guess it’s time to kill a dragon. “Head to the castle!” he yells after you. Very helpful, isn’t he? "
-main_magic = ""
-main_charisma =""
+main_magicwitch = ""
+main_charismawitch =""
 # -------- Main Program Loop -----------
 
 pygame.event.get()
@@ -256,18 +268,9 @@ while pygame.key.get_pressed()[pygame.K_SPACE]==0:
 
 #Story
 time.sleep(0.5)
-# if stealth == True:
-#     mainstory(textstealth_chose,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
-# elif strength == True: 
-#     mainstory(textstrength_chose,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
-# elif magic == True: 
-#     mainstory(textmagic_chose,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
-# elif manipulation == True: 
-#     mainstory(textcharisma_chose,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
-# time.sleep(0.5)
-
 mainstory(main_mugging,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
 
+#mugging
 time.sleep(0.5)
 if stealth == True:
     mainstory(stealth_mugging,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
@@ -279,7 +282,9 @@ elif manipulation == True:
     mainstory(charisma_mugging,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
 time.sleep(0.5)
 
+#tavern and witch hunt 
 if stealth == True:
+    #can use for y and n
     pygame.event.get()
     textput_wrap=textwrap.wrap(main_tavern,65)
     while table_choice==False and bar_choice==False:
@@ -318,10 +323,13 @@ if strength == True:
         elif pygame.key.get_pressed()[pygame.K_b]:
             bar_choice=True
         pygame.display.flip()
+    
     if table_choice:
-        mainstory(main_tablestrength, [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+        yesno(main_tablestrength)
+
     elif bar_choice:
         mainstory(main_bar, [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+
 elif magic == True: 
     mainstory(magic_mugging,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
 elif manipulation == True: 
@@ -330,10 +338,6 @@ time.sleep(0.5)
 
 
 
-# time.sleep(0.5)
-# if stealth == True:
-#     bartable()
-# time.sleep(0.5)
 
 # --- Game logic should go here --- #
 y=0
