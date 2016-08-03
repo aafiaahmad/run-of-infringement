@@ -80,16 +80,16 @@ def mainstory(textput,animationlist):
         draw()
         for i in range(len(textput_wrap)):
             text_printer(i,textput_wrap)
-
+#startlist of sprites and backgrounds
         if animationlist[0]==1:
             img1=pygame.image.load('begin1.png')
             screen.blit(img1,(10,10))
-        if animationlist[1]==1:
-            pygame.draw.rect(screen,(244,33,11),(100,100,100,100))
-        if animationlist[2]==1:
-            pygame.draw.rect(screen,(33,44,55),(200,200,50,50))
-        if animationlist[3]==1:
-            pygame.draw.rect(screen,(33,55,11),(300,100,50,50))
+        # if animationlist[1]==1:
+            
+        # if animationlist[2]==1:
+           
+        # if animationlist[3]==1:
+            
         pygame.display.flip()
         
 
@@ -101,17 +101,16 @@ def mainstory(textput,animationlist):
 clock = pygame.time.Clock()
 
 #The story code goes here
-
-texty= "Hello"
+text_intro= "You wake up with little recollection of who you are. Your surroundings are unfamiliar. Before you are four costumes, each promising to endow you with a new identity. Which do you choose?"
 text1="Our father who art in heaven hollowed by thy name thy kingdom come they will be done on earth as it is in heaven."
 text2="thy kingdom come, thy will be done, on earth as it is in heaven, give us this day our daily bread"
 text3= "and forgive us from our trespasses, as we forgive those who tresspass against us."
 
 #INTRO
-mainstory("This story will begin now",[0,0,0,0])
-time.sleep(1)
-mainstory("Now you must choose your character. Who!",[0,0,0,0])
-time.sleep(1)
+mainstory(text_intro,[0])
+time.sleep(0.5)
+mainstory("Now you must choose your character. Who!",[0])
+time.sleep(0.5)
 # -------- Main Program Loop -----------
 pygame.event.get()
 while pygame.key.get_pressed()[pygame.K_SPACE]==0:
@@ -119,6 +118,10 @@ while pygame.key.get_pressed()[pygame.K_SPACE]==0:
     # --- Main event loop
     screen.fill(BLACK)
     draw()
+    pygame.event.get()
+    if pygame.key.get_pressed()[pygame.K_x]==1:
+        sys.exit()
+
     if pygame.key.get_pressed()[pygame.K_1]!= 0:
         stealth=True
         costume=stealth
@@ -145,13 +148,16 @@ while pygame.key.get_pressed()[pygame.K_SPACE]==0:
         magic=False
 
     if stealth==True:
-        text("YOU CHOSE STEALTH")
+        #show bio
+        img1=pygame.image.load("spr_and_bgs/Stealth_Bio.jpg")
+        screen.blit(img1,(10,10))
+        text("CHOOSE STEALTH")
     elif strength==True:
-        text("YOU CHOSE STRENGTH")
+        text("CHOOSE STRENGTH")
     elif magic==True:
-        text("YOU CHOSE MAGIC")
+        text("CHOOSE MAGIC")
     elif manipulation==True:
-        text("YOU CHOSE MANIPULATION")
+        text("CHOOSE MANIPULATION")
     else:
         text("")
     pygame.display.flip()
@@ -162,13 +168,11 @@ while pygame.key.get_pressed()[pygame.K_SPACE]==0:
 
 #Story
 time.sleep(1)
-mainstory(texty,[1,0,0,0])
+mainstory(text1,[0])
 time.sleep(1)
-mainstory(text1,[0,1,0,0])
+mainstory(text2,[0])
 time.sleep(1)
-mainstory(text2,[0,0,1,0])
-time.sleep(1)
-mainstory(text3,[0,1,0,1])
+mainstory(text3,[0])
 
 # --- Game logic should go here --- #
 y=0
