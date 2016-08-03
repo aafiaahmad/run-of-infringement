@@ -34,20 +34,20 @@ pygame.display.set_caption("Run of Infringement")
 done = False
 
 #Functions
-def draw():
+def draw(hp):
     pygame.draw.rect(screen, GREEN, (green_x, 20, green_l, 360), 0)
-    box=pygame.draw.rect(screen, WHITE, (white_x, 25, white_l, 350), 0)
-    pygame.draw.rect(screen, GREEN, (green_x, 420,green_l, 160), 0)
-    pygame.draw.rect(screen, BLACK, (white_x, 425,white_l, 150), 0)
-    if hp==100:
+    box = pygame.draw.rect(screen, WHITE, (white_x, 25, white_l, 350), 0)
+    pygame.draw.rect(screen, GREEN, (green_x, 420, green_l, 160), 0)
+    pygame.draw.rect(screen, BLACK, (white_x, 425, white_l, 150), 0)
+    if hp == 100:
         pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 150), 0)  # the starting HP
-    elif hp==75:
-        pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 112), 0)# the HP -25
-    elif hp==50:
+    elif hp == 75:
+        pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 112), 0)  # the HP -25
+    elif hp == 50:
         pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 74), 0)  # the HP -50
-    elif hp==25:
+    elif hp == 25:
         pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 36), 0)  # the HP -75
-    elif hp==0:
+    elif hp == 0:
         pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 1), 0)  # the HP -100
     myfont = pygame.font.SysFont("monospace", 25)
     label = myfont.render("HP", 1, WHITE)
@@ -77,19 +77,58 @@ def mainstory(textput,animationlist):
         if pygame.key.get_pressed()[pygame.K_x]==1:
             sys.exit()
         screen.fill(BLACK)
-        draw()
+        draw(100)
         for i in range(len(textput_wrap)):
             text_printer(i,textput_wrap)
 #startlist of sprites and backgrounds
-        if animationlist[0]==1:
-            img1=pygame.image.load("spr_and_bgs/intro_screen.jpg")
-            screen.blit(img1,(10,10))
-
-        # if animationlist[1]==1:
-            
-        # if animationlist[2]==1:
-           
-        # if animationlist[3]==1:
+        if animationlist[0] == 1:
+            img0 = pygame.image.load("spr_and_bgs/intro_screen.jpg")
+            screen.blit(img0, (25, 25))
+        if animationlist[1]==1:
+            img1 = pygame.image.load(".png")
+            screen.blit(img1, (25, 25))
+        if animationlist[2]==1:
+            img2 = pygame.image.load(".png")
+            screen.blit(img2, (25, 25))
+        if animationlist[3]==1:
+            img3 = pygame.image.load(".png")
+            screen.blit(img3, (25, 25))
+        if animationlist[4] == 1:
+            img4 = pygame.image.load(".png")
+            screen.blit(img4, (25, 25))
+        if animationlist[5] == 1:
+            img5 = pygame.image.load(".png")
+            screen.blit(img5, (25, 25))
+        if animationlist[6] == 1:
+            img6 = pygame.image.load(".png")
+            screen.blit(img6, (25, 25))
+        if animationlist[7] == 1:
+            img7 = pygame.image.load(".png")
+            screen.blit(img7, (25, 25))
+        if animationlist[8] == 1:
+            img8 = pygame.image.load(".png")
+            screen.blit(img8, (25, 25))
+        if animationlist[9] == 1:
+            img9 = pygame.image.load(".png")
+            screen.blit(img9, (25, 25))
+        if animationlist[10] == 1:
+            img10 = pygame.image.load(".png")
+            screen.blit(img10, (25, 25))
+        if animationlist[11] == 1:
+            img11 = pygame.image.load(".png")
+            screen.blit(img11, (25, 25))
+        if animationlist[12] == 1:
+            img12 = pygame.image.load(".png")
+            screen.blit(img12, (25, 25))
+        if animationlist[13] == 1:
+            img13 = pygame.image.load(".png")
+            screen.blit(img13, (25, 25))
+        if animationlist[14] == 1:
+            img14 = pygame.image.load(".png")
+            screen.blit(img14, (25, 25))
+        if animationlist[15] == 1:
+            img15 = pygame.image.load(".png")
+            screen.blit(img15, (25, 25))
         pygame.display.flip()
        
 
@@ -103,8 +142,18 @@ textstealth_chose="You choose Frankina of the Stealth class. You check your pock
 textstrength_chose="You choose Farra of the Strength class. You check your pockets, finding a mysterious potion and an amulet that seems valuable. You hang the amulet around your neck."
 textmagic_chose= "You choose Asenath of the Magic class. You check your pockets, finding a philosopher’s stone and an amulet that seems valuable. You hang the amulet around your neck."
 textcharisma_chose= "You choose Tempest of the Charisma class. You check your pockets, finding a magic dictionary and an amulet that seems valuable. You hang the amulet around your neck."
-    #main text
+    
+stealth_mugging = "With your swiftness and ability to dodge oncoming punches from attackers, you evade the attackers and break into a sprint, leaving them far behind."
+strength_mugging = "With your impeccable strength and intimidation, you overpower the mugger and move on your way, each step increasing the distance between you and their prone forms."
+magic_mugging = "You panic, doubtful of your ability to defeat the attackers. To your surprise and relief, the philosopher’s stone begins to glow in your pocket, surely a sign of your nascent magical powers. Before you get a chance to do anything, however, the reprobates overpower you. As they drag you along with them, you hear something about a tavern and… a witch hunt? No, surely not."
+charisma_mugging = "You know you’re not the strongest person around, but words can be powerful too. So you insinuate that you possess powerful magic, thinking that’ll scare the attackers off. But if anything, that only seems to spur them on, and the reprobates overpower you. As they drag you along with them, you hear something about a tavern and… a witch hunt? No, surely not. You’re innocent!"
+    
 
+    #main text
+main_mugging= "After walking for some time along a path that leads through a heavily forested area, you begin to feel uneasy. Suddenly, two menacing figures jump out from among the foliage, blocking your way forward."
+# main_tavern ="As you keep walking, you see a small light in the distance. You keep walking, and eventually you are close enough to see that the light is emanating from the window of a small establishment, which you decide to enter. It turns out to be a tavern, its brightly lit interior brimming with rowdy patrons who have claimed nearly every spot at the rough-hewn wooden tables and bar. You scan the room and identify only two open seats; do you choose to sit at the bar or the table in the corner? (bar/table?)"
+main_magic = ""
+main_charisma =""
 # -------- Main Program Loop -----------
 
 pygame.event.get()
@@ -112,7 +161,7 @@ while pygame.key.get_pressed()[pygame.K_SPACE]==0:
     pygame.event.get()
     # --- Main event loop
     screen.fill(BLACK)
-    draw()
+    draw(100)
     img1=pygame.image.load("spr_and_bgs/intro_screen.jpg")
     screen.blit(img1,(25,25))
     pygame.event.get()
@@ -147,22 +196,42 @@ while pygame.key.get_pressed()[pygame.K_SPACE]==0:
         strength=False
         magic=False
 
-    if stealth==True:
-        imgstea=pygame.image.load("spr_and_bgs/Stealth_Bio.jpg")
-        screen.blit(imgstea,(25,25))
+    if stealth == True:
+        screen.fill(BLACK)
+        draw(100)
+        imgstea = pygame.image.load("spr_and_bgs/Stealth_Bio.jpg")
+        screen.blit(imgstea, (25, 25))
         text("CHOOSE STEALTH")
-    elif strength==True:
-        imgstre=pygame.image.load("spr_and_bgs/Strength_Bio.jpg")
-        screen.blit(imgstre,(25,25))
+        textput_wrap = textwrap.wrap(textstealth_chose, 65)
+        for i in range(len(textput_wrap)):
+            text_printer(i, textput_wrap)
+    elif strength == True:
+        screen.fill(BLACK)
+        draw(100)
+        imgstre = pygame.image.load("spr_and_bgs/Strength_Bio.jpg")
+        screen.blit(imgstre, (25, 25))
         text("CHOOSE STRENGTH")
-    elif magic==True:
-        imgmag=pygame.image.load("spr_and_bgs/Magic_Bio.jpg")
-        screen.blit(imgmag,(25,25))
+        textput_wrap = textwrap.wrap(textstrength_chose, 65)
+        for i in range(len(textput_wrap)):
+            text_printer(i, textput_wrap)
+    elif magic == True:
+        screen.fill(BLACK)
+        draw(100)
+        imgmag = pygame.image.load("spr_and_bgs/Magic_Bio.jpg")
+        screen.blit(imgmag, (25, 25))
         text("CHOOSE MAGIC")
-    elif manipulation==True:
-        imgmanip=pygame.image.load("spr_and_bgs/Charisma_Bio.jpg")
-        screen.blit(imgmanip,(25,25))
+        textput_wrap = textwrap.wrap(textmagic_chose, 65)
+        for i in range(len(textput_wrap)):
+            text_printer(i, textput_wrap)
+    elif manipulation == True:
+        screen.fill(BLACK)
+        draw(100)
+        imgmanip = pygame.image.load("spr_and_bgs/Charisma_Bio.jpg")
+        screen.blit(imgmanip, (25, 25))
         text("CHOOSE MANIPULATION")
+        textput_wrap = textwrap.wrap(textcharisma_chose, 65)
+        for i in range(len(textput_wrap)):
+            text_printer(i, textput_wrap)
     else:
         text("")
     pygame.display.flip()
@@ -172,15 +241,35 @@ while pygame.key.get_pressed()[pygame.K_SPACE]==0:
 
 
 #Story
-time.sleep(1)
+time.sleep(0.5)
 if stealth == True:
-    mainstory(textstealth_chose,[0])
+    mainstory(textstealth_chose,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
 elif strength == True: 
-    mainstory(textstrength_chose,[0])
+    mainstory(textstrength_chose,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+elif magic == True: 
+    mainstory(textmagic_chose,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+elif manipulation == True: 
+    mainstory(textcharisma_chose,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+time.sleep(0.5)
+
+mainstory(main_mugging,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+
+time.sleep(0.5)
+if stealth == True:
+    mainstory(stealth_mugging,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
 elif strength == True: 
-    mainstory(text2,[0])
-elif strength == True: 
-    mainstory(text2,[0])
+    mainstory(strength_mugging,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+elif magic == True: 
+    mainstory(magic_mugging,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+elif manipulation == True: 
+    mainstory(charisma_mugging,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+time.sleep(0.5)
+
+# time.sleep(0.5)
+# if stealth == True:
+#     bartable()
+# time.sleep(0.5)
+
 # --- Game logic should go here --- #
 y=0
 n=0
