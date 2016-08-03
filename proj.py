@@ -1,4 +1,4 @@
-import pygame,time, sys
+import pygame,time, sys,textwrap
 
 # Define some colors
 BLACK = (0, 0, 0)
@@ -65,31 +65,36 @@ def text(words):
         screen.blit(label, (25, ycord))
         words = words[max:]
 
-    # myfont = pygame.font.SysFont("monospace", 15)
-    # label = myfont.render(words, 1, WHITE)
-    # screen.blit(label, (25, 400))
 
 
-def text_1(words):
-    ycord = 420
-    while len(words) > 0:
-        max = min(60, len(words))
-        tag = words[0:max]
-        myfont = pygame.font.SysFont("monospace", 15)
-        label = myfont.render(tag, 1, WHITE)
-        ycord += 15
-        screen.blit(label, (28, ycord))
-        words = words[max:]
+# def text_1(words):
+#     ycord = 420
+#     while len(words) > 0:
+#         max = min(10, len(words))
+#         tag = words[0:max]
+#         myfont = pygame.font.SysFont("monospace", 15)
+#         label = myfont.render(tag, 1, WHITE)
+#         ycord += 15
+#         screen.blit(label, (30, ycord))
+#         words = words[max:]
+
+def text_printer(textnumber,wrapped_text):
+    myfont=pygame.font.SysFont("monospace",15)
+    label=myfont.render(wrapped_text[textnumber],1,WHITE)
+    screen.blit(label,(30,425+15*textnumber))
 
 def mainstory(textput,animationlist):
     pygame.event.get()
+    textput_wrap=textwrap.wrap(textput,60)
     while pygame.key.get_pressed()[pygame.K_SPACE]==0:
         pygame.event.get()
         if pygame.key.get_pressed()[pygame.K_x]==1:
             sys.exit()
         screen.fill(BLACK)
         draw()
-        text_1(textput)
+        for i in range(len(textput_wrap)):
+            text_printer(i,textput_wrap)
+
         if animationlist[0]==1:
             pygame.draw.rect(screen,(0,255,255),(50,50,50,50))
         if animationlist[1]==1:
@@ -113,7 +118,9 @@ texty= "Hello"
 text1="Our father who art in heaven hollowed by thy name thy kingdom come they will be done on earth as it is in heaven."
 text2="thy kingdom come, thy will be done, on earth as it is in heaven, give us this day our daily bread"
 text3= "and forgive us from our trespasses, as we forgive those who tresspass against us."
-
+texty_wrap=textwrap.wrap(text1,50)
+print(texty)
+print(texty_wrap)
 # -------- Main Program Loop -----------
 while not done:
     # --- Main event loop
