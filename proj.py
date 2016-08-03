@@ -109,8 +109,6 @@ text3= "and forgive us from our trespasses, as we forgive those who tresspass ag
 #INTRO
 mainstory(text_intro,[0])
 time.sleep(0.5)
-mainstory("Now you must choose your character. Who!",[0])
-time.sleep(0.5)
 # -------- Main Program Loop -----------
 pygame.event.get()
 while pygame.key.get_pressed()[pygame.K_SPACE]==0:
@@ -149,14 +147,20 @@ while pygame.key.get_pressed()[pygame.K_SPACE]==0:
 
     if stealth==True:
         #show bio
-        img1=pygame.image.load("spr_and_bgs/Stealth_Bio.jpg")
-        screen.blit(img1,(10,10))
+        imgstea=pygame.image.load("spr_and_bgs/Stealth_Bio.jpg")
+        screen.blit(imgstea,(20,20))
         text("CHOOSE STEALTH")
     elif strength==True:
+        imgstre=pygame.image.load("spr_and_bgs/Strength_Bio.jpg")
+        screen.blit(imgstre,(20,20))
         text("CHOOSE STRENGTH")
     elif magic==True:
+        imgmag=pygame.image.load("spr_and_bgs/Magic_Bio.jpg")
+        screen.blit(imgmag,(20,20))
         text("CHOOSE MAGIC")
     elif manipulation==True:
+        imgmanip=pygame.image.load("spr_and_bgs/Charisma_Bio.jpg")
+        screen.blit(imgmanip,(20,20))
         text("CHOOSE MANIPULATION")
     else:
         text("")
