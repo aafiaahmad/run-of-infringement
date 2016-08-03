@@ -21,6 +21,7 @@ white_x=25
 green_l=660
 white_l=650
 
+
 stealth = False
 strength = False
 magic = False
@@ -32,6 +33,7 @@ pygame.display.set_caption("Run of Infringement")
 # Loop until the user clicks the close button.
 done = False
 
+#Functions
 def draw():
     pygame.draw.rect(screen, GREEN, (green_x, 20, green_l, 360), 0)
     box=pygame.draw.rect(screen, WHITE, (white_x, 25, white_l, 350), 0)
@@ -41,9 +43,6 @@ def draw():
         pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 150), 0)  # the starting HP
     elif hp==75:
         pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 112), 0)# the HP -25
-
-
-
     elif hp==50:
         pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 74), 0)  # the HP -50
     elif hp==25:
@@ -64,19 +63,6 @@ def text(words):
         ycord += 15
         screen.blit(label, (25, ycord))
         words = words[max:]
-
-
-
-# def text_1(words):
-#     ycord = 420
-#     while len(words) > 0:
-#         max = min(10, len(words))
-#         tag = words[0:max]
-#         myfont = pygame.font.SysFont("monospace", 15)
-#         label = myfont.render(tag, 1, WHITE)
-#         ycord += 15
-#         screen.blit(label, (30, ycord))
-#         words = words[max:]
 
 def text_printer(textnumber,wrapped_text):
     myfont=pygame.font.SysFont("monospace",15)
@@ -102,10 +88,6 @@ def mainstory(textput,animationlist):
         pygame.display.flip()
         
 
-# screen.fill(BLACK)
-#                     draw()
-# text("The story has begun")
-# pygame.display.flip()
 
 # intro = pygame.image.load("intro_screen.png")
 # box.blit(pygame.transform.scale(intro, (white_x, 25)), white_l, 350)
@@ -114,19 +96,19 @@ def mainstory(textput,animationlist):
 clock = pygame.time.Clock()
 
 #The story code goes here
+
 texty= "Hello"
 text1="Our father who art in heaven hollowed by thy name thy kingdom come they will be done on earth as it is in heaven."
 text2="thy kingdom come, thy will be done, on earth as it is in heaven, give us this day our daily bread"
 text3= "and forgive us from our trespasses, as we forgive those who tresspass against us."
-texty_wrap=textwrap.wrap(text1,50)
-print(texty)
-print(texty_wrap)
+
 # -------- Main Program Loop -----------
 while not done:
     # --- Main event loop
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             done = True
+#Story
     mainstory(texty,[1,0])
     time.sleep(1)
     mainstory(text1,[0,1])
@@ -134,7 +116,8 @@ while not done:
     mainstory(text2,[0,0])
     time.sleep(1)
     mainstory(text3,[0,0])
-    # --- Game logic should go here
+
+    # --- Game logic should go here --- #
     y=0
     n=0
     if pygame.key.get_pressed()[pygame.K_y]!=0:
@@ -190,36 +173,6 @@ while not done:
         text("YOU CHOSE MANIPULATION")
     else:
         text("")
-
-## THIS IS THE BASIC FORMAT FOR RECEIVING USER INPUT AND USING THAT INPUT TO CONTINUE THE STORY PROGRESSION ##
-    # for event in pygame.event.get():
-    #     if event.type == pygame.QUIT:
-    #         done = True
-    #     if event.type==pygame.KEYDOWN:
-    #         if event.key==pygame.K_SPACE:
-    #             while not done:
-    #                 mainstory(text1)
-
-    #                 for event in pygame.event.get():
-    #                     if event.type == pygame.QUIT:
-    #                         done = True
-    #                     if event.type == pygame.KEYDOWN:
-    #                         if event.key == pygame.K_SPACE:
-    #                             while not done:
-    #                                 mainstory(text2)
-
-    #                                 for event in pygame.event.get():
-    #                                     if event.type == pygame.QUIT:
-    #                                         done = True
-    #                                     if event.type == pygame.KEYDOWN:
-    #                                         if event.key == pygame.K_SPACE:
-    #                                             while not done:
-    #                                                 mainstory(text3)
-
-    #                                         if event.key == pygame.K_f:
-    #                                             while not done:
-    #                                                 text("YOU KILLED HIM")
-
 
     pygame.display.flip()
     # --- Go ahead and update the screen with what we've drawn.
