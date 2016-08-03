@@ -82,9 +82,14 @@ def mainstory(textput,animationlist):
             text_printer(i,textput_wrap)
 
         if animationlist[0]==1:
-            pygame.draw.rect(screen,(0,255,255),(50,50,50,50))
+            img1=pygame.image.load('begin1.png')
+            screen.blit(img1,(10,10))
         if animationlist[1]==1:
             pygame.draw.rect(screen,(244,33,11),(100,100,100,100))
+        if animationlist[2]==1:
+            pygame.draw.rect(screen,(33,44,55),(200,200,50,50))
+        if animationlist[3]==1:
+            pygame.draw.rect(screen,(33,55,11),(300,100,50,50))
         pygame.display.flip()
         
 
@@ -102,40 +107,16 @@ text1="Our father who art in heaven hollowed by thy name thy kingdom come they w
 text2="thy kingdom come, thy will be done, on earth as it is in heaven, give us this day our daily bread"
 text3= "and forgive us from our trespasses, as we forgive those who tresspass against us."
 
+#INTRO
+mainstory("This story will begin now",[0,0,0,0])
+time.sleep(1)
+mainstory("Now you must choose your character. Who!",[0,0,0,0])
+time.sleep(1)
 # -------- Main Program Loop -----------
-while not done:
+pygame.event.get()
+while pygame.key.get_pressed()[pygame.K_SPACE]==0:
+    pygame.event.get()
     # --- Main event loop
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True
-#Story
-    mainstory(texty,[1,0])
-    time.sleep(1)
-    mainstory(text1,[0,1])
-    time.sleep(1)
-    mainstory(text2,[0,0])
-    time.sleep(1)
-    mainstory(text3,[0,0])
-
-    # --- Game logic should go here --- #
-    y=0
-    n=0
-    if pygame.key.get_pressed()[pygame.K_y]!=0:
-        y=1
-    elif pygame.key.get_pressed()[pygame.K_n]!=0:
-        n=1
-    elif pygame.key.get_pressed()[pygame.K_i]!=0:
-        i=1
-    
-
-    # --- Screen-clearing code goes here
-    # screen.fill(BLACK)
-    # draw()
-    # Here, we clear the screen to white. Don't put other drawing commands
-    # above this, or they will be erased with this command.
-
-    # If you want a background image, replace this clear with blit'ing the
-    # background image.
     screen.fill(BLACK)
     draw()
     if pygame.key.get_pressed()[pygame.K_1]!= 0:
@@ -173,13 +154,49 @@ while not done:
         text("YOU CHOSE MANIPULATION")
     else:
         text("")
-
     pygame.display.flip()
-    # --- Go ahead and update the screen with what we've drawn.
-    # pygame.display.flip()
+    pygame.event.get()
+    if pygame.key.get_pressed()[pygame.K_SPACE]==1:
+        done=True
 
-    # --- Limit to 60 frames per second
-    clock.tick(60)
+
+#Story
+time.sleep(1)
+mainstory(texty,[1,0,0,0])
+time.sleep(1)
+mainstory(text1,[0,1,0,0])
+time.sleep(1)
+mainstory(text2,[0,0,1,0])
+time.sleep(1)
+mainstory(text3,[0,1,0,1])
+
+# --- Game logic should go here --- #
+y=0
+n=0
+if pygame.key.get_pressed()[pygame.K_y]!=0:
+    y=1
+elif pygame.key.get_pressed()[pygame.K_n]!=0:
+    n=1
+elif pygame.key.get_pressed()[pygame.K_i]!=0:
+    i=1
+    
+
+    # --- Screen-clearing code goes here
+    # screen.fill(BLACK)
+    # draw()
+    # Here, we clear the screen to white. Don't put other drawing commands
+    # above this, or they will be erased with this command.
+
+    # If you want a background image, replace this clear with blit'ing the
+    # background image.
+   
+
+pygame.display.flip()
+# --- Go ahead and update the screen with what we've drawn.
+# pygame.display.flip()
+
+# --- Limit to 60 frames per second
+clock.tick(60)
 
 # Close the window and quit.
 pygame.quit()
