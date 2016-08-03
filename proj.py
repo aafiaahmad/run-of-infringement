@@ -54,7 +54,7 @@ def draw():
     screen.blit(label, (635, 425))
 
 def text(words):
-    ycord = 400
+    ycord = 388
     while len(words) > 0:
         max = min(60, len(words))
         tag = words[0:max]
@@ -71,7 +71,7 @@ def text_printer(textnumber,wrapped_text):
 
 def mainstory(textput,animationlist):
     pygame.event.get()
-    textput_wrap=textwrap.wrap(textput,60)
+    textput_wrap=textwrap.wrap(textput,65)
     while pygame.key.get_pressed()[pygame.K_SPACE]==0:
         pygame.event.get()
         if pygame.key.get_pressed()[pygame.K_x]==1:
@@ -82,17 +82,19 @@ def mainstory(textput,animationlist):
             text_printer(i,textput_wrap)
 #startlist of sprites and backgrounds
         if animationlist[0]==1:
-            img1=pygame.image.load('begin1.png')
+            img1=pygame.image.load("spr_and_bgs/intro_screen.jpg")
             screen.blit(img1,(10,10))
+
         # if animationlist[1]==1:
             
         # if animationlist[2]==1:
            
         # if animationlist[3]==1:
-            
         pygame.display.flip()
+       
         
 
+ 
 
 # intro = pygame.image.load("intro_screen.png")
 # box.blit(pygame.transform.scale(intro, (white_x, 25)), white_l, 350)
@@ -101,22 +103,28 @@ def mainstory(textput,animationlist):
 clock = pygame.time.Clock()
 
 #The story code goes here
-text_intro= "You wake up with little recollection of who you are. Your surroundings are unfamiliar. Before you are four costumes, each promising to endow you with a new identity. Which do you choose?"
+text_intro= "You wake up with little recollection of who you are. Your surroundings are unfamiliar. Before you are four costumes, each promising to endow you with a new identity. Which do you choose? (1/2/3/4)"
 text1="Our father who art in heaven hollowed by thy name thy kingdom come they will be done on earth as it is in heaven."
 text2="thy kingdom come, thy will be done, on earth as it is in heaven, give us this day our daily bread"
 text3= "and forgive us from our trespasses, as we forgive those who tresspass against us."
 
-#INTRO
-mainstory(text_intro,[0])
-time.sleep(0.5)
+#intro
+# mainstory(text_intro,[1])
+# time.sleep(0.5)
 # -------- Main Program Loop -----------
+
 pygame.event.get()
 while pygame.key.get_pressed()[pygame.K_SPACE]==0:
     pygame.event.get()
     # --- Main event loop
     screen.fill(BLACK)
     draw()
+    img1=pygame.image.load("spr_and_bgs/intro_screen.jpg")
+    screen.blit(img1,(25,25))
     pygame.event.get()
+    textput_wrap=textwrap.wrap(text_intro,65)
+    for i in range(len(textput_wrap)):
+        text_printer(i,textput_wrap)
     if pygame.key.get_pressed()[pygame.K_x]==1:
         sys.exit()
 
@@ -146,21 +154,20 @@ while pygame.key.get_pressed()[pygame.K_SPACE]==0:
         magic=False
 
     if stealth==True:
-        #show bio
         imgstea=pygame.image.load("spr_and_bgs/Stealth_Bio.jpg")
-        screen.blit(imgstea,(20,20))
+        screen.blit(imgstea,(25,25))
         text("CHOOSE STEALTH")
     elif strength==True:
         imgstre=pygame.image.load("spr_and_bgs/Strength_Bio.jpg")
-        screen.blit(imgstre,(20,20))
+        screen.blit(imgstre,(25,25))
         text("CHOOSE STRENGTH")
     elif magic==True:
         imgmag=pygame.image.load("spr_and_bgs/Magic_Bio.jpg")
-        screen.blit(imgmag,(20,20))
+        screen.blit(imgmag,(25,25))
         text("CHOOSE MAGIC")
     elif manipulation==True:
         imgmanip=pygame.image.load("spr_and_bgs/Charisma_Bio.jpg")
-        screen.blit(imgmanip,(20,20))
+        screen.blit(imgmanip,(25,25))
         text("CHOOSE MANIPULATION")
     else:
         text("")
