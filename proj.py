@@ -121,25 +121,25 @@ def mainstory(textput, animationlist):
             img7 = pygame.image.load("tavern_barrr.jpg")
             screen.blit(img7, (25, 25))
         if animationlist[8] == 1:
-            img8 = pygame.image.load(".png")
+            img8 = pygame.image.load("tavern_bar_stealth.jpg")
             screen.blit(img8, (25, 25))
         if animationlist[9] == 1:
-            img9 = pygame.image.load(".png")
+            img9 = pygame.image.load("tavern_bar_strength.jpg")
             screen.blit(img9, (25, 25))
         if animationlist[10] == 1:
-            img10 = pygame.image.load(".png")
+            img10 = pygame.image.load("tavern_table_stealth.jpg")
             screen.blit(img10, (25, 25))
         if animationlist[11] == 1:
-            img11 = pygame.image.load(".png")
+            img11 = pygame.image.load("tavern_tables_strength.jpg")
             screen.blit(img11, (25, 25))
         if animationlist[12] == 1:
-            img12 = pygame.image.load(".png")
+            img12 = pygame.image.load("PyreCharisma.jpg")
             screen.blit(img12, (25, 25))
         if animationlist[13] == 1:
-            img13 = pygame.image.load(".png")
+            img13 = pygame.image.load("PyreMagic.jpg")
             screen.blit(img13, (25, 25))
         if animationlist[14] == 1:
-            img14 = pygame.image.load(".png")
+            img14 = pygame.image.load("tocastle.jpg")
             screen.blit(img14, (25, 25))
         if animationlist[15] == 1:
             img15 = pygame.image.load(".png")
@@ -158,6 +158,8 @@ def yesno(inputed, yeschoice, nochoice):
             sys.exit()
         screen.fill(BLACK)
         draw(100)
+        tavern_stealth = pygame.image.load("tavern_table_stealth.jpg")
+        screen.blit(tavern_stealth, (25, 25))
         for i in range(len(textput_wrap)):
             text_printer(i, textput_wrap)
         pygame.event.get()
@@ -202,9 +204,9 @@ def tavern_choice(inputed, fir, sec, choice1, choice1_1, choice1_2):
         yesno(choice1, choice1_1, choice1_2)
     elif sec:
         time.sleep(0.5)
-        mainstory(main_barp1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        mainstory(main_barp1, [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0])
         time.sleep(0.5)
-        mainstory(main_barp2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        mainstory(main_barp2, [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0])
 
 
 def choice(inputed, fir, sec, choice1, choice1p2, choice2, choice2p2):
@@ -225,10 +227,6 @@ def choice(inputed, fir, sec, choice1, choice1p2, choice2, choice2p2):
         pygame.event.get()
         if pygame.key.get_pressed()[pygame.K_t]:
             fir = True
-            # screen.fill(BLACK)
-            # draw(100)
-            # tavern_table = pygame.image.load("tavern_tables.jpg")
-            # screen.blit(tavern_table, (25, 25))
         elif pygame.key.get_pressed()[pygame.K_b]:
             sec = True
         pygame.display.flip()
@@ -236,13 +234,14 @@ def choice(inputed, fir, sec, choice1, choice1p2, choice2, choice2p2):
         time.sleep(0.5)
         mainstory(choice1, [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0])
         time.sleep(0.5)
-        mainstory(choice1p2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        mainstory(choice1p2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0])
     elif sec:
         time.sleep(0.5)
         mainstory(choice2, [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0])
         time.sleep(0.5)
-        mainstory(choice2p2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        mainstory(choice2p2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0])
 
+# def castle(inputed, ):
 
 clock = pygame.time.Clock()
 
@@ -298,6 +297,21 @@ main_charismawitchp2 = '''“Listen, I may be a witch, and you may hate me for t
   man’s voice again. “One more thing. The amulet.” '''
 main_charismawitchp3 = '''You hand it over readily, not willing to risk him rescinding the offer.
   Terrified, you take the first steps of what will likely be a fatal journey.'''
+
+main_castle_1 = "You can see the castle in the distance where it sits smugly atop a tall hill. Beneath your feet is a dusty path, which you decide to follow for now, though you’re not sure if it actually leads to the castle. If it doesn’t, well, you’ll deal with that later. As you walk further and further, the tavern shrinks in your vision until it it seems like an insignificant speck of light. But that insignificant speck is why you’re here, and a shiver of fear runs through you at the reminder of what awaits you at your destination. Why were you foolish enough to agree to this?"
+main_castle_2 = "Well, turning back is not an option. You will keep going, and you will slay that dragon. Probably. Maybe. You walk for what seems like hours. The stars shine brightly against the dark canvas of the sky, and you let yourself bask in the beautiful sight for a moment.Then you have to bring your attention back to your surroundings, because before you is a deep canyon into which the path gradually slopes. Something in its very nature seems sinister and menacing, as though this valley might end you before the dragon does. "
+main_castle_3 = "But to circumvent the ravine would prolong your journey, when you just want this ordeal to be over as soon as possible. Plus, you have to conserve your strength for the real fight. So the canyon it is."
+
+main_castle_stealth_1 = "With your first step, you know this was a bad idea. You hear a slight splashing noise, and look down to see a small puddle. No reason to worry. But as you continue, you begin to notice a thin layer of water dampening the soles of your shoes. And the water keeps rising. Soon you’re wading through it, slowing your forward progress to a crawl. You’re not sure where it’s coming from, but it’s an inconvenience nonetheless.  Also, you don’t know how to swim. That might be a problem. You slosh through the water for as long as you can until it threatens to envelop you entirely. "
+main_castle_stealth_2 = "Your breath comes in small, panicked spurts, and then not at all. Is this the moment you die? You kick your feet at the canyon floor to lift your head for one last glimpse at the world, and instead spot a miracle. A dead tree branch, floating languidly on the water’s surface. You reach for it and barely manage to hold on. You propel yourself to the end of the ravine by kicking your legs out behind you, and it is a such a relief once you stand upon solid ground again. "
+main_castle_stealth_3 = "There is still the dragon to fight, of course, but you expunge the thought from your mind until you stand before the doors of the castle. "
+
+main_castle_strength_1 = "With your first step, you know this was a bad idea. The night seems even darker from inside the ravine, everything cast in shadows that lurk and linger with a menacing import. But even worse is when the weather-worn stone walls tower their highest above you, blotting out every source of brightness. You don’t want to admit it, but you might be a little scared of the dark. Also, you keep bumping into boulders and tripping over small rocks that litter the canyon floor. When you finally make it out, you attend to your numerous scrapes and gashes. "
+main_castle_strength_2 = "You turn back to look at the geographical feature that has caused you so much turmoil, and from here, you feel a little foolish for being so weak. You also feel a little lightheaded, having lost a lot of blood, but after a short rest, you stagger the rest of the way to the castle, stopping right before its grand doors."
+
+main_castle_m_1 = "With your first step, you know this was a bad idea. Nothing bad has occurred yet, but you’re pretty sure something will. Things are too oddly sanguine for the first few minutes, but then a loud crashing noise shatters the fraught silence. You crane your head over your shoulder to investigate. A massive boulder sits squarely where you were standing just a moment ago, and you say a thousand thanks that you left the tavern when you did, that you weren’t walking any slower. But you must be on your guard now, for what happened once can happen again. "
+main_castle_m_2 = "You scan the tops of the canyon walls for any more plummeting rocks, and spot a shadowy figure. Someone must have followed you from the tavern. You watch detachedly as he pushes another boulder to the edge of the ravine. Then you realize it’s meant for you. Meant to kill you. You break into a run, narrowly dodging rocks of all sizes that are hurled at you. One grazes your shoulder painfully, and you want to collapse right there. You’re bleeding and out of breath, but you keep sprinting, out of the canyon and onwards to the castle."
+main_castle_m_3 = "Whoever is trying to kill you will not succeed, not today or ever. You reach the castle, and, looking around to ensure the man is nowhere near, sit down in front of its grand doors. You just need a moment to tend to your wound. And catch your breath."
 # -------- Main Program Loop -----------
 
 pygame.event.get()
@@ -404,29 +418,27 @@ if strength == True:
     choice(main_tavern, fir, sec, main_tablestrength, main_tablestealthp2, main_barp1, main_barp2)
 
 elif magic == True:
-    mainstory(main_magicwitch, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    mainstory(main_magicwitch, [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
     time.sleep(0.5)
-    mainstory(main_magicwitchp2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    mainstory(main_magicwitchp2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0])
     # time.sleep(0.5)
     # # mainstory(main_magicwitchp3 ,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
 elif manipulation == True:
-    mainstory(main_charismawitch, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    mainstory(main_charismawitch, [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
     time.sleep(0.5)
-    mainstory(main_charismawitchp2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    mainstory(main_charismawitchp2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0])
     time.sleep(0.5)
-    mainstory(main_charismawitchp3, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    mainstory(main_charismawitchp3, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0])
 time.sleep(0.5)
 
-# --- Game logic should go here --- #
-# y = 0
-# n = 0
-# if pygame.key.get_pressed()[pygame.K_y] != 0:
-#     y = 1
-# elif pygame.key.get_pressed()[pygame.K_n] != 0:
-#     n = 1
-# elif pygame.key.get_pressed()[pygame.K_i] != 0:
-#     i = 1
-
+#castle walk up
+time.sleep(0.5)
+mainstory(main_castle_1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0])
+time.sleep(0.5)
+mainstory(main_castle_2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0])
+time.sleep(0.5)
+mainstory(main_castle_3, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0])
+# --- Game logic should go here ---
 
     # --- Screen-clearing code goes here
     # screen.fill(BLACK)
