@@ -142,8 +142,23 @@ def mainstory(textput, animationlist):
             img14 = pygame.image.load("tocastle.jpg")
             screen.blit(img14, (25, 25))
         if animationlist[15] == 1:
-            img15 = pygame.image.load(".png")
+            img15 = pygame.image.load("CharismaCastle.jpg")
             screen.blit(img15, (25, 25))
+        if animationlist[16] == 1:
+            img16 = pygame.image.load("Magiccastle.jpg")
+            screen.blit(img16, (25, 25))
+        if animationlist[17] == 1:
+            img17 = pygame.image.load("Stealthcastle.jpg")
+            screen.blit(img17, (25, 25))
+        if animationlist[18] == 1:
+            img18 = pygame.image.load("Strengthcastle.jpg")
+            screen.blit(img18, (25, 25))
+        if animationlist[19] == 1:
+            img19 = pygame.image.load(".png")
+            screen.blit(img19, (25, 25))
+        if animationlist[20] == 1:
+            img20 = pygame.image.load(".png")
+            screen.blit(img20, (25, 25))
         pygame.display.flip()
 
 
@@ -170,11 +185,11 @@ def yesno(inputed, yeschoice, nochoice):
         pygame.display.flip()
     if yess:
         time.sleep(0.5)
-        mainstory(yeschoice, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        mainstory(yeschoice, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
     elif noo:
         time.sleep(0.5)
-        mainstory(nochoice, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        mainstory(nochoice, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
 
 def tavern_choice(inputed, fir, sec, choice1, choice1_1, choice1_2):
@@ -204,9 +219,9 @@ def tavern_choice(inputed, fir, sec, choice1, choice1_1, choice1_2):
         yesno(choice1, choice1_1, choice1_2)
     elif sec:
         time.sleep(0.5)
-        mainstory(main_barp1, [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0])
+        mainstory(main_barp1, [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
         time.sleep(0.5)
-        mainstory(main_barp2, [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0])
+        mainstory(main_barp2, [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
 
 def choice(inputed, fir, sec, choice1, choice1p2, choice2, choice2p2):
@@ -232,14 +247,14 @@ def choice(inputed, fir, sec, choice1, choice1p2, choice2, choice2p2):
         pygame.display.flip()
     if fir:
         time.sleep(0.5)
-        mainstory(choice1, [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+        mainstory(choice1, [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
         time.sleep(0.5)
-        mainstory(choice1p2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0])
+        mainstory(choice1p2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0])
     elif sec:
         time.sleep(0.5)
-        mainstory(choice2, [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0])
+        mainstory(choice2, [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
         time.sleep(0.5)
-        mainstory(choice2p2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0])
+        mainstory(choice2p2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
 # def castle(inputed, ):
 
@@ -395,18 +410,18 @@ while pygame.key.get_pressed()[pygame.K_SPACE] == 0:
 
 # Story
 time.sleep(0.5)
-mainstory(main_mugging, [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+mainstory(main_mugging, [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
 # mugging
 time.sleep(0.5)
 if stealth == True:
-    mainstory(stealth_mugging, [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    mainstory(stealth_mugging, [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 elif strength == True:
-    mainstory(strength_mugging, [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    mainstory(strength_mugging, [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 elif magic == True:
-    mainstory(magic_mugging, [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    mainstory(magic_mugging, [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 elif manipulation == True:
-    mainstory(charisma_mugging, [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    mainstory(charisma_mugging, [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 time.sleep(0.5)
 print("here")
 
@@ -418,26 +433,52 @@ if strength == True:
     choice(main_tavern, fir, sec, main_tablestrength, main_tablestealthp2, main_barp1, main_barp2)
 
 elif magic == True:
-    mainstory(main_magicwitch, [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    mainstory(main_magicwitch, [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
     time.sleep(0.5)
-    mainstory(main_magicwitchp2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0])
+    mainstory(main_magicwitchp2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0])
     # time.sleep(0.5)
     # # mainstory(main_magicwitchp3 ,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
 elif manipulation == True:
-    mainstory(main_charismawitch, [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+    mainstory(main_charismawitch, [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
     time.sleep(0.5)
-    mainstory(main_charismawitchp2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0])
+    mainstory(main_charismawitchp2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0])
     time.sleep(0.5)
-    mainstory(main_charismawitchp3, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0])
+    mainstory(main_charismawitchp3, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0])
 time.sleep(0.5)
 
 #castle walk up
 time.sleep(0.5)
-mainstory(main_castle_1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0])
+mainstory(main_castle_1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0])
 time.sleep(0.5)
-mainstory(main_castle_2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0])
+mainstory(main_castle_2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0])
 time.sleep(0.5)
-mainstory(main_castle_3, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0])
+mainstory(main_castle_3, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0])
+
+#in the castle
+time.sleep(0.5)
+if stealth == True:
+    mainstory(main_castle_stealth_1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0])
+    time.sleep(0.5)
+    mainstory(main_castle_stealth_2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0])
+    time.sleep(0.5)
+    mainstory(main_castle_stealth_2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0])
+elif strength == True:
+    mainstory(main_castle_strength_1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0])
+    time.sleep(0.5)
+    mainstory(main_castle_strength_2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0])
+elif magic == True:
+    mainstory(main_castle_m_1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0])
+    time.sleep(0.5)
+    mainstory(main_castle_m_2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0])
+    time.sleep(0.5)
+    mainstory(main_castle_m_3, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0])
+elif manipulation == True:
+    mainstory(main_castle_m_1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0])
+    time.sleep(0.5)
+    mainstory(main_castle_m_2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0])
+    time.sleep(0.5)
+    mainstory(main_castle_m_3, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0])
+time.sleep(0.5)
 # --- Game logic should go here ---
 
     # --- Screen-clearing code goes here
