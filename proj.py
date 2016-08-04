@@ -196,7 +196,7 @@ def tavern_choice(inputed,fir,sec,choice1,choice1_1,choice1_2):
         time.sleep(0.5)
         mainstory(main_barp2, [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])   
 
-def choice(inputed,fir,sec,choice1,choice2, choice2p2):
+def choice(inputed,fir,sec,choice1, choice1p2, choice2, choice2p2):
     pygame.event.get()
     textput_wrap=textwrap.wrap(inputed,65)
     print(fir)
@@ -218,11 +218,14 @@ def choice(inputed,fir,sec,choice1,choice2, choice2p2):
     if fir:
         time.sleep(0.5)
         mainstory(choice1, [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+        time.sleep(0.5)
+        mainstory(choice1p2, [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
     elif sec:
         time.sleep(0.5)
         mainstory(choice2, [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
         time.sleep(0.5)
-        mainstory(choice2p2, [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])    
+        mainstory(choice2p2, [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])  
+
 
 clock = pygame.time.Clock()
 
@@ -251,8 +254,8 @@ After introducing yourself to the people in your vicinity, you order a hearty me
 They admire your armour and ask you about your travels. You explain that you have seen more of the world than you ever wished to, 
 fearsome fauna and threatening terrain. Before long, you are the talk of the tavern, and everyone seems to have 
 crowded around your table. They tell you about the dragon that terrorizes their town, offering you riches for its defeat. 
-Under the pressure of the crowd, there’s no answer you can give but yes.  You leave the tavern with their indistinct, 
-supportive shouts at your back. It’ll be a long journey to the castle, but when you return, it’ll be as a hero.'''
+'''
+main_tablestealthp2 = "Under the pressure of the crowd, there’s no answer you can give but yes.  You leave the tavern with their indistinct, supportive shouts at your back. It’ll be a long journey to the castle, but when you return, it’ll be as a hero."
 
 main_barp1= "You stride to the bar and take the last seat. After introducing yourself to the bartender, you explain that you have traveled to many lands, seen many things. At a sudden pang of hunger, you order some food which you promptly devour. The bartender watches you with amusement. Belatedly, you realize that you don’t have any money. You sheepishly say as much when he asks for payment, thinking he might be lenient. Seemingly without any regard for what you just said, he tells you that a dragon has been terrorizing this town for many years."
 main_barp2 = "You look at him, baffled, until you realize his meaning. “Me? Kill a dragon? To pay for my food? You must be joking!” He stares at you solemnly, and you realize he’s dead serious. After an uncomfortable moment, you acquiesce. If the mission was that dangerous, he wouldn’t send you, right? Before you leave, he spots the golden amulet hanging around your neck. “That looks valuable,” he says. “Why don’t I hold on to it until you return?” Once more, you have no choice but to agree, and with that, he rudely shoves you out the door. Guess it’s time to kill a dragon. “Head to the castle!” he yells after you. Very helpful, isn’t he? "
@@ -366,29 +369,7 @@ if stealth == True:
     tavern_choice(main_tavern,fir,sec,main_tablestealth,main_tablestealth_yes,main_tablestealth_no)
 
 if strength == True:
-    choice(main_tavern, fir, sec, main_tablestrength, main_barp1, main_barp2)
-    # pygame.event.get()
-    # textput_wrap=textwrap.wrap(main_tavern,65)
-    # while table_choice==False and bar_choice==False:
-    #     pygame.event.get()
-    #     if pygame.key.get_pressed()[pygame.K_x]==1:
-    #         sys.exit()
-    #     screen.fill(BLACK)
-    #     draw(100)
-    #     for i in range(len(textput_wrap)):
-    #         text_printer(i,textput_wrap)
-    #     pygame.event.get()
-    #     if pygame.key.get_pressed()[pygame.K_t]:
-    #         table_choice=True
-    #     elif pygame.key.get_pressed()[pygame.K_b]:
-    #         bar_choice=True
-    #     pygame.display.flip()
-    
-    # if table_choice:
-    #     yesno(main_tablestrength)
-
-    # elif bar_choice:
-    #     mainstory(main_bar, [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    choice(main_tavern, fir, sec, main_tablestrength, main_tablestealthp2, main_barp1, main_barp2)
 
 elif magic == True: 
     mainstory(magic_mugging,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
