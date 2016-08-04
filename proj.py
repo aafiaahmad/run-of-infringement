@@ -259,8 +259,29 @@ main_tablestealthp2 = "Under the pressure of the crowd, there’s no answer you 
 
 main_barp1= "You stride to the bar and take the last seat. After introducing yourself to the bartender, you explain that you have traveled to many lands, seen many things. At a sudden pang of hunger, you order some food which you promptly devour. The bartender watches you with amusement. Belatedly, you realize that you don’t have any money. You sheepishly say as much when he asks for payment, thinking he might be lenient. Seemingly without any regard for what you just said, he tells you that a dragon has been terrorizing this town for many years."
 main_barp2 = "You look at him, baffled, until you realize his meaning. “Me? Kill a dragon? To pay for my food? You must be joking!” He stares at you solemnly, and you realize he’s dead serious. After an uncomfortable moment, you acquiesce. If the mission was that dangerous, he wouldn’t send you, right? Before you leave, he spots the golden amulet hanging around your neck. “That looks valuable,” he says. “Why don’t I hold on to it until you return?” Once more, you have no choice but to agree, and with that, he rudely shoves you out the door. Guess it’s time to kill a dragon. “Head to the castle!” he yells after you. Very helpful, isn’t he? "
-main_magicwitch = ""
-main_charismawitch =""
+main_magicwitch = '''After an interminably long time, your attackers deposit you roughly in front of the tavern. 
+You are terrified to see a pyre set up outside. People flood out of the building, drinks in their hands and malice in their eyes. 
+They start to herd you towards your fiery fate when a man barrels through the mob and tells you to run. You both dash away in the 
+confusion, stopping only once there is no danger that they might find you. “Why did you save me?” you ask, wheezing. You’re more out 
+of shape than you thought. “You are immensely powerful,” says the mysterious man. '''
+main_magicwitchp2= ''' “There is a dragon that resides in a castle nearby,
+ and it has brought nothing but destruction to this town. You must kill it.” // “Me?” you sputter. “Kill a dragon?” // “You have no 
+ choice,” he impresses. “Unless you want the mob to conveniently find you again.” // “And here I thought you were a good person,” 
+ you say, stung. “But yes, I will try to kill this dragon.” // He asks for your amulet as collateral, which annoys you even more, 
+ but you hand it over. He did save your life, after all. Ready to leave him behind, you begin your long journey to slay the dragon.'''
+main_charismawitch ='''After an interminably long time, your attackers deposit you roughly in front of the tavern. 
+You are terrified to see a pyre set up outside. People flood out of the building, drinks in their hands and malice in their eyes. 
+They start to herd you towards your fiery fate, but you stop in your tracks, hoping to buy yourself enough time to talk them out of 
+burning you. “Move along,” a scowling man with blood stains on his clothing grumbles. // “No,” you say loudly, trying to suppress the
+ trembling in your voice.  
+'''
+main_charismawitchp2 = '''“Listen, I may be a witch, and you may hate me for that, but I am powerful. Surely my magic could be of some
+  use to you.” // The silence is painful, and you think they’ll go ahead and kill you all the same. Then the man speaks. “Actually, 
+  there is something you can do for us, witch. Slay the dragon that lives in the castle, and we will let you go on your way.” // “All 
+  right,” you say. “I accept your terms.” // Probable death is better than certain death, right? You turn to leave when you hear the 
+  man’s voice again. “One more thing. The amulet.” '''
+main_charismawitchp3= '''You hand it over readily, not willing to risk him rescinding the offer. 
+  Terrified, you take the first steps of what will likely be a fatal journey.'''
 # -------- Main Program Loop -----------
 
 pygame.event.get()
@@ -372,9 +393,17 @@ if strength == True:
     choice(main_tavern, fir, sec, main_tablestrength, main_tablestealthp2, main_barp1, main_barp2)
 
 elif magic == True: 
-    mainstory(magic_mugging,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    mainstory(main_magicwitch ,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    time.sleep(0.5)
+    mainstory(main_magicwitchp2 ,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    # time.sleep(0.5)
+    # # mainstory(main_magicwitchp3 ,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
 elif manipulation == True: 
-    mainstory(charisma_mugging,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    mainstory(main_charismawitch,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    time.sleep(0.5)
+    mainstory(main_charismawitchp2 ,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+    time.sleep(0.5)
+    mainstory(main_charismawitchp3 ,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
 time.sleep(0.5)
 
 
