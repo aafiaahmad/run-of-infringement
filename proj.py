@@ -41,50 +41,49 @@ done = False
 
 # Functions
 def draw(hp):
-    pygame.draw.rect(screen, GREEN, (green_x, 20, green_l, 360), 0)
-    box = pygame.draw.rect(screen, WHITE, (white_x, 25, white_l, 350), 0)
-    pygame.draw.rect(screen, GREEN, (green_x, 420, green_l, 160), 0)
-    pygame.draw.rect(screen, BLACK, (white_x, 425, white_l, 150), 0)
-    if hp == 100:
-        pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 150), 0)  # the starting HP
-    elif hp == 75:
-        pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 112), 0)  # the HP -25
-    elif hp == 50:
-        pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 74), 0)  # the HP -50
-    elif hp == 25:
-        pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 36), 0)  # the HP -75
-    elif hp == 0:
-        pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 1), 0)  # the HP -100
-    myfont = pygame.font.SysFont("monospace", 25)
-    label = myfont.render("HP", 1, WHITE)
-    screen.blit(label, (635, 425))
+	pygame.draw.rect(screen, GREEN, (green_x, 20, green_l, 360), 0)
+	box = pygame.draw.rect(screen, WHITE, (white_x, 25, white_l, 350), 0)
+	pygame.draw.rect(screen, GREEN, (green_x, 420, green_l, 160), 0)
+	pygame.draw.rect(screen, BLACK, (white_x, 425, white_l, 150), 0)
+	if hp == 100:
+		pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 150), 0)  # the starting HP
+	elif hp == 75:
+		pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 112), 0)  # the HP -25
+	elif hp == 50:
+		pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 74), 0)  # the HP -50
+	elif hp == 25:
+		pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 36), 0)  # the HP -75
+	elif hp == 0:
+		pygame.draw.rect(screen, MAGENTA, (625, 425, 50, 1), 0)  # the HP -100
+	myfont = pygame.font.SysFont("monospace", 25)
+	label = myfont.render("HP", 1, WHITE)
+	screen.blit(label, (635, 425))
 
 
 def text(words):
-    ycord = 388
-    while len(words) > 0:
-        max = min(60, len(words))
-        tag = words[0:max]
-        myfont = pygame.font.SysFont("monospace", 15)
-        label = myfont.render(tag, 1, WHITE)
-        ycord += 15
-        screen.blit(label, (25, ycord))
-        words = words[max:]
+	ycord = 388
+	while len(words) > 0:
+		max = min(60, len(words))
+		tag = words[0:max]
+		myfont = pygame.font.SysFont("monospace", 15)
+		label = myfont.render(tag, 1, WHITE)
+		ycord += 15
+		screen.blit(label, (25, ycord))
+		words = words[max:]
 
 
 def text_printer(textnumber, wrapped_text):
-    myfont = pygame.font.SysFont("monospace", 15)
-    label = myfont.render(wrapped_text[textnumber], 1, WHITE)
-    screen.blit(label, (30, 425 + 15 * textnumber))
+	myfont = pygame.font.SysFont("monospace", 15)
+	label = myfont.render(wrapped_text[textnumber], 1, WHITE)
+	screen.blit(label, (30, 425 + 15 * textnumber))
 
 
 def text_printer_long(textnumber, wrapped_text):
-    myfont = pygame.font.SysFont("monospace", 12)
-    label = myfont.render(wrapped_text[textnumber], 1, WHITE)
-    screen.blit(label, (30, 425 + 15 * textnumber))
+	myfont = pygame.font.SysFont("monospace", 12)
+	label = myfont.render(wrapped_text[textnumber], 1, WHITE)
+	screen.blit(label, (30, 425 + 15 * textnumber))
 
-
-def mainstory(textput, animationlist):
+def mainstorydif(textput, image):
     pygame.event.get()
     textput_wrap = textwrap.wrap(textput, 65)
     while pygame.key.get_pressed()[pygame.K_SPACE] == 0:
@@ -93,168 +92,106 @@ def mainstory(textput, animationlist):
             sys.exit()
         screen.fill(BLACK)
         draw(100)
-        for i in range(len(textput_wrap)):
-            text_printer(i, textput_wrap)
-        # startlist of sprites and backgrounds
-        if animationlist[0] == 1:
-            img0 = pygame.image.load("muggingcarisma.jpg")
-            screen.blit(img0, (25, 25))
-        if animationlist[1] == 1:
-            img1 = pygame.image.load("muggingmagic.jpg")
-            screen.blit(img1, (30, 25))
-        if animationlist[2] == 1:
-            img2 = pygame.image.load("muggingstealth.jpg.png")
-            screen.blit(img2, (30, 25))
-        if animationlist[3] == 1:
-            img3 = pygame.image.load("muggingstrength.jpg")
-            screen.blit(img3, (30, 25))
-        if animationlist[4] == 1:
-            img4 = pygame.image.load("muggingdrop.jpg")
-            screen.blit(img4, (30, 25))
-        if animationlist[5] == 1:
-            img5 = pygame.image.load("tavern_walkup.jpg")
-            screen.blit(img5, (25, 25))
-        if animationlist[6] == 1:
-            img6 = pygame.image.load("tavern_tables.jpg")
-            screen.blit(img6, (25, 25))
-        if animationlist[7] == 1:
-            img7 = pygame.image.load("tavern_barrr.jpg")
-            screen.blit(img7, (25, 25))
-        if animationlist[8] == 1:
-            img8 = pygame.image.load("tavern_bar_stealth.jpg")
-            screen.blit(img8, (25, 25))
-        if animationlist[9] == 1:
-            img9 = pygame.image.load("tavern_bar_strength.jpg")
-            screen.blit(img9, (25, 25))
-        if animationlist[10] == 1:
-            img10 = pygame.image.load("tavern_table_stealth.jpg")
-            screen.blit(img10, (25, 25))
-        if animationlist[11] == 1:
-            img11 = pygame.image.load("tavern_tables_strength.jpg")
-            screen.blit(img11, (25, 25))
-        if animationlist[12] == 1:
-            img12 = pygame.image.load("PyreCharisma.jpg")
-            screen.blit(img12, (25, 25))
-        if animationlist[13] == 1:
-            img13 = pygame.image.load("PyreMagic.jpg")
-            screen.blit(img13, (25, 25))
-        if animationlist[14] == 1:
-            img14 = pygame.image.load("tocastle.jpg")
-            screen.blit(img14, (25, 25))
-        if animationlist[15] == 1:
-            img15 = pygame.image.load("CharismaCastle.jpg")
-            screen.blit(img15, (25, 25))
-        if animationlist[16] == 1:
-            img16 = pygame.image.load("Magiccastle.jpg")
-            screen.blit(img16, (25, 25))
-        if animationlist[17] == 1:
-            img17 = pygame.image.load("Stealthcastle.jpg")
-            screen.blit(img17, (25, 25))
-        if animationlist[18] == 1:
-            img18 = pygame.image.load("Strengthcastle.jpg")
-            screen.blit(img18, (25, 25))
-        if animationlist[19] == 1:
-            img19 = pygame.image.load(".png")
-            screen.blit(img19, (25, 25))
-        if animationlist[20] == 1:
-            img20 = pygame.image.load(".png")
-            screen.blit(img20, (25, 25))
-        pygame.display.flip()
-
-
-def yesno(inputed, yeschoice, nochoice):
-    pygame.event.get()
-    textput_wrap = textwrap.wrap(inputed, 65)
-    yess = False
-    noo = False
-    while yess == False and noo == False:
-        pygame.event.get()
-        if pygame.key.get_pressed()[pygame.K_x] == 1:
-            sys.exit()
-        screen.fill(BLACK)
-        draw(100)
-        tavern_stealth = pygame.image.load("tavern_table_stealth.jpg")
+        tavern_stealth = pygame.image.load(image)
         screen.blit(tavern_stealth, (25, 25))
         for i in range(len(textput_wrap)):
             text_printer(i, textput_wrap)
-        pygame.event.get()
-        if pygame.key.get_pressed()[pygame.K_y]:
-            yess = True
-        elif pygame.key.get_pressed()[pygame.K_n]:
-            noo = True
         pygame.display.flip()
-    if yess:
-        time.sleep(0.5)
-        mainstory(yeschoice, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 
-    elif noo:
-        time.sleep(0.5)
-        mainstory(nochoice, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+
+def yesno(inputed, yeschoice, nochoice, a, b):
+	pygame.event.get()
+	textput_wrap = textwrap.wrap(inputed, 65)
+	yess = False
+	noo = False
+	while yess == False and noo == False:
+		pygame.event.get()
+		if pygame.key.get_pressed()[pygame.K_x] == 1:
+			sys.exit()
+		screen.fill(BLACK)
+		draw(100)
+		tavern_stealth = pygame.image.load("tavern_table_stealth.jpg")
+		screen.blit(tavern_stealth, (25, 25))
+		for i in range(len(textput_wrap)):
+			text_printer(i, textput_wrap)
+		pygame.event.get()
+		if pygame.key.get_pressed()[pygame.K_y]:
+			yess = True
+		elif pygame.key.get_pressed()[pygame.K_n]:
+			noo = True
+		pygame.display.flip()
+	if yess:
+		time.sleep(0.5)
+		mainstory(yeschoice, a)
+
+	elif noo:
+		time.sleep(0.5)
+		mainstory(nochoice, b)
 
 
 def tavern_choice(inputed, fir, sec, choice1, choice1_1, choice1_2):
-    pygame.event.get()
-    textput_wrap = textwrap.wrap(inputed, 65)
-    print(fir)
-    print(sec)
-    while fir == False and sec == False:
-        pygame.event.get()
-        if pygame.key.get_pressed()[pygame.K_x] == 1:
-            sys.exit()
-        screen.fill(BLACK)
-        draw(100)
-        tavern_img = pygame.image.load("tavern_walkup.jpg")
-        screen.blit(tavern_img, (25, 25))
-        pygame.event.get()
-        for i in range(len(textput_wrap)):
-            text_printer(i, textput_wrap)
-        pygame.event.get()
-        if pygame.key.get_pressed()[pygame.K_t]:
-            fir = True
-        elif pygame.key.get_pressed()[pygame.K_b]:
-            sec = True
-        pygame.display.flip()
-    if fir:
-        time.sleep(0.5)
-        yesno(choice1, choice1_1, choice1_2)
-    elif sec:
-        time.sleep(0.5)
-        mainstory(main_barp1, [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-        time.sleep(0.5)
-        mainstory(main_barp2, [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+	pygame.event.get()
+	textput_wrap = textwrap.wrap(inputed, 65)
+	fir=False
+	sec=False
+	print(fir)
+	print(sec)
+	while fir == False and sec == False:
+		pygame.event.get()
+		if pygame.key.get_pressed()[pygame.K_x] == 1:
+			sys.exit()
+		screen.fill(BLACK)
+		draw(100)
+		tavern_img = pygame.image.load("tavern_walkup.jpg")
+		screen.blit(tavern_img, (25, 25))
+		pygame.event.get()
+		for i in range(len(textput_wrap)):
+			text_printer(i, textput_wrap)
+		pygame.event.get()
+		if pygame.key.get_pressed()[pygame.K_t]:
+			fir = True
+		elif pygame.key.get_pressed()[pygame.K_b]:
+			sec = True
+		pygame.display.flip()
+	if fir:
+		time.sleep(0.5)
+		yesno(choice1, choice1_1, choice1_2, "tavern_table_stealth.jpg", "tavern_table_stealth.jpg")
+	elif sec:
+		time.sleep(0.5)
+		mainstorydif(main_barp1, "tavern_barrr.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_barp2, "tavern_bar_stealth.jpg")
 
 
-def choice(inputed, fir, sec, choice1, choice1p2, choice2, choice2p2):
-    pygame.event.get()
-    textput_wrap = textwrap.wrap(inputed, 65)
-    print(fir)
-    print(sec)
-    while fir == False and sec == False:
-        pygame.event.get()
-        if pygame.key.get_pressed()[pygame.K_x] == 1:
-            sys.exit()
-        screen.fill(BLACK)
-        draw(100)
-        tavern_img = pygame.image.load("tavern_walkup.jpg")
-        screen.blit(tavern_img, (25, 25))
-        for i in range(len(textput_wrap)):
-            text_printer(i, textput_wrap)
-        pygame.event.get()
-        if pygame.key.get_pressed()[pygame.K_t]:
-            fir = True
-        elif pygame.key.get_pressed()[pygame.K_b]:
-            sec = True
-        pygame.display.flip()
-    if fir:
-        time.sleep(0.5)
-        mainstory(choice1, [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-        time.sleep(0.5)
-        mainstory(choice1p2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    elif sec:
-        time.sleep(0.5)
-        mainstory(choice2, [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-        time.sleep(0.5)
-        mainstory(choice2p2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+def choice(inputed, fir, sec, choice1, choice1p2, choice2, choice2p2, a, b, c, d):
+	pygame.event.get()
+	textput_wrap = textwrap.wrap(inputed, 65)
+	fir=False
+	sec=False
+	while fir == False and sec == False:
+		pygame.event.get()
+		if pygame.key.get_pressed()[pygame.K_x] == 1:
+			sys.exit()
+		screen.fill(BLACK)
+		draw(100)
+		for i in range(len(textput_wrap)):
+			text_printer(i, textput_wrap)
+		pygame.event.get()
+		if pygame.key.get_pressed()[pygame.K_t]:
+			fir = True
+		elif pygame.key.get_pressed()[pygame.K_b]:
+			sec = True
+		pygame.display.flip()
+	if fir:
+		time.sleep(0.5)
+		mainstorydif(choice1, a)
+		time.sleep(0.5)
+		mainstorydif(choice1p2, b)
+	elif sec:
+		time.sleep(0.5)
+		mainstorydif(choice2, b)
+		time.sleep(0.5)
+		mainstorydif(choice2p2, c)
 
 # def castle(inputed, ):
 
@@ -327,168 +264,215 @@ main_castle_strength_2 = "You turn back to look at the geographical feature that
 main_castle_m_1 = "With your first step, you know this was a bad idea. Nothing bad has occurred yet, but you’re pretty sure something will. Things are too oddly sanguine for the first few minutes, but then a loud crashing noise shatters the fraught silence. You crane your head over your shoulder to investigate. A massive boulder sits squarely where you were standing just a moment ago, and you say a thousand thanks that you left the tavern when you did, that you weren’t walking any slower. But you must be on your guard now, for what happened once can happen again. "
 main_castle_m_2 = "You scan the tops of the canyon walls for any more plummeting rocks, and spot a shadowy figure. Someone must have followed you from the tavern. You watch detachedly as he pushes another boulder to the edge of the ravine. Then you realize it’s meant for you. Meant to kill you. You break into a run, narrowly dodging rocks of all sizes that are hurled at you. One grazes your shoulder painfully, and you want to collapse right there. You’re bleeding and out of breath, but you keep sprinting, out of the canyon and onwards to the castle."
 main_castle_m_3 = "Whoever is trying to kill you will not succeed, not today or ever. You reach the castle, and, looking around to ensure the man is nowhere near, sit down in front of its grand doors. You just need a moment to tend to your wound. And catch your breath."
+
+main_incastle_ = '''You linger outside the castle as long as you can, trying to steel yourself for the tremendous 
+task that of slaying a dragon that may very well slay you. But eventually you convince yourself that it will do you no 
+good to wait any longer, so you wrest open the doors and enter the dragon’s abode. You wander around for a bit, and when 
+you see another set of doors as forbidding and ornate as those you passed through earlier, you know your foe can be nowhere 
+else but inside.'''
+
+stealth_dragon1 = '''When you enter the cavernous chamber, you see the dragon asleep in the corner atop a pile of gold. 
+You inch quietly towards it, hoping to catch it unaware, but your foot accidentally catches on a stray gold coin that sounds 
+loudly as it careens across the cold floor. The dragon lifts its head slowly to stare at you. It uncurls itself from its sleeping 
+position and bats its wings, circling the room from above. You nimbly dodge deadly spurts of fire, and when it pauses for a second, 
+you take out your dagger and launch it at the dragon’s underbelly. 
+'''
+stealth_dragon1p1 = '''A line of blood appears where the dagger grazes, but unfortunately, 
+‘tis but a flesh wound. The dragon continues its blazing attacks, not weakened in the slightest. In another opportune moment, you take
+ out your ninja star, your last weapon, and eye the glimmering chandelier. If your timing and aim is perfect, you might be able 
+ to bring the dragon down with it. Or you could aim the star directly at the dragon. What do you do? (chandelier(t)/dragon (b)?) ''' 
+
+stealth_dragon_dragon = '''You carefully send the ninja star spinning towards the dragon’s heart, but the beast twists to 
+the left just as the weapon leaves your hand. The star glances harmlessly off its side and lands on the opposite side of the room. 
+You stare at it helplessly, trembling with the knowledge that this is likely your final moment. It is. Though you try to dodge the 
+next inferno sent your way, the last sensation you ever experience is that of being engulfed in flames. THE END'''
+
+stealth_dragon_chand = ''' You carefully aim the ninja star at the chain attaching the chandelier to the ceiling. 
+One link breaks, but that is all it takes for the decorative collection of glass shards to descend upon the dragon and send him 
+crashing to the floor. You are in disbelief at what you’ve accomplished. There are so many coins littering the floor, and you 
+shouldn’t let them go to waste, so you start gathering them up in your arms. 
+ ''' 
+stealth_dragon_chand2 = '''Then the dragon awakens sluggishly. You startle, 
+and coins spill everywhere. You start running before it gets the chance to kill you again, but stop when you realize that you can’t 
+return to the tavern without proof of its death. Searching around, you spot an iridescent scale near the dragon, 
+which you sprint to pick up before leaving. You can hear the dragon roaring even after you exit the castle, but thankfully it’s 
+too weak to actually pursue you. ''' 
 # -------- Main Program Loop -----------
 
 pygame.event.get()
 while pygame.key.get_pressed()[pygame.K_SPACE] == 0:
-    pygame.event.get()
-    # --- Main event loop
-    screen.fill(BLACK)
-    draw(100)
-    img1 = pygame.image.load("intro_screen.png")
-    screen.blit(img1, (25, 25))
-    pygame.event.get()
-    textput_wrap = textwrap.wrap(text_intro, 65)
-    for i in range(len(textput_wrap)):
-        text_printer(i, textput_wrap)
-    if pygame.key.get_pressed()[pygame.K_x] == 1:
-        sys.exit()
+	pygame.event.get()
+	# --- Main event loop
+	screen.fill(BLACK)
+	draw(100)
+	img1 = pygame.image.load("intro_screen.jpg")
+	screen.blit(img1, (25, 25))
+	pygame.event.get()
+	textput_wrap = textwrap.wrap(text_intro, 65)
+	for i in range(len(textput_wrap)):
+		text_printer(i, textput_wrap)
+	if pygame.key.get_pressed()[pygame.K_x] == 1:
+		sys.exit()
 
-    if pygame.key.get_pressed()[pygame.K_1] != 0:
-        stealth = True
-        strength = False
-        magic = False
-        manipulation = False
-    elif pygame.key.get_pressed()[pygame.K_2] != 0:
-        strength = True
-        stealth = False
-        magic = False
-        manipualtion = False
-    elif pygame.key.get_pressed()[pygame.K_4] != 0:
-        magic = True
-        stealth = False
-        strength = False
-        manipulation = False
-    elif pygame.key.get_pressed()[pygame.K_3] != 0:
-        manipulation = True
-        stealth = False
-        strength = False
-        magic = False
+	if pygame.key.get_pressed()[pygame.K_1] != 0:
+		stealth = True
+		strength = False
+		magic = False
+		manipulation = False
+	elif pygame.key.get_pressed()[pygame.K_2] != 0:
+		strength = True
+		stealth = False
+		magic = False
+		manipualtion = False
+	elif pygame.key.get_pressed()[pygame.K_4] != 0:
+		magic = True
+		stealth = False
+		strength = False
+		manipulation = False
+	elif pygame.key.get_pressed()[pygame.K_3] != 0:
+		manipulation = True
+		stealth = False
+		strength = False
+		magic = False
 
-    if stealth == True:
-        screen.fill(BLACK)
-        draw(100)
-        imgstea = pygame.image.load("Stealth_Bio.jpg")
-        screen.blit(imgstea, (25, 25))
-        text("CHOOSE STEALTH")
-        textput_wrap = textwrap.wrap(textstealth_chose, 65)
-        for i in range(len(textput_wrap)):
-            text_printer(i, textput_wrap)
-    elif strength == True:
-        screen.fill(BLACK)
-        draw(100)
-        imgstre = pygame.image.load("Strength_Bio.jpg")
-        screen.blit(imgstre, (25, 25))
-        text("CHOOSE STRENGTH")
-        textput_wrap = textwrap.wrap(textstrength_chose, 65)
-        for i in range(len(textput_wrap)):
-            text_printer(i, textput_wrap)
-    elif manipulation == True:
-        screen.fill(BLACK)
-        draw(100)
-        imgmanip = pygame.image.load("Charisma_Bio.jpg")
-        screen.blit(imgmanip, (25, 25))
-        text("CHOOSE MANIPULATION")
-        textput_wrap = textwrap.wrap(textcharisma_chose, 65)
-        for i in range(len(textput_wrap)):
-            text_printer(i, textput_wrap)
-    elif magic == True:
-        screen.fill(BLACK)
-        draw(100)
-        imgmag = pygame.image.load("Magic_Bio.jpg")
-        screen.blit(imgmag, (25, 25))
-        text("CHOOSE MAGIC")
-        textput_wrap = textwrap.wrap(textmagic_chose, 65)
-        for i in range(len(textput_wrap)):
-            text_printer(i, textput_wrap)
-    else:
-        text("")
-    pygame.display.flip()
-    pygame.event.get()
-    if pygame.key.get_pressed()[pygame.K_SPACE] == 1:
-        done = True
+	if stealth == True:
+		screen.fill(BLACK)
+		draw(100)
+		imgstea = pygame.image.load("Stealth_Bio.jpg")
+		screen.blit(imgstea, (25, 25))
+		text("CHOOSE STEALTH")
+		textput_wrap = textwrap.wrap(textstealth_chose, 65)
+		for i in range(len(textput_wrap)):
+			text_printer(i, textput_wrap)
+	elif strength == True:
+		screen.fill(BLACK)
+		draw(100)
+		imgstre = pygame.image.load("Strength_Bio.jpg")
+		screen.blit(imgstre, (25, 25))
+		text("CHOOSE STRENGTH")
+		textput_wrap = textwrap.wrap(textstrength_chose, 65)
+		for i in range(len(textput_wrap)):
+			text_printer(i, textput_wrap)
+	elif manipulation == True:
+		screen.fill(BLACK)
+		draw(100)
+		imgmanip = pygame.image.load("Charisma_Bio.jpg")
+		screen.blit(imgmanip, (25, 25))
+		text("CHOOSE MANIPULATION")
+		textput_wrap = textwrap.wrap(textcharisma_chose, 65)
+		for i in range(len(textput_wrap)):
+			text_printer(i, textput_wrap)
+	elif magic == True:
+		screen.fill(BLACK)
+		draw(100)
+		imgmag = pygame.image.load("Magic_Bio.jpg")
+		screen.blit(imgmag, (25, 25))
+		text("CHOOSE MAGIC")
+		textput_wrap = textwrap.wrap(textmagic_chose, 65)
+		for i in range(len(textput_wrap)):
+			text_printer(i, textput_wrap)
+	else:
+		text("")
+	pygame.display.flip()
+	pygame.event.get()
+	if pygame.key.get_pressed()[pygame.K_SPACE] == 1:
+		done = True
 
 # Story
 time.sleep(0.5)
-mainstory(main_mugging, [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+mainstorydif(main_mugging, "muggingdrop.jpg"  )
 
 # mugging
 time.sleep(0.5)
 if stealth == True:
-    mainstory(stealth_mugging, [0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+	mainstorydif(stealth_mugging,"muggingstealth.jpg" )
 elif strength == True:
-    mainstory(strength_mugging, [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+	mainstorydif(strength_mugging, "muggingstrength.jpg" )
 elif magic == True:
-    mainstory(magic_mugging, [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+	mainstorydif(magic_mugging, "muggingmagic.jpg")
 elif manipulation == True:
-    mainstory(charisma_mugging, [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+	mainstorydif(charisma_mugging, "muggingcarisma.jpg")
 time.sleep(0.5)
-print("here")
 
 # tavern and witch hunt
-if stealth == True:
-    tavern_choice(main_tavern, fir, sec, main_tablestealth, main_tablestealth_yes, main_tablestealth_no)
 
-if strength == True:
-    choice(main_tavern, fir, sec, main_tablestrength, main_tablestealthp2, main_barp1, main_barp2)
+if stealth == True:
+	tavern_choice(main_tavern, fir, sec, main_tablestealth, main_tablestealth_yes, main_tablestealth_no)
+
+elif strength == True:
+	choice(main_tavern, "tavern_walkup.jpg", fir, sec, main_tablestrength, main_tablestealthp2, main_barp1, main_barp2, "tavern_tables_strength.jpg", "tavern_tables_strength.jpg", "tavern_bar_strength.jpg", "tavern_tables_strength.jpg"  )
 
 elif magic == True:
-    mainstory(main_magicwitch, [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    time.sleep(0.5)
-    mainstory(main_magicwitchp2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0])
-    # time.sleep(0.5)
-    # # mainstory(main_magicwitchp3 ,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])
+	mainstorydif(main_magicwitch, "PyreMagic-2.jpg")	
+	time.sleep(0.5)
+	mainstorydif(main_magicwitchp2,"PyreMagic-2.jpg" )
+
 elif manipulation == True:
-    mainstory(main_charismawitch, [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-    time.sleep(0.5)
-    mainstory(main_charismawitchp2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0])
-    time.sleep(0.5)
-    mainstory(main_charismawitchp3, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0])
+	mainstorydif(main_charismawitch,"PyreCharisma.jpg" )
+	time.sleep(0.5)
+	mainstorydif(main_charismawitchp2,"PyreCharisma.jpg" )
+	time.sleep(0.5)
+	mainstorydif(main_charismawitchp3,"PyreCharisma.jpg" )
 time.sleep(0.5)
 
 #castle walk up
 time.sleep(0.5)
-mainstory(main_castle_1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0])
+mainstorydif(main_castle_1, "tocastle.jpg")
 time.sleep(0.5)
-mainstory(main_castle_2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0])
+mainstorydif(main_castle_2, "tocastle.jpg" )
 time.sleep(0.5)
-mainstory(main_castle_3, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0])
+mainstorydif(main_castle_3, "tocastle.jpg")
 
-#in the castle
+#in the castle conflict
 time.sleep(0.5)
 if stealth == True:
-    mainstory(main_castle_stealth_1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0])
-    time.sleep(0.5)
-    mainstory(main_castle_stealth_2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0])
-    time.sleep(0.5)
-    mainstory(main_castle_stealth_2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0])
+	mainstorydif(main_castle_stealth_1, "Stealth1.jpg" )
+	time.sleep(0.5)
+	mainstorydif(main_castle_stealth_2,"Stealth2.jpg" )
+	time.sleep(0.5)
+	mainstorydif(main_castle_stealth_2,"Stealth3.jpg" )
 elif strength == True:
-    mainstory(main_castle_strength_1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0])
-    time.sleep(0.5)
-    mainstory(main_castle_strength_2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0])
+	mainstory(main_castle_strength_1, "Stealth1.jpg")
+	time.sleep(0.5)
+	mainstorydif(main_castle_strength_2, "Stealth1.jpg")
 elif magic == True:
-    mainstory(main_castle_m_1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0])
-    time.sleep(0.5)
-    mainstory(main_castle_m_2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0])
-    time.sleep(0.5)
-    mainstory(main_castle_m_3, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0])
+	mainstorydif(main_castle_m_1, "Magiccastle.jpg")
+	time.sleep(0.5)
+	mainstorydif(main_castle_m_2, "Magiccastle.jpg")
+	time.sleep(0.5)
+	mainstorydif(main_castle_m_3, "Magiccastle.jpg")
 elif manipulation == True:
-    mainstory(main_castle_m_1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0])
-    time.sleep(0.5)
-    mainstory(main_castle_m_2, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0])
-    time.sleep(0.5)
-    mainstory(main_castle_m_3, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0])
+	mainstorydif(main_castle_m_1, "")
+	time.sleep(0.5)
+	mainstorydif(main_castle_m_2, "")
+	time.sleep(0.5)
+	mainstorydif(main_castle_m_3, "")
 time.sleep(0.5)
+
+#dragon
+mainstory(main_incastle_ , )
+time.sleep(0.5)
+if stealth == True:
+	mainstorydif(stealth_dragon1, )
+	time.sleep(0.5)
+	choice(stealth_dragon1p1, fir, sec, stealth_dragon_chand, stealth_dragon_chand2, stealth_dragon_dragon, "PRESS X TO END" , [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0] ,[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0] , [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0] )
+# if strength == True: 
+
+# if magic == True:
+
+# if manipulation == True:
+
+
 # --- Game logic should go here ---
 
-    # --- Screen-clearing code goes here
-    # screen.fill(BLACK)
-    # draw()
-    # Here, we clear the screen to white. Don't put other drawing commands
-    # above this, or they will be erased with this command.
+	# --- Screen-clearing code goes here
+	# screen.fill(BLACK)
+	# draw()
+	# Here, we clear the screen to white. Don't put other drawing commands
+	# above this, or they will be erased with this command.
 
-    # If you want a background image, replace this clear with blit'ing the
-    # background image.
+	# If you want a background image, replace this clear with blit'ing the
+	# background image.
 
 pygame.display.flip()
 # --- Go ahead and update the screen with what we've drawn.
