@@ -99,7 +99,7 @@ def mainstorydif(textput, image):
         pygame.display.flip()
 
 
-def yesno(inputed, yeschoice, nochoice, a, b):
+def yesno(inputed, cit, yeschoice, nochoice, a, b):
 	pygame.event.get()
 	textput_wrap = textwrap.wrap(inputed, 65)
 	yess = False
@@ -110,7 +110,7 @@ def yesno(inputed, yeschoice, nochoice, a, b):
 			sys.exit()
 		screen.fill(BLACK)
 		draw(100)
-		tavern_stealth = pygame.image.load("tavern_table_stealth.jpg")
+		tavern_stealth = pygame.image.load(cit)
 		screen.blit(tavern_stealth, (25, 25))
 		for i in range(len(textput_wrap)):
 			text_printer(i, textput_wrap)
@@ -122,11 +122,11 @@ def yesno(inputed, yeschoice, nochoice, a, b):
 		pygame.display.flip()
 	if yess:
 		time.sleep(0.5)
-		mainstory(yeschoice, a)
+		mainstorydif(yeschoice, a)
 
 	elif noo:
 		time.sleep(0.5)
-		mainstory(nochoice, b)
+		mainstorydif(nochoice, b)
 
 
 def tavern_choice(inputed, fir, sec, choice1, choice1_1, choice1_2):
@@ -155,7 +155,7 @@ def tavern_choice(inputed, fir, sec, choice1, choice1_1, choice1_2):
 		pygame.display.flip()
 	if fir:
 		time.sleep(0.5)
-		yesno(choice1, choice1_1, choice1_2, "tavern_table_stealth.jpg", "tavern_table_stealth.jpg")
+		yesno(choice1,"tavern_table_stealth.jpg", choice1_1, choice1_2, "tavern_table_stealth.jpg", "tavern_table_stealth.jpg")
 	elif sec:
 		time.sleep(0.5)
 		mainstorydif(main_barp1, "tavern_barrr.jpg")
@@ -163,7 +163,7 @@ def tavern_choice(inputed, fir, sec, choice1, choice1_1, choice1_2):
 		mainstorydif(main_barp2, "tavern_bar_stealth.jpg")
 
 
-def choice(inputed, fir, sec, choice1, choice1p2, choice2, choice2p2, a, b, c, d):
+def choice(inputed, ab, fir, sec, choice1, choice1p2, choice2, choice2p2, a, b, c, d):
 	pygame.event.get()
 	textput_wrap = textwrap.wrap(inputed, 65)
 	fir=False
@@ -174,6 +174,8 @@ def choice(inputed, fir, sec, choice1, choice1p2, choice2, choice2p2, a, b, c, d
 			sys.exit()
 		screen.fill(BLACK)
 		draw(100)
+		tavern_img = pygame.image.load(ab)
+		screen.blit(tavern_img, (25, 25))
 		for i in range(len(textput_wrap)):
 			text_printer(i, textput_wrap)
 		pygame.event.get()
@@ -189,9 +191,9 @@ def choice(inputed, fir, sec, choice1, choice1p2, choice2, choice2p2, a, b, c, d
 		mainstorydif(choice1p2, b)
 	elif sec:
 		time.sleep(0.5)
-		mainstorydif(choice2, b)
+		mainstorydif(choice2, c)
 		time.sleep(0.5)
-		mainstorydif(choice2p2, c)
+		mainstorydif(choice2p2, d)
 
 # def castle(inputed, ):
 
@@ -392,15 +394,15 @@ elif magic == True:
 	mainstorydif(magic_mugging, "muggingmagic.jpg")
 elif manipulation == True:
 	mainstorydif(charisma_mugging, "muggingcarisma.jpg")
-time.sleep(0.5)
+
 
 # tavern and witch hunt
-
+time.sleep(0.5)
 if stealth == True:
 	tavern_choice(main_tavern, fir, sec, main_tablestealth, main_tablestealth_yes, main_tablestealth_no)
 
 elif strength == True:
-	choice(main_tavern, "tavern_walkup.jpg", fir, sec, main_tablestrength, main_tablestealthp2, main_barp1, main_barp2, "tavern_tables_strength.jpg", "tavern_tables_strength.jpg", "tavern_bar_strength.jpg", "tavern_tables_strength.jpg"  )
+	choice(main_tavern, "tavern_walkup.jpg", fir, sec, main_tablestrength, main_tablestealthp2, main_barp1, main_barp2, "tavern_tables_strength.jpg", "tavern_tables_strength.jpg", "tavern_bar_strength.jpg", "tavern_bar_strength.jpg"  )
 
 elif magic == True:
 	mainstorydif(main_magicwitch, "PyreMagic-2.jpg")	
@@ -413,7 +415,7 @@ elif manipulation == True:
 	mainstorydif(main_charismawitchp2,"PyreCharisma.jpg" )
 	time.sleep(0.5)
 	mainstorydif(main_charismawitchp3,"PyreCharisma.jpg" )
-time.sleep(0.5)
+# time.sleep(0.5)
 
 #castle walk up
 time.sleep(0.5)
@@ -423,39 +425,40 @@ mainstorydif(main_castle_2, "tocastle.jpg" )
 time.sleep(0.5)
 mainstorydif(main_castle_3, "tocastle.jpg")
 
-#in the castle conflict
+#conflict in front of the castle 
 time.sleep(0.5)
 if stealth == True:
-	mainstorydif(main_castle_stealth_1, "Stealth1.jpg" )
+	mainstorydif(main_castle_stealth_1, "danny.png" )
 	time.sleep(0.5)
-	mainstorydif(main_castle_stealth_2,"Stealth2.jpg" )
+	mainstorydif(main_castle_stealth_2,"danny.png" )
 	time.sleep(0.5)
-	mainstorydif(main_castle_stealth_2,"Stealth3.jpg" )
+	mainstorydif(main_castle_stealth_3,"danny.png" )
 elif strength == True:
-	mainstory(main_castle_strength_1, "Stealth1.jpg")
+	mainstorydif(main_castle_strength_1, "Strengthcastle.jpg")
 	time.sleep(0.5)
-	mainstorydif(main_castle_strength_2, "Stealth1.jpg")
+	mainstorydif(main_castle_strength_2, "Strengthcastle.jpg")
 elif magic == True:
-	mainstorydif(main_castle_m_1, "Magiccastle.jpg")
+	mainstorydif(main_castle_m_1, "danny.png") #magic and manip needs to have boulder behind sprites
 	time.sleep(0.5)
-	mainstorydif(main_castle_m_2, "Magiccastle.jpg")
+	mainstorydif(main_castle_m_2, "danny.png")
 	time.sleep(0.5)
-	mainstorydif(main_castle_m_3, "Magiccastle.jpg")
+	mainstorydif(main_castle_m_3, "danny.png")
 elif manipulation == True:
-	mainstorydif(main_castle_m_1, "")
+	mainstorydif(main_castle_m_1, "danny.png")
 	time.sleep(0.5)
-	mainstorydif(main_castle_m_2, "")
+	mainstorydif(main_castle_m_2, "danny.png")
 	time.sleep(0.5)
-	mainstorydif(main_castle_m_3, "")
-time.sleep(0.5)
+	mainstorydif(main_castle_m_3, "danny.png")
+
 
 #dragon
-mainstory(main_incastle_ , )
+time.sleep(0.5)
+mainstorydif(main_incastle_ , "tocastle.jpg")
 time.sleep(0.5)
 if stealth == True:
-	mainstorydif(stealth_dragon1, )
+	mainstorydif(stealth_dragon1, "Stealth1.jpg" )
 	time.sleep(0.5)
-	choice(stealth_dragon1p1, fir, sec, stealth_dragon_chand, stealth_dragon_chand2, stealth_dragon_dragon, "PRESS X TO END" , [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0] ,[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0] , [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0] )
+	choice(stealth_dragon1p1, "Stealth2.jpg", fir, sec, stealth_dragon_chand, stealth_dragon_chand2, stealth_dragon_dragon, "PRESS X TO END" , "Stealth1.jpg", "Stealth1.jpg", "Stealth1.jpg", "Stealth1.jpg" )
 # if strength == True: 
 
 # if magic == True:
