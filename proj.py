@@ -120,9 +120,11 @@ def yesno(inputed, cit, yeschoice, nochoice, a, b):
 		if pygame.key.get_pressed()[pygame.K_y]:
 			yess = True
 			go = True
+			return go
 		elif pygame.key.get_pressed()[pygame.K_n]:
 			noo = True
-			force = True 	
+			force = True 
+			return force	
 		pygame.display.flip()
 	if yess:
 		time.sleep(0.5)
@@ -167,6 +169,7 @@ def tavern_choice(inputed, fir, sec, choice1, choice1_1, choice1_2):
 		mainstorydif(main_barp2, "tavern_bar_stealth.jpg")
 
 
+
 def choice(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice2, choice2p2, choice2p3, a, b, c, d, e, f):
 	pygame.event.get()
 	textput_wrap = textwrap.wrap(inputed, 65)
@@ -188,9 +191,11 @@ def choice(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice2, choice
 		if pygame.key.get_pressed()[pygame.K_t]:
 			fir = True
 			table = True
+			return table
 		elif pygame.key.get_pressed()[pygame.K_b]:
 			sec = True
 			bar= True 
+			return bar
 		pygame.display.flip()
 	if fir:
 		time.sleep(0.5)
@@ -337,11 +342,11 @@ steadying yourself for the kill. Then the dragon cracks an eye open. You freeze,
 
 strength_dragon_sleep_2 = ''' Something seems off—the dragon doesn’t seem as helpless as it’s acting—but you agree. The dragon shakes its head,
   causing an iridescent scale to fall loose. // “Proof,” it says, and you could swear it’s smirking at you, “of your
-   heroic deed.” // You pick it up warily, nod at the dragon, and turn around to leave. You walk triumphantly out the castle, when suddenly the dragon swoops you up in its claws. '''
-
-strength_dragon_sleep_3 = '''It flies along the path you took to get here, and you figure the dragon wants to spare
+   heroic deed.” // You pick it up warily, nod at the dragon, and turn around to leave. You walk triumphantly out the castle, when suddenly the dragon swoops you up in its claws. It flies along the path you took to get here, and you figure the dragon wants to spare
 you of the long walk back. When you see the tavern below you, you realize that your mission will have been for nothing
- if the townspeople look up and see the dragon alive and well. “What are you doing?” you yell, trying to be heard over
+ if the townspeople look up and see the dragon alive and well.'''
+
+strength_dragon_sleep_3 = ''' “What are you doing?” you yell, trying to be heard over
  the howling wind. // “You didn’t think I would be that easily stopped, did you?” the dragon growls. //
  Then it releases an intense wave of fire that razes the town to nothing more than flaming wood and detritus.
   You close your eyes and silently apologize to everyone who died because of your naivete. THE END.'''
@@ -407,7 +412,7 @@ manip_dungeon_intim2 = '''It scorches a hole straight through the floor. Um, wha
  '''
 
 manip_dungeon_intim3 = '''“Now, if you don’t mind, I’ll just leave you in peace.” // “I don’t think so,” it hisses. The last thing you see is the scorched floor
- where the acidic tear fell, and then you are engulfed in flames. THE END. ''' 
+ where the acidic tear fell, and then you are engulfed in flames. THE END (PRESS X TO EXIT GAME). ''' 
 
 manip_dungeon_integ = ''' “I’m a huge fan of yours!” you exclaim, with as much enthusiasm as you can muster for a murderer.
 “I admire the way you can raze a village with a single fiery exhale, how you upend lives with such ease. So I wanted to meet you in person.”
@@ -422,6 +427,45 @@ manip_dungeon_integ2 = '''Is your crazy scheme actually working? “Of course! B
 manip_dungeon_integ3 = '''It agrees easily, scattering a few loose with a shake of its head. You pick one up and thank the dragon vigorously,
  then exit the castle after exchanging a few pleasantries. You feel a bit sleazy for deceiving the dragon, especially because it seems so lonely,
   but that doesn’t diminish how happy you are that you achieved your mission without any killing. ''' 
+
+main_return= '''After a long, arduous trip back from the castle, during which you decide that nothing can make you pass through that valley again,
+ you arrive back at the tavern that has caused you so much misery, hopefully for the last time.
+ ''' 
+# return_1 = '''You make your way to the bar, pushing your way through swarms of people. 
+# You are here for one reason, and one reason alone: to reclaim your collateral from the bartender.
+#  But when you ask him to return the amulet, he smirks maliciously, holding it out of your reach. ''' 
+
+# return_2 = '''“You actually thought you were going to get this back? No way. A weakling like you could never have killed the dragon.” 
+# // You pull out the dragon’s scale and show it to him. His face pales. “How—how did you get that?” he sputters. // “This weakling,” you snarl, 
+# light glinting off your armor, “killed a dragon. Do you really want to make her angry?” // “No!” he practically yelps, and shoves the amulet into your 
+# hands. // “Thank you,” you say, smiling sweetly.  ''' 
+
+# return_3 = ''' When you turn around to leave this godforsaken tavern behind for good, an enormous wave of people stands in your way. 
+# You hope that they’re not angry at you for intimidating the bartender, because he got what he deserved. ''' 
+
+# return_bar4 = '''Then their faces light up with smiles. “All hail the dragon-slayer!” they shout in unison.
+#  They herd you back to the bar, where they tell the sulking bartender to serve you a drink. He doesn’t even try to refuse. ''' 
+
+# return_bar5 = ''' You regale the admiring crowd with stories of your brave exploits, fudging the truth just a little bit. 
+# They don’t need to know everything. When you run out of things to say, people begin telling you about other monsters in the vicinity 
+# they’d like you to slay. “Why not?” you declare. THE END.
+# ''' 
+
+# return_table1 = '''You find the same group at that same table in the corner. Have they been sitting there this whole time? 
+# “I’m back, you indolent lot,” you say. ''' 
+
+# return_table2 = ''' ''' 
+
+# return_table3 = ''' ''' 
+
+# return_table4 = ''' ''' 
+
+# return_table5 = ''' ''' 
+
+# return_strength_bar = ''' ''' 
+
+# return_strength_table = ''' ''' 
+
 # -------- Main Program Loop -----------
 
 pygame.event.get()
@@ -581,14 +625,35 @@ time.sleep(0.5)
 if stealth == True:
 	mainstorydif(stealth_dragon1, "Stealth1.jpg" )
 	time.sleep(0.5)
-	choice(stealth_dragon1p1, "Stealth2.jpg", fir, sec, stealth_dragon_chand, stealth_dragon_chand2, stealth_dragon_chand3 , stealth_dragon_dragon, "PRESS X TO END", "" , "stealth4.jpg", "stealth4.jpg", "stealth4.jpg", "Stealth3.jpg", "Stealth3.jpg", "Stealth3.jpg" )
+	choice(stealth_dragon1p1, "Stealth2.jpg", fir, sec, stealth_dragon_chand, stealth_dragon_chand2, stealth_dragon_chand3 , stealth_dragon_dragon, "PRESS X TO END", "" , "stealth4.jpg", "stealth4.jpg", "stealth4.jpg", "boop(1).jpg", "boop(1).jpg", "boop(1).jpg" )
 if strength == True: 
 	choice(strength_dragon, "DungeonStrength.jpg", fir, sec, strength_dragon_sleep, strength_dragon_sleep2, strength_dragon_sleep_3,  strength_dragon_wake, strength_dragon_wake2, strength_dragon_wake3, "DungeonStrength-4.jpg", "DungeonStrength.jpg", "DungeonStrength.jpg", "DungeonStrength-3.jpg", "DungeonStrength-7.jpg", "DungeonStrength-7.jpg")
 if magic == True:
-	choice(magic_dragon, "dungeonmagic.jpg ", fir, sec, magic_dragon_fight, magic_dragon_fight2, magic_dragon_fight3, magic_dragon_flee, magic_dragon_flee2, magic_dragon_flee3, "dungeonmagic.jpg", xxx,  "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg")
+	choice(magic_dragon, "dungeonmagic.jpg ", fir, sec, magic_dragon_fight, magic_dragon_fight2, magic_dragon_fight3, magic_dragon_flee, magic_dragon_flee2, magic_dragon_flee3, "dungeonmagic.jpg", xxx,  "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg", "boop(1).jpg")
 if manipulation == True:
-	choice( manip_dungeon , "dungeoncharis.jpg", fir , sec , manip_dungeon_intim , manip_dungeon_intim2, manip_dungeon_intim3, manip_dungeon_integ, manip_dungeon_integ2, manip_dungeon_integ3, "dungeoncharis.jpg", "dungeoncharis.jpg" , "dungeoncharis.jpg" , "dungeoncharis.jpg" , "dungeoncharis.jpg", "dungeroncharis.jpg" )
+	choice( manip_dungeon , "dungeoncharis.jpg", fir , sec , manip_dungeon_intim , manip_dungeon_intim2, manip_dungeon_intim3, manip_dungeon_integ, manip_dungeon_integ2, manip_dungeon_integ3, "dungeoncharis.jpg", "dungeoncharis.jpg" , "boop(1).jpg" , "dungeoncharis.jpg" , "dungeoncharis.jpg", "dungeroncharis.jpg" )
 
+# time.sleep(0.5)
+# if stealth == True:
+# 	if bar == True:
+# 		mainstorydif(,)
+# 	elif table == True: 
+# 		if go == True:
+# 			mainstorydif(,)
+# 		elif force == True:  
+# 			mainstorydif(,)
+# if strength == True: 
+# 	if bar == True:
+# 		mainstorydif(,)
+# 		elif table == True: 
+# 			if go == True:
+# 				mainstorydif(,)
+# 			elif force == True:  
+# 				mainstorydif(,)
+# if magic == True:
+# 	mainstorydif(,)
+# if manipulation == True:
+# 	mainstorydif(,)
 
 # --- Game logic should go here ---
 
