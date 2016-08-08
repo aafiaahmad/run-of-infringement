@@ -103,7 +103,9 @@ def yesno(inputed, cit, yeschoice, nochoice, a, b):
 	pygame.event.get()
 	textput_wrap = textwrap.wrap(inputed, 65)
 	yess = False
+	go = False
 	noo = False
+	force = False 
 	while yess == False and noo == False:
 		pygame.event.get()
 		if pygame.key.get_pressed()[pygame.K_x] == 1:
@@ -117,8 +119,10 @@ def yesno(inputed, cit, yeschoice, nochoice, a, b):
 		pygame.event.get()
 		if pygame.key.get_pressed()[pygame.K_y]:
 			yess = True
+			go = True
 		elif pygame.key.get_pressed()[pygame.K_n]:
 			noo = True
+			force = True 	
 		pygame.display.flip()
 	if yess:
 		time.sleep(0.5)
@@ -168,6 +172,8 @@ def choice(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice2, choice
 	textput_wrap = textwrap.wrap(inputed, 65)
 	fir=False
 	sec=False
+	bar= False 
+	table = False 
 	while fir == False and sec == False:
 		pygame.event.get()
 		if pygame.key.get_pressed()[pygame.K_x] == 1:
@@ -181,8 +187,10 @@ def choice(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice2, choice
 		pygame.event.get()
 		if pygame.key.get_pressed()[pygame.K_t]:
 			fir = True
+			table = True
 		elif pygame.key.get_pressed()[pygame.K_b]:
 			sec = True
+			bar= True 
 		pygame.display.flip()
 	if fir:
 		time.sleep(0.5)
@@ -219,15 +227,25 @@ main_tablestealth = "You head over to the table in the far corner of the room. A
 main_tablestealth_yes = " “Why not?” you hear yourself saying. You wouldn’t mind an influx of money. You linger for a while longer, then pay for your food and head out the door to begin the long journey to the castle."
 main_tablestealth_no = " “I think not!” you tell them. The topic changes, and you while away the night with the other tavern-goers in a blur of drinks and merriment. After some time, the woman across from you makes a comment of a polemic nature. You take offense and respond indignantly. She challenges you to a fight with the condition that the loser must fight the dragon. Of course, you lose. In your defense, you’re not at your stealthiest right now. Gathering your wounded pride and your meager belongings, you leave the tavern and begin the long journey to the castle."
 main_tablestrength = '''You head over to the table in the far corner of the room.
-After introducing yourself to the people in your vicinity, you order a hearty meal.
-They admire your armour and ask you about your travels. You explain that you have seen more of the world than you ever wished to,
-fearsome fauna and threatening terrain. Before long, you are the talk of the tavern, and everyone seems to have
+After introducing yourself to the people in your vicinity, you order a hearty meal.'''
+main_tablestrength2 = '''They admire your armour and ask you about your travels. You explain that you have seen more of the world than you ever wished to,
+fearsome fauna and threatening terrain.''' 
+main_tablestrength3 = '''Before long, you are the talk of the tavern, and everyone seems to have
 crowded around your table. They tell you about the dragon that terrorizes their town, offering you riches for its defeat.
 '''
 main_tablestealthp2 = "Under the pressure of the crowd, there’s no answer you can give but yes.  You leave the tavern with their indistinct, supportive shouts at your back. It’ll be a long journey to the castle, but when you return, it’ll be as a hero."
 
-main_barp1 = "You stride to the bar and take the last seat. After introducing yourself to the bartender, you explain that you have traveled to many lands, seen many things. At a sudden pang of hunger, you order some food which you promptly devour. The bartender watches you with amusement. Belatedly, you realize that you don’t have any money. You sheepishly say as much when he asks for payment, thinking he might be lenient. Seemingly without any regard for what you just said, he tells you that a dragon has been terrorizing this town for many years."
-main_barp2 = "You look at him, baffled, until you realize his meaning. “Me? Kill a dragon? To pay for my food? You must be joking!” He stares at you solemnly, and you realize he’s dead serious. After an uncomfortable moment, you acquiesce. If the mission was that dangerous, he wouldn’t send you, right? Before you leave, he spots the golden amulet hanging around your neck. “That looks valuable,” he says. “Why don’t I hold on to it until you return?” Once more, you have no choice but to agree, and with that, he rudely shoves you out the door. Guess it’s time to kill a dragon. “Head to the castle!” he yells after you. Very helpful, isn’t he? "
+main_barp1 = '''You stride to the bar and take the last seat. After introducing yourself to the bartender, you explain that you have traveled to many lands, seen many things.
+ At a sudden pang of hunger, you order some food which you promptly devour. The bartender watches you with amusement. Belatedly, you realize that you don’t have any money. 
+ You sheepishly say as much when he asks for payment, thinking he might be lenient. Seemingly without any regard for what you just said, he tells you that a dragon has been terrorizing this town 
+ for many years.'''
+main_barp2 = '''You look at him, baffled, until you realize his meaning. “Me? Kill a dragon? To pay for my food? You must be joking!” 
+He stares at you solemnly, and you realize he’s dead serious. After an uncomfortable moment, you acquiesce. If the mission was that dangerous, he wouldn’t send you,
+ right? '''
+
+main_barp3 = ''' Before you leave, he spots the golden amulet hanging around your neck. “That looks valuable,” he says. “Why don’t I hold on to it until you return?” Once more, 
+ you have no choice but to agree, and with that, he rudely shoves you out the door. Guess it’s time to kill a dragon. “Head to the castle!” he yells after you. Very helpful, isn’t he?'''
+
 main_magicwitch = '''After an interminably long time, your attackers deposit you roughly in front of the tavern.
 You are terrified to see a pyre set up outside. People flood out of the building, drinks in their hands and malice in their eyes.
 They start to herd you towards your fiery fate when a man barrels through the mob and tells you to run. You both dash away in the
@@ -260,8 +278,11 @@ main_castle_stealth_1 = "With your first step, you know this was a bad idea. You
 main_castle_stealth_2 = "Your breath comes in small, panicked spurts, and then not at all. Is this the moment you die? You kick your feet at the canyon floor to lift your head for one last glimpse at the world, and instead spot a miracle. A dead tree branch, floating languidly on the water’s surface. You reach for it and barely manage to hold on. You propel yourself to the end of the ravine by kicking your legs out behind you, and it is a such a relief once you stand upon solid ground again. "
 main_castle_stealth_3 = "There is still the dragon to fight, of course, but you expunge the thought from your mind until you stand before the doors of the castle. "
 
-main_castle_strength_1 = "With your first step, you know this was a bad idea. The night seems even darker from inside the ravine, everything cast in shadows that lurk and linger with a menacing import. But even worse is when the weather-worn stone walls tower their highest above you, blotting out every source of brightness. You don’t want to admit it, but you might be a little scared of the dark. Also, you keep bumping into boulders and tripping over small rocks that litter the canyon floor. When you finally make it out, you attend to your numerous scrapes and gashes. "
-main_castle_strength_2 = "You turn back to look at the geographical feature that has caused you so much turmoil, and from here, you feel a little foolish for being so weak. You also feel a little lightheaded, having lost a lot of blood, but after a short rest, you stagger the rest of the way to the castle, stopping right before its grand doors."
+main_castle_strength_1 = '''With your first step, you know this was a bad idea. The night seems even darker from inside the ravine, everything cast in shadows that lurk and linger 
+with a menacing import. But even worse is when the weather-worn stone walls tower their highest above you, blotting out every source of brightness. You don’t want to admit it, but you might be 
+a little scared of the dark. '''
+main_castle_strength_2 = '''Also, you keep bumping into boulders and tripping over small rocks that litter the canyon floor. When you finally make it out, you attend to your numerous scrapes and gashes. You turn back to look at the geographical feature that has caused you so much turmoil, and from here, you feel a little foolish for being so weak. 
+You also feel a little lightheaded, having lost a lot of blood, but after a short rest, you stagger the rest of the way to the castle, stopping right before its grand doors.'''
 
 main_castle_m_1 = "With your first step, you know this was a bad idea. Nothing bad has occurred yet, but you’re pretty sure something will. Things are too oddly sanguine for the first few minutes, but then a loud crashing noise shatters the fraught silence. You crane your head over your shoulder to investigate. A massive boulder sits squarely where you were standing just a moment ago, and you say a thousand thanks that you left the tavern when you did, that you weren’t walking any slower. But you must be on your guard now, for what happened once can happen again. "
 main_castle_m_2 = "You scan the tops of the canyon walls for any more plummeting rocks, and spot a shadowy figure. Someone must have followed you from the tavern. You watch detachedly as he pushes another boulder to the edge of the ravine. Then you realize it’s meant for you. Meant to kill you. You break into a run, narrowly dodging rocks of all sizes that are hurled at you. One grazes your shoulder painfully, and you want to collapse right there. You’re bleeding and out of breath, but you keep sprinting, out of the canyon and onwards to the castle."
@@ -296,7 +317,9 @@ shouldn’t let them go to waste, so you start gathering them up in your arms.
  '''
 stealth_dragon_chand2 = '''Then the dragon awakens sluggishly. You startle,
 and coins spill everywhere. You start running before it gets the chance to kill you again, but stop when you realize that you can’t
-return to the tavern without proof of its death. Searching around, you spot an iridescent scale near the dragon,
+return to the tavern without proof of its death.'''
+
+stealth_dragon_chand3= ''' Searching around, you spot an iridescent scale near the dragon,
 which you sprint to pick up before leaving. You can hear the dragon roaring even after you exit the castle, but thankfully it’s
 too weak to actually pursue you. '''
 
@@ -326,13 +349,15 @@ you of the long walk back. When you see the tavern below you, you realize that y
 strength_dragon_wake = '''You yell unintelligibly until the dragon wakes up, and when it does, you can’t deny that
  you’re a little terrified. You brandish your sword in the air, and it circles you in the air. When it swoops low to
   snap you up in its jaws, you swing your sword across its neck with every bit of your might, and to your surprise,
-   it slices clean through. You stand back, stunned at your own strength, and feel a little ashamed for having slain
-    such a mighty creature, for having slain any creature at all. '''
+   it slices clean through. '''
 
-strength_dragon_wake2 = ''' Then you remember the damage it inflicted upon that town, and the guilt is mostly gone.
-One of the dragon’s iridescent scales has fallen loose. You pick it up as proof of what you accomplished today,
-walking away with a slightly heavier heart. No one said being a hero was easy.
+strength_dragon_wake2 = '''You stand back, stunned at your own strength, and feel a little ashamed for having slain
+    such a mighty creature, for having slain any creature at all. Then you remember the damage it inflicted upon that town, and the guilt is mostly gone.
+One of the dragon’s iridescent scales has fallen loose. 
 '''
+strength_dragon_wake3 = ''' You pick it up as proof of what you accomplished today,
+walking away with a slightly heavier heart. No one said being a hero was easy.''' 
+
 magic_dragon = ''' When you enter the cavernous chamber, the dragon sits upright and fixes you to your spot with its unnerving stare,
 as though it has been waiting for you all this time. The situation is doing nothing to soothe your frayed nerves. You spent the entire
  journey stewing in terrified anticipation—you’re not ready to die, but your magic powers are so erratic and uncontrollable that you wish
@@ -342,25 +367,28 @@ as though it has been waiting for you all this time. The situation is doing noth
 magic_dragon_fight = ''' You decide to stand your ground and keep your promise to your savior. If you die, it will be with honor.
 The dragon takes flight, circling the room from above. It sends ferocious spurts of fire at you that you manage to dodge. One blast
  comes especially close, singeing your clothes and skin. But now you can feel the magic surging in your veins now, powerful and impatient;
-  the intense danger of that moment must have triggered its return from dormancy. Instinctively, you hold up your philosopher’s stone, and out
-  of it shoots a bright bolt of light that seeks out the dragon and slams it forcefully into the far wall. '''
+  the intense danger of that moment must have triggered its return from dormancy.  '''
 
-magic_dragon_fight2 = ''' Its limp form slides to the ground, and it remains there, slumped. Several iridescent scales scatter across the ground.
+magic_dragon_fight2 = ''' Instinctively, you hold up your philosopher’s stone, and out
+  of it shoots a bright bolt of light that seeks out the dragon and slams it forcefully into the far wall. Its limp form slides to the ground, and it remains there, slumped. Several iridescent scales scatter across the ground.
 You approach the dragon tentatively, not sure whether it’s dead or merely unconscious. As you get closer, you can see clearly that it remains still,
- its belly not swelling with the intake of breath. An almost tangible wave of guilt hits you at having ended the life of a magnificent beast with one
+ its belly not swelling with the intake of breath. '''
+
+magic_dragon_fight3= ''' An almost tangible wave of guilt hits you at having ended the life of a magnificent beast with one
   swift blow. You push that sentiment aside and pick up a single scale as proof of what you did. You look at the dragon one last time, then turn away
   with a heavy heart and begin the journey back.
  '''
 
 magic_dragon_flee = '''  You turn around and run away. You really can’t do this. That man back at the tavern may have saved you, but he had no
 right to ask this of you. Once outside of the castle, you see the very person you were silently berating. “Hello,” he says, sounding very much like
-a cat toying with its prey. // “What are you doing here?” you ask, indignant. If he followed you all the way here, why couldn’t he have helped you
-kill the dragon? // His next words sting. “Forgive me if I didn’t trust you to complete this mission. And as you can see, I was right.”'''
+a cat toying with its prey. '''
 
-magic_dragon_flee2 = '''“Then why ask me at all?” // “You see, this was a test. I am a wizard, and I was hoping to find a honorable apprentice
- in you,” he says. // “Really?” you ask, taken aback. // He smirks. “No.” He takes out a gleaming dagger and strikes a fatal blow to your person.
- THE END. (PRESS X TO EXIT GAME)
- '''
+magic_dragon_flee2 = '''“What are you doing here?” you ask, indignant. If he followed you all the way here, why couldn’t he have helped you
+kill the dragon? // His next words sting. “Forgive me if I didn’t trust you to complete this mission. And as you can see, I was right.” // “Then why ask me at all?” // “You see, this was a test. I am a wizard, and I was hoping to find a honorable apprentice
+ in you,” he says. // “Really?” you ask, taken aback. '''
+ 
+magic_dragon_flee3 = ''' He smirks. “No.” He takes out a gleaming dagger and strikes a fatal blow to your person.
+ THE END. (PRESS X TO EXIT GAME)'''
 
 manip_dungeon = ''' When you enter the cavernous chamber, the dragon sits upright and fixes you to your spot with its unnerving stare,
 as though it has been waiting for you all this time. The situation is doing nothing to soothe your frayed nerves. You’ve spent the entire
@@ -371,26 +399,29 @@ do you choose? (intimidation(t)/ingratiation(b)?)'''
 
 manip_dungeon_intim = ''' “I am a renowned dragon slayer,” you say sonorously. “And if you refuse to cease inflicting injury after injury upon
  the poor town nearby, I would advise you to prepare for your end.” You expect the dragon to say something, anything, but it just stands there,
-  impassive. Then it sniffles, and a single tear falls to the ground. It scorches a hole straight through the floor. Um, what is going on, exactly?
-   “My father… he was the one who killed all those people, and now… he’s gone.” It glares at you, if such a thing is possible for a dragon. “At the
-   hands of a dragon slayer like you.”  '''
+  impassive. Then it sniffles, and a single tear falls to the ground.  '''
 
-manip_dungeon_intim2 = '''Oh. Intimidation was a really bad idea. “It appears that I was mistaken,” you say, inching backwards.
-“Now, if you don’t mind, I’ll just leave you in peace.” // “I don’t think so,” it hisses. The last thing you see is the scorched floor
- where the acidic tear fell, and then you are engulfed in flames. THE END.
+manip_dungeon_intim2 = '''It scorches a hole straight through the floor. Um, what is going on, exactly?
+   “My father… he was the one who killed all those people, and now… he’s gone.” It glares at you, if such a thing is possible for a dragon. “At the
+   hands of a dragon slayer like you.” Oh. Intimidation was a really bad idea. “It appears that I was mistaken,” you say, inching backwards.
  '''
+
+manip_dungeon_intim3 = '''“Now, if you don’t mind, I’ll just leave you in peace.” // “I don’t think so,” it hisses. The last thing you see is the scorched floor
+ where the acidic tear fell, and then you are engulfed in flames. THE END. ''' 
 
 manip_dungeon_integ = ''' “I’m a huge fan of yours!” you exclaim, with as much enthusiasm as you can muster for a murderer.
 “I admire the way you can raze a village with a single fiery exhale, how you upend lives with such ease. So I wanted to meet you in person.”
  Hopefully your words paint you as a slightly crazed devotee and not a sycophant. “Is that right?” says the dragon, sounding flattered. “Well,
-  thank you!” // Is your crazy scheme actually working? “Of course! But you know what? There’s a tavern nearby where they don’t appreciate your
-  work quite as much, and as someone who wants the best for you, I would humbly suggest that you take your art elsewhere.” You hold your breath,
-  wishing for the best. “I suppose you might be right,” the dragon says after a moment. // “Wonderful! I promise you won’t regret it,” you say.  '''
+  thank you!” '''
 
-manip_dungeon_integ2 = '''“Oh, and before I leave, I wonder if I might have one of your lovely iridescent scales as a souvenir?”
- As proof of its “death.” It agrees easily, scattering a few loose with a shake of its head. You pick one up and thank the dragon vigorously,
+manip_dungeon_integ2 = '''Is your crazy scheme actually working? “Of course! But you know what? There’s a tavern nearby where they don’t appreciate your
+  work quite as much, and as someone who wants the best for you, I would humbly suggest that you take your art elsewhere.” You hold your breath,
+  wishing for the best. “I suppose you might be right,” the dragon says after a moment. // “Wonderful! I promise you won’t regret it,” you say. “Oh, and before I leave, I wonder if I might have one of your lovely iridescent scales as a souvenir?”
+ As proof of its “death.” '''
+
+manip_dungeon_integ3 = '''It agrees easily, scattering a few loose with a shake of its head. You pick one up and thank the dragon vigorously,
  then exit the castle after exchanging a few pleasantries. You feel a bit sleazy for deceiving the dragon, especially because it seems so lonely,
-  but that doesn’t diminish how happy you are that you achieved your mission without any killing.'''
+  but that doesn’t diminish how happy you are that you achieved your mission without any killing. ''' 
 # -------- Main Program Loop -----------
 
 pygame.event.get()
@@ -494,7 +525,7 @@ if stealth == True:
 	tavern_choice(main_tavern, fir, sec, main_tablestealth, main_tablestealth_yes, main_tablestealth_no)
 
 elif strength == True:
-	choice(main_tavern, "tavern_walkup.jpg", fir, sec, main_tablestrength, main_tablestealthp2, main_barp1, main_barp2, "tavern_tables_strength.jpg", "tavern_tables_strength.jpg", "tavern_bar_strength.jpg", "tavern_bar_strength.jpg"  )
+	choice(main_tavern, "tavern_walkup.jpg", fir, sec, main_tablestrength, main_tablestrength2, main_tablestrength3 , main_barp1, main_barp2, main_barp3, "tavern_tables_strength.jpg", "tavern_tables_strength.jpg", "tavern_tables_strength.jpg", "tavern_bar_strength.jpg", "tavern_bar_strength.jpg", "tavern_bar_strength.jpg"   )
 
 elif magic == True:
 	mainstorydif(main_magicwitch, "PyreMagic-2.jpg")	
@@ -520,27 +551,27 @@ mainstorydif(main_castle_3, "tocastle.jpg")
 #conflict in front of the castle 
 time.sleep(0.5)
 if stealth == True:
-	mainstorydif(main_castle_stealth_1, " " )
+	mainstorydif(main_castle_stealth_1, "stealthCastley.jpg " )
 	time.sleep(0.5)
-	mainstorydif(main_castle_stealth_2," "  )
+	mainstorydif(main_castle_stealth_2," stealthCastley.jpg"  )
 	time.sleep(0.5)
-	mainstorydif(main_castle_stealth_3," " )
+	mainstorydif(main_castle_stealth_3," stealthCastle.jpg" )
 elif strength == True:
 	mainstorydif(main_castle_strength_1, "Strengthcastle.jpg")
 	time.sleep(0.5)
 	mainstorydif(main_castle_strength_2, "Strengthcastle.jpg")
 elif magic == True:
-	mainstorydif(main_castle_m_1, "magiccastle.jpg") #magic and manip needs to have boulder behind sprites
+	mainstorydif(main_castle_m_1, "CharismaCastle.jpg") #magic and manip needs to have boulder behind sprites
 	time.sleep(0.5)
-	mainstorydif(main_castle_m_2, "magiccastle.jpg")
+	mainstorydif(main_castle_m_2, "CharismaCastle.jpg")
 	time.sleep(0.5)
-	mainstorydif(main_castle_m_3, "magiccastle.jpg")
+	mainstorydif(main_castle_m_3, "CharismaCastle.jpg")
 elif manipulation == True:
-	mainstorydif(main_castle_m_1, "charismacastle.jpg")
+	mainstorydif(main_castle_m_1, "Magiccastle.jpg")
 	time.sleep(0.5)
-	mainstorydif(main_castle_m_2, "charismacastle.jpg")
+	mainstorydif(main_castle_m_2, "Magiccastle.jpg")
 	time.sleep(0.5)
-	mainstorydif(main_castle_m_3, "charismacastle.jpg")
+	mainstorydif(main_castle_m_3, "Magiccastle.jpg")
 
 
 #dragon
@@ -550,13 +581,15 @@ time.sleep(0.5)
 if stealth == True:
 	mainstorydif(stealth_dragon1, "Stealth1.jpg" )
 	time.sleep(0.5)
-	choice(stealth_dragon1p1, "Stealth2.jpg", fir, sec, stealth_dragon_chand, stealth_dragon_chand2, stealth_dragon_dragon, "PRESS X TO END" , "stealth4.jpg", "stealth4.jpg", "Stealth3.jpg", "Stealth3.jpg" )
+	choice(stealth_dragon1p1, "Stealth2.jpg", fir, sec, stealth_dragon_chand, stealth_dragon_chand2, stealth_dragon_chand3 , stealth_dragon_dragon, "PRESS X TO END", "" , "stealth4.jpg", "stealth4.jpg", "stealth4.jpg", "Stealth3.jpg", "Stealth3.jpg", "Stealth3.jpg" )
 if strength == True: 
-	choice(strength_dragon, "DungeonStrength.jpg", fir, sec, strength_dragon_sleep, strength_dragon_sleep2, strength_dragon_wake, strength_dragon_wake2, "DungeonStrength-4.jpg", "DungeonStrength.jpg", "DungeonStrength-3.jpg", "DungeonStrength-7.jpg")
+	choice(strength_dragon, "DungeonStrength.jpg", fir, sec, strength_dragon_sleep, strength_dragon_sleep2, strength_dragon_sleep_3,  strength_dragon_wake, strength_dragon_wake2, strength_dragon_wake3, "DungeonStrength-4.jpg", "DungeonStrength.jpg", "DungeonStrength.jpg", "DungeonStrength-3.jpg", "DungeonStrength-7.jpg", "DungeonStrength-7.jpg")
 if magic == True:
-	choice(magic_dragon, "dungeonmagic.jpg ", fir, sec, magic_dragon_fight, magic_dragon_fight2, magic_dragon_flee, magic_dragon_flee2, "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg")
+	choice(magic_dragon, "dungeonmagic.jpg ", fir, sec, magic_dragon_fight, magic_dragon_fight2, magic_dragon_fight3, magic_dragon_flee, magic_dragon_flee2, magic_dragon_flee3, "dungeonmagic.jpg", xxx,  "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg")
 if manipulation == True:
-	choice( manip_dungeon , "dungeoncharis.jpg", fir , sec , manip_dungeon_intim , manip_dungeon_intim2, manip_dungeon_integ, manip_dungeon_integ2, "dungeoncharis.jpg", "dungeoncharis.jpg" , "dungeoncharis.jpg", "dungeroncharis.jpg" )
+	choice( manip_dungeon , "dungeoncharis.jpg", fir , sec , manip_dungeon_intim , manip_dungeon_intim2, manip_dungeon_intim3, manip_dungeon_integ, manip_dungeon_integ2, manip_dungeon_integ3, "dungeoncharis.jpg", "dungeoncharis.jpg" , "dungeoncharis.jpg" , "dungeoncharis.jpg" , "dungeoncharis.jpg", "dungeroncharis.jpg" )
+
+
 # --- Game logic should go here ---
 
 	# --- Screen-clearing code goes here
