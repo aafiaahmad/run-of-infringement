@@ -164,19 +164,19 @@ def tavern_choice(inputed, fir, sec, choice1, choice1_1, choice1_2):
 		yesno(choice1,"tavern_table_stealth.jpg", choice1_1, choice1_2, "tavern_table_stealth.jpg", "tavern_table_stealth.jpg")
 	elif sec:
 		time.sleep(0.5)
-		mainstorydif(main_barp1, "tavern_barrr.jpg")
+		mainstorydif(main_barp1, "tavern_bar_stealth.jpg")
 		time.sleep(0.5)
-		mainstorydif(main_barp2, "tavern_bar_stealth.jpg")
+		mainstorydif(main_barp2, "tavern_bar_stealth.jpg"	)
 
-
+bar= False 
+table = False
 
 def choice(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice2, choice2p2, choice2p3, a, b, c, d, e, f):
 	pygame.event.get()
 	textput_wrap = textwrap.wrap(inputed, 65)
 	fir=False
 	sec=False
-	bar= False 
-	table = False 
+	 
 	while fir == False and sec == False:
 		pygame.event.get()
 		if pygame.key.get_pressed()[pygame.K_x] == 1:
@@ -191,11 +191,11 @@ def choice(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice2, choice
 		if pygame.key.get_pressed()[pygame.K_t]:
 			fir = True
 			table = True
-			return table
+			
 		elif pygame.key.get_pressed()[pygame.K_b]:
 			sec = True
 			bar= True 
-			return bar
+			
 		pygame.display.flip()
 	if fir:
 		time.sleep(0.5)
@@ -213,7 +213,7 @@ def choice(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice2, choice
 clock = pygame.time.Clock()
 
 # The story code goes here
-text_intro = "You wake up with little recollection of who you are. Your surroundings are unfamiliar. Before you are four costumes, each promising to endow you with a new identity. Which do you choose? (1/2/3/4)"
+text_intro = "You wake up with little recollection of who you are. Your surroundings are unfamiliar. Before you are four costumes, each promising to endow you with a new identity. Which do you choose? (1/2/3/4 then press SPACE to continue)"
 # class text
 textstealth_chose = "You choose Frankina of the Stealth class. You check your pockets, finding a ninja star and an amulet that seems valuable. You hang the amulet around your neck."
 textstrength_chose = "You choose Farra of the Strength class. You check your pockets, finding a mysterious potion and an amulet that seems valuable. You hang the amulet around your neck."
@@ -340,13 +340,13 @@ steadying yourself for the kill. Then the dragon cracks an eye open. You freeze,
  // “Why not?” you ask, trembling. “Many innocent people have perished because of you.” //
   “True, but I could easily stop,” it replies. “And if you choose not to kill me, I might be convinced to.” '''
 
-strength_dragon_sleep_2 = ''' Something seems off—the dragon doesn’t seem as helpless as it’s acting—but you agree. The dragon shakes its head,
+strength_dragon_sleep2 = ''' Something seems off—the dragon doesn’t seem as helpless as it’s acting—but you agree. The dragon shakes its head,
   causing an iridescent scale to fall loose. // “Proof,” it says, and you could swear it’s smirking at you, “of your
    heroic deed.” // You pick it up warily, nod at the dragon, and turn around to leave. You walk triumphantly out the castle, when suddenly the dragon swoops you up in its claws. It flies along the path you took to get here, and you figure the dragon wants to spare
 you of the long walk back. When you see the tavern below you, you realize that your mission will have been for nothing
  if the townspeople look up and see the dragon alive and well.'''
 
-strength_dragon_sleep_3 = ''' “What are you doing?” you yell, trying to be heard over
+strength_dragon_sleep3 = ''' “What are you doing?” you yell, trying to be heard over
  the howling wind. // “You didn’t think I would be that easily stopped, did you?” the dragon growls. //
  Then it releases an intense wave of fire that razes the town to nothing more than flaming wood and detritus.
   You close your eyes and silently apologize to everyone who died because of your naivete. THE END.'''
@@ -431,40 +431,42 @@ manip_dungeon_integ3 = '''It agrees easily, scattering a few loose with a shake 
 main_return= '''After a long, arduous trip back from the castle, during which you decide that nothing can make you pass through that valley again,
  you arrive back at the tavern that has caused you so much misery, hopefully for the last time.
  ''' 
-# return_1 = '''You make your way to the bar, pushing your way through swarms of people. 
-# You are here for one reason, and one reason alone: to reclaim your collateral from the bartender.
-#  But when you ask him to return the amulet, he smirks maliciously, holding it out of your reach. ''' 
+main_bar_again1 = "You make your way to the bar, pushing your way through swarms of people. You are here for one reason, and one reason alone: to reclaim your collateral from the bartender. But when you ask him to return the amulet, he smirks maliciously, holding it out of your reach."
+main_bar_again2 = "“You actually thought you were going to get this back? No way. A weakling like you could never have killed the dragon.”"
+main_bar_again3 = "You pull out the dragon's scale and show it to him. His face pales. “How did you get that?” he sputters."
+main_bar_again4 = "“This weakling,” you snarl, light glinting off your armor, “killed a dragon. Do you really want to make her angry?”"
+main_bar_again5 = "“No!” he practically yelps, and shoves the amulet into your hands."
+main_bar_again6 = "“Thank you,” you say, smiling sweetly. When you turn around to leave this godforsaken tavern behind for good, an enormous wave of people stands in your way. You hope that they're not angry at you for intimidating the bartender, because he got what he deserved."
+main_bar_again7 = "Then their faces light up with smiles. “All hail the dragon-slayer!” they shout in unison. They herd you back to the bar, where they tell the sulking bartender to serve you a drink. He doesn't even try to refuse."
+main_bar_again8 = "You regale the admiring crowd with stories of your brave exploits, fudging the truth just a little bit. They don't need to know everything."
+main_bar_again9 = "When you run out of things to say, people begin telling you about other monsters in the vicinity they'd like you to slay. “Why not?” you declare. THE END."
 
-# return_2 = '''“You actually thought you were going to get this back? No way. A weakling like you could never have killed the dragon.” 
-# // You pull out the dragon’s scale and show it to him. His face pales. “How—how did you get that?” he sputters. // “This weakling,” you snarl, 
-# light glinting off your armor, “killed a dragon. Do you really want to make her angry?” // “No!” he practically yelps, and shoves the amulet into your 
-# hands. // “Thank you,” you say, smiling sweetly.  ''' 
+main_table_chose1 = "You find the same group at that same table in the corner. Have they been sitting there this whole time? “I'm back, you indolent lot,” you say."
+main_table_chose2 = "“The dragon slayer returns!” announces the woman who first told you about the dragon. The whole tavern seems to hear, and they crowd around your table."
+main_table_chose3 = "You regale the admiring crowd with stories of your brave exploits, fudging the truth just a little bit. They don't need to know everything."
+main_table_chose4 = "When you run out of things to say, people begin telling you about other monsters in the vicinity they'd like you to slay. “Why not?” you declare. THE END."
 
-# return_3 = ''' When you turn around to leave this godforsaken tavern behind for good, an enormous wave of people stands in your way. 
-# You hope that they’re not angry at you for intimidating the bartender, because he got what he deserved. ''' 
+main_table_forced1 = "You find the woman who challenged you to a fight, still brimming with resentment towards her. “I killed the dragon,” you tell her sullenly."
+main_table_forced2 = "Her head stays slumped in a drink-induced stupor for a moment, then she turns slowly to look at you. “Wait, what?” she slurs. “What dragon?”"
+main_table_forced3 = "“The dragon I had to kill after you beat me in that fight?”"
+main_table_forced4 = "“Fight? What are you talking about?”"
+main_table_forced5 = "You sigh again, even louder this time, and find some more friendly faces to talk to. Soon, the whole population of the tavern is gathered around you."
+main_table_forced6 = "You regale the admiring crowd with stories of your brave exploits, fudging the truth just a little bit. They don't need to know everything."
+main_table_forced7 = "When you run out of things to say, people begin telling you about other monsters in the vicinity they'd like you to slay. “Why not?” you declare. THE END."
 
-# return_bar4 = '''Then their faces light up with smiles. “All hail the dragon-slayer!” they shout in unison.
-#  They herd you back to the bar, where they tell the sulking bartender to serve you a drink. He doesn’t even try to refuse. ''' 
+main_magic_table1 = "You seek out your savior from earlier. You don't think he would run off with your amulet. You scan the tavern for him, and at first he is nowhere to be seen."
+main_magic_table2 = "But finally, you spot him, sulking in a corner. He looks noticeably more handsome than you remembered. You try not to blush as you approach his table."
+main_magic_table3 = "After taking the seat across from him, you sit there awkwardly for a moment until you realize why you're here. “So... I killed the dragon,” you announce, holding up the scale as proof."
+main_magic_table4 = "“Indeed? I'm impressed,” he says, smiling slightly. He takes out the amulet from his satchel and hands it to you."
+main_magic_table5 = "“Oh. Um, thanks,” you reply, hoping he realizes you're grateful for both the amulet and the compliment. “Well, I guess I'll get going, them?”"
+main_magic_table6 = "“Wait,” he says, seeming almost reluctant to see you go. “Why not stay and share a drink?”"
+main_magic_table7 = "“Why not?” you say. Who knows where this might lead? THE END."
 
-# return_bar5 = ''' You regale the admiring crowd with stories of your brave exploits, fudging the truth just a little bit. 
-# They don’t need to know everything. When you run out of things to say, people begin telling you about other monsters in the vicinity 
-# they’d like you to slay. “Why not?” you declare. THE END.
-# ''' 
+main_charisma_return1 = "You find the burly man with whom you negotiated your release from the pyre. “The dragon is dead,” you say, holding the scale up as proof. Hopefully he won't doubt you."
+main_charisma_return2 = "“Well done,” he admits grudgingly, gruffly. He gives you the amulet."
+main_charisma_return3 = "You leave the tavern with no intention of ever returning. You don't need anyone finding out that the dragon is still alive and well."
+main_charisma_return4 = "Who knows what great and terrible things you could achieve with a dragon who hands on your every word? THE END."
 
-# return_table1 = '''You find the same group at that same table in the corner. Have they been sitting there this whole time? 
-# “I’m back, you indolent lot,” you say. ''' 
-
-# return_table2 = ''' ''' 
-
-# return_table3 = ''' ''' 
-
-# return_table4 = ''' ''' 
-
-# return_table5 = ''' ''' 
-
-# return_strength_bar = ''' ''' 
-
-# return_strength_table = ''' ''' 
 
 # -------- Main Program Loop -----------
 
@@ -569,7 +571,7 @@ if stealth == True:
 	tavern_choice(main_tavern, fir, sec, main_tablestealth, main_tablestealth_yes, main_tablestealth_no)
 
 elif strength == True:
-	choice(main_tavern, "tavern_walkup.jpg", fir, sec, main_tablestrength, main_tablestrength2, main_tablestrength3 , main_barp1, main_barp2, main_barp3, "tavern_tables_strength.jpg", "tavern_tables_strength.jpg", "tavern_tables_strength.jpg", "tavern_bar_strength.jpg", "tavern_bar_strength.jpg", "tavern_bar_strength.jpg"   )
+	choice(main_tavern, "tavern_walkup.jpg", fir, sec, main_tablestrength, main_tablestrength2, main_tablestrength3 , main_barp1, main_barp2, main_barp3, "tavern_tables_strength.jpg", "tavern_tables_strength.jpg", "tavern_tables_strength.jpg", "tavern_bar_strength.jpg", "tavern_bar_strength.jpg", "tavern_bar_strength.jpg" )
 
 elif magic == True:
 	mainstorydif(main_magicwitch, "PyreMagic-2.jpg")	
@@ -595,11 +597,11 @@ mainstorydif(main_castle_3, "tocastle.jpg")
 #conflict in front of the castle 
 time.sleep(0.5)
 if stealth == True:
-	mainstorydif(main_castle_stealth_1, "stealthCastley.jpg " )
+	mainstorydif(main_castle_stealth_1, "stealthCastley.jpg" )
 	time.sleep(0.5)
-	mainstorydif(main_castle_stealth_2," stealthCastley.jpg"  )
+	mainstorydif(main_castle_stealth_2,"stealthCastley.jpg"  )
 	time.sleep(0.5)
-	mainstorydif(main_castle_stealth_3," stealthCastle.jpg" )
+	mainstorydif(main_castle_stealth_3,"stealthCastley.jpg" )
 elif strength == True:
 	mainstorydif(main_castle_strength_1, "Strengthcastle.jpg")
 	time.sleep(0.5)
@@ -627,33 +629,129 @@ if stealth == True:
 	time.sleep(0.5)
 	choice(stealth_dragon1p1, "Stealth2.jpg", fir, sec, stealth_dragon_chand, stealth_dragon_chand2, stealth_dragon_chand3 , stealth_dragon_dragon, "PRESS X TO END", "" , "stealth4.jpg", "stealth4.jpg", "stealth4.jpg", "boop(1).jpg", "boop(1).jpg", "boop(1).jpg" )
 if strength == True: 
-	choice(strength_dragon, "DungeonStrength.jpg", fir, sec, strength_dragon_sleep, strength_dragon_sleep2, strength_dragon_sleep_3,  strength_dragon_wake, strength_dragon_wake2, strength_dragon_wake3, "DungeonStrength-4.jpg", "DungeonStrength.jpg", "DungeonStrength.jpg", "DungeonStrength-3.jpg", "DungeonStrength-7.jpg", "DungeonStrength-7.jpg")
+	choice(strength_dragon, "dungeonstrength.jpg", fir, sec, strength_dragon_sleep, strength_dragon_sleep2, strength_dragon_sleep3,  strength_dragon_wake, strength_dragon_wake2, strength_dragon_wake3, "dungeonstrengthup.jpg", "dungeonstrength.jpg", "dungeonstrength.jpg", "dungeonstrength-3.jpg", "dungeonstrength-7.jpg", "dungeonstrength-7.jpg")
 if magic == True:
 	choice(magic_dragon, "dungeonmagic.jpg ", fir, sec, magic_dragon_fight, magic_dragon_fight2, magic_dragon_fight3, magic_dragon_flee, magic_dragon_flee2, magic_dragon_flee3, "dungeonmagic.jpg", xxx,  "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg", "boop(1).jpg")
 if manipulation == True:
 	choice( manip_dungeon , "dungeoncharis.jpg", fir , sec , manip_dungeon_intim , manip_dungeon_intim2, manip_dungeon_intim3, manip_dungeon_integ, manip_dungeon_integ2, manip_dungeon_integ3, "dungeoncharis.jpg", "dungeoncharis.jpg" , "boop(1).jpg" , "dungeoncharis.jpg" , "dungeoncharis.jpg", "dungeroncharis.jpg" )
 
-# time.sleep(0.5)
-# if stealth == True:
-# 	if bar == True:
-# 		mainstorydif(,)
-# 	elif table == True: 
-# 		if go == True:
-# 			mainstorydif(,)
-# 		elif force == True:  
-# 			mainstorydif(,)
-# if strength == True: 
-# 	if bar == True:
-# 		mainstorydif(,)
-# 		elif table == True: 
-# 			if go == True:
-# 				mainstorydif(,)
-# 			elif force == True:  
-# 				mainstorydif(,)
-# if magic == True:
-# 	mainstorydif(,)
-# if manipulation == True:
-# 	mainstorydif(,)
+time.sleep(0.5)
+if stealth == True:
+	if bar == True:
+		mainstorydif(main_bar_again1, "tavern_bar_stealth_table.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again2, "tavern_bar_stealth_table.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again3, "tavern_bar_stealth_table.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again4, "tavern_bar_stealth_amulet.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again5, "tavern_bar_stealth_amulet.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again6, "tavern_bar_stealth_amulet.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again7, "stealth_rave.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again8, "stealth_rave.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again9, "stealth_rave.jpg")
+		time.sleep(0.5)
+		
+	elif table == True: 
+		if go == True:
+			mainstorydif(main_table_chose1,"tavern_table_stealth.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_chose2,"stealth_rave.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_chose3,"stealth_rave.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_chose4,"stealth_rave.jpg")
+			time.sleep(0.5)
+		elif force == True:  
+			mainstorydif(main_table_forced1,"tavern_table_stealth.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_forced2,"tavern_table_stealth.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_forced3,"tavern_table_stealth.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_forced4,"tavern_table_stealth.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_forced5,"stealth_rave.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_forced6,"stealth_rave.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_forced7,"stealth_rave.jpg")
+			time.sleep(0.5)
+if strength == True: 
+	if bar == True:
+		mainstorydif(main_bar_again1, "tavern_bar_strength.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again2, "tavern_bar_strength.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again3, "tavern_bar_strength.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again4, "tavern_bar_strength_amulet.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again5, "tavern_bar_strength_amulet.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again6, "tavern_bar_strength_amulet.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again7, "strength_rave.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again8, "strength_rave.jpg")
+		time.sleep(0.5)
+		mainstorydif(main_bar_again9, "strength_rave.jpg")
+		time.sleep(0.5)
+		
+	elif table == True: 
+		if go == True:
+			mainstorydif(main_table_chose1,"tavern_table_strength.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_chose2,"strength_rave.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_chose3,"strength_rave.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_chose4,"strength_rave.jpg")
+			time.sleep(0.5)
+		elif force == True:  
+			mainstorydif(main_table_forced1,"tavern_table_strength.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_forced2,"tavern_table_strength.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_forced3,"tavern_table_strength.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_forced4,"tavern_table_strength.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_forced5,"strength_rave.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_forced6,"strength_rave.jpg")
+			time.sleep(0.5)
+			mainstorydif(main_table_forced7,"strength_rave.jpg")
+			time.sleep(0.5)
+if magic == True:
+	mainstorydif(main_magic_table1, "dwarfluv.jpg")
+	time.sleep(0.5)
+	mainstorydif(main_magic_table2, "dwarfluv.jpg")
+	time.sleep(0.5)
+	mainstorydif(main_magic_table3, "dwarfluv.jpg")
+	time.sleep(0.5)
+	mainstorydif(main_magic_table4, "dwarfluv.jpg")
+	time.sleep(0.5)
+	mainstorydif(main_magic_table5, "dwarfluv.jpg")
+	time.sleep(0.5)
+	mainstorydif(main_magic_table6, "dwarfluv.jpg")
+	time.sleep(0.5)
+	mainstorydif(main_magic_table7, "dwarfluv.jpg")
+	time.sleep(0.5)
+if manipulation == True:
+	mainstorydif(main_charisma_return1, "mugluv.jpg")
+	time.sleep(0.5)
+	mainstorydif(main_charisma_return2, "mugluv.jpg")
+	time.sleep(0.5)
+	mainstorydif(main_charisma_return3, "mugluv.jpg")
+	time.sleep(0.5)
+	mainstorydif(main_charisma_return4, "mugluv.jpg")
+	time.sleep(0.5)
 
 # --- Game logic should go here ---
 
