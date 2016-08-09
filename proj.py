@@ -547,7 +547,7 @@ while pygame.key.get_pressed()[pygame.K_SPACE] == 0:
 		strength = True
 		stealth = False
 		magic = False
-		manipualtion = False
+		manipulation = False
 	elif pygame.key.get_pressed()[pygame.K_4] != 0:
 		magic = True
 		stealth = False
