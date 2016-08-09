@@ -119,12 +119,12 @@ def yesno(inputed, cit, yeschoice, nochoice, a, b):
 		pygame.event.get()
 		if pygame.key.get_pressed()[pygame.K_y]:
 			yess = True
-			go = True
-			return go
+			# go = True
+			# return go
 		elif pygame.key.get_pressed()[pygame.K_n]:
 			noo = True
-			force = True 
-			return force	
+			# force = True 
+			# return force	
 		pygame.display.flip()
 	if yess:
 		time.sleep(0.5)
@@ -231,7 +231,7 @@ charisma_mugging = "You know you’re not the strongest person around, but words
 
 # main text
 main_mugging = "After walking for some time along a path that leads through a heavily forested area, you begin to feel uneasy. Suddenly, two menacing figures jump out from among the foliage, blocking your way forward."
-main_tavern = "As you keep walking, you see a small light in the distance. You keep walking, and eventually you are close enough to see that the light is emanating from the window of a small establishment, which you decide to enter. It turns out to be a tavern, its brightly lit interior brimming with rowdy patrons who have claimed nearly every spot at the rough-hewn wooden tables and bar. You scan the room and identify only two open seats; do you choose to sit at the bar or the table in the corner? (bar/table?)"
+main_tavern = "As you keep walking, you see a small light in the distance. You keep walking, and eventually you are close enough to see that the light is emanating from the window of a small establishment, which you decide to enter. It turns out to be a tavern, its brightly lit interior brimming with rowdy patrons who have claimed nearly every spot at the rough-hewn wooden tables and bar. You scan the room and identify only two open seats; do you choose to sit at the bar or the table in the corner? (bar(B)/table(T)?)"
 main_tablestealth = "You head over to the table in the far corner of the room. After introducing yourself to the people in your vicinity, you order a hearty meal. They ask about your dangerous travels and you explain that you have seen more of the world than you ever wished to, fearsome fauna and threatening terrain. Impressed, they tell you that in a nearby castle lives a dragon, and that it has been terrorizing this town for years. “You seem up for an adventure!” the woman to your left declares. “And there’s a dragon that needs slaying, a bounty on its head that needs claiming. What do you say?” You pause to consider. (y/n?)"
 main_tablestealth_yes = " “Why not?” you hear yourself saying. You wouldn’t mind an influx of money. You linger for a while longer, then pay for your food and head out the door to begin the long journey to the castle."
 main_tablestealth_no = " “I think not!” you tell them. The topic changes, and you while away the night with the other tavern-goers in a blur of drinks and merriment. After some time, the woman across from you makes a comment of a polemic nature. You take offense and respond indignantly. She challenges you to a fight with the condition that the loser must fight the dragon. Of course, you lose. In your defense, you’re not at your stealthiest right now. Gathering your wounded pride and your meager belongings, you leave the tavern and begin the long journey to the castle."
@@ -278,6 +278,7 @@ main_charismawitchp2 = '''“Listen, I may be a witch, and you may hate me for t
   man’s voice again. “One more thing. The amulet.” '''
 main_charismawitchp3 = '''You hand it over readily, not willing to risk him rescinding the offer.
   Terrified, you take the first steps of what will likely be a fatal journey.'''
+tav = "After a long, arduous trip back from the castle, during which you decide that nothing can make you pass through that valley again, you arrive back at the tavern that has caused you so much misery, hopefully for the last time."
 
 main_castle_1 = "You can see the castle in the distance where it sits smugly atop a tall hill. Beneath your feet is a dusty path, which you decide to follow for now, though you’re not sure if it actually leads to the castle. If it doesn’t, well, you’ll deal with that later. As you walk further and further, the tavern shrinks in your vision until it it seems like an insignificant speck of light. But that insignificant speck is why you’re here, and a shiver of fear runs through you at the reminder of what awaits you at your destination. Why were you foolish enough to agree to this?"
 main_castle_2 = "Well, turning back is not an option. You will keep going, and you will slay that dragon. Probably. Maybe. You walk for what seems like hours. The stars shine brightly against the dark canvas of the sky, and you let yourself bask in the beautiful sight for a moment.Then you have to bring your attention back to your surroundings, because before you is a deep canyon into which the path gradually slopes. Something in its very nature seems sinister and menacing, as though this valley might end you before the dragon does. "
@@ -631,14 +632,15 @@ time.sleep(0.5)
 if stealth == True:
 	mainstorydif(stealth_dragon1, "Stealth1.jpg" )
 	time.sleep(0.5)
-	choice(stealth_dragon1p1, "Stealth2.jpg", fir, sec, stealth_dragon_chand, stealth_dragon_chand2, stealth_dragon_chand3 , stealth_dragon_dragon, "PRESS X TO END", "" , "stealth4.jpg", "stealth4.jpg", "stealth4.jpg", "boop(1).jpg", "boop(1).jpg", "boop(1).jpg" )
+	choice(stealth_dragon1p1, "Stealth2.jpg", fir, sec, stealth_dragon_chand, stealth_dragon_chand2, stealth_dragon_chand3 , stealth_dragon_dragon, "PRESS X TO END", "" , "stealth4.jpg", "stealth4.jpg", "stealth4.jpg", "boop.jpg", "boop.jpg", "boop.jpg" )
 if strength == True: 
 	choice(strength_dragon, "dungeonstrength.jpg", fir, sec, strength_dragon_sleep, strength_dragon_sleep2, strength_dragon_sleep3,  strength_dragon_wake, strength_dragon_wake2, strength_dragon_wake3, "dungeonstrengthup.jpg", "dungeonstrength.jpg", "dungeonstrength.jpg", "dungeonstrength-3.jpg", "dungeonstrength-7.jpg", "dungeonstrength-7.jpg")
 if magic == True:
-	choice(magic_dragon, "dungeonmagic.jpg ", fir, sec, magic_dragon_fight, magic_dragon_fight2, magic_dragon_fight3, magic_dragon_flee, magic_dragon_flee2, magic_dragon_flee3, "dungeonmagic.jpg", xxx,  "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg", "boop(1).jpg")
+	choice(magic_dragon, "dungeonmagic.jpg ", fir, sec, magic_dragon_fight, magic_dragon_fight2, magic_dragon_fight3, magic_dragon_flee, magic_dragon_flee2, magic_dragon_flee3, "dungeonmagic.jpg", xxx,  "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg", "boop.jpg")
 if manipulation == True:
-	choice( manip_dungeon , "dungeoncharis.jpg", fir , sec , manip_dungeon_intim , manip_dungeon_intim2, manip_dungeon_intim3, manip_dungeon_integ, manip_dungeon_integ2, manip_dungeon_integ3, "dungeoncharis.jpg", "dungeoncharis.jpg" , "boop(1).jpg" , "dungeoncharis.jpg" , "dungeoncharis.jpg", "dungeroncharis.jpg" )
-
+	choice( manip_dungeon , "dungeoncharis.jpg", fir , sec , manip_dungeon_intim , manip_dungeon_intim2, manip_dungeon_intim3, manip_dungeon_integ, manip_dungeon_integ2, manip_dungeon_integ3, "dungeoncharis.jpg", "dungeoncharis.jpg" , "boop.jpg" , "dungeoncharis.jpg" , "dungeoncharis.jpg", "dungeroncharis.jpg" )
+time.sleep(0.5)
+mainstorydif(tav, "tavern_walkup.jpg")
 time.sleep(0.5)
 if stealth == True:
 	if bar == True:
