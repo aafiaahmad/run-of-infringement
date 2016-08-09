@@ -84,19 +84,19 @@ def text_printer_long(textnumber, wrapped_text):
 	screen.blit(label, (30, 425 + 15 * textnumber))
 
 def mainstorydif(textput, image):
-    pygame.event.get()
-    textput_wrap = textwrap.wrap(textput, 65)
-    while pygame.key.get_pressed()[pygame.K_SPACE] == 0:
-        pygame.event.get()
-        if pygame.key.get_pressed()[pygame.K_x] == 1:
-            sys.exit()
-        screen.fill(BLACK)
-        draw(100)
-        tavern_stealth = pygame.image.load(image)
-        screen.blit(tavern_stealth, (25, 25))
-        for i in range(len(textput_wrap)):
-            text_printer(i, textput_wrap)
-        pygame.display.flip()
+	pygame.event.get()
+	textput_wrap = textwrap.wrap(textput, 65)
+	while pygame.key.get_pressed()[pygame.K_SPACE] == 0:
+		pygame.event.get()
+		if pygame.key.get_pressed()[pygame.K_x] == 1:
+			sys.exit()
+		screen.fill(BLACK)
+		draw(100)
+		tavern_stealth = pygame.image.load(image)
+		screen.blit(tavern_stealth, (25, 25))
+		for i in range(len(textput_wrap)):
+			text_printer(i, textput_wrap)
+		pygame.display.flip()
 
 
 def yesno(inputed, cit, yeschoice, nochoice, a, b):
@@ -105,7 +105,8 @@ def yesno(inputed, cit, yeschoice, nochoice, a, b):
 	yess = False
 	go = False
 	noo = False
-	force = False 
+	force = False
+	return_variable=0 
 	while yess == False and noo == False:
 		pygame.event.get()
 		if pygame.key.get_pressed()[pygame.K_x] == 1:
@@ -119,11 +120,11 @@ def yesno(inputed, cit, yeschoice, nochoice, a, b):
 		pygame.event.get()
 		if pygame.key.get_pressed()[pygame.K_y]:
 			yess = True
-			# go = True
+			return_variable = 1
 			# return go
 		elif pygame.key.get_pressed()[pygame.K_n]:
 			noo = True
-			# force = True 
+			return_variable=0
 			# return force	
 		pygame.display.flip()
 	if yess:
@@ -133,11 +134,12 @@ def yesno(inputed, cit, yeschoice, nochoice, a, b):
 	elif noo:
 		time.sleep(0.5)
 		mainstorydif(nochoice, b)
-
+	return return_variable
 
 def tavern_choice(inputed, fir, sec, choice1, choice1_1, choice1_2):
 	pygame.event.get()
 	textput_wrap = textwrap.wrap(inputed, 65)
+	return_variable=0
 	fir=False
 	sec=False
 	print(fir)
@@ -156,27 +158,28 @@ def tavern_choice(inputed, fir, sec, choice1, choice1_1, choice1_2):
 		pygame.event.get()
 		if pygame.key.get_pressed()[pygame.K_t]:
 			fir = True
+			return_variable=0
 		elif pygame.key.get_pressed()[pygame.K_b]:
 			sec = True
+			return_variable=1
 		pygame.display.flip()
 	if fir:
 		time.sleep(0.5)
-		yesno(choice1,"tavern_table_stealth.jpg", choice1_1, choice1_2, "tavern_table_stealth.jpg", "tavern_table_stealth.jpg")
+		return2=yesno(choice1,"tavern_table_stealth.jpg", choice1_1, choice1_2, "tavern_table_stealth.jpg", "tavern_table_stealth.jpg")
 	elif sec:
 		time.sleep(0.5)
 		mainstorydif(main_barp1, "tavern_bar_stealth.jpg")
 		time.sleep(0.5)
-		mainstorydif(main_barp2, "tavern_bar_stealth.jpg"	)
+		mainstorydif(main_barp2, "tavern_bar_stealth.jpg")
+	return return_variable,return2
 
-bar= False 
-table = False
 
 def choice(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice2, choice2p2, choice2p3, a, b, c, d, e, f):
 	pygame.event.get()
 	textput_wrap = textwrap.wrap(inputed, 65)
 	fir=False
 	sec=False
-	 
+	return_variable=0
 	while fir == False and sec == False:
 		pygame.event.get()
 		if pygame.key.get_pressed()[pygame.K_x] == 1:
@@ -191,11 +194,11 @@ def choice(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice2, choice
 		if pygame.key.get_pressed()[pygame.K_t]:
 			fir = True
 			# table = True
-			
+			return_variable=0
 		elif pygame.key.get_pressed()[pygame.K_b]:
 			sec = True
 			#bar= True 
-			
+			return_variable=1
 		pygame.display.flip()
 	if fir:
 		time.sleep(0.5)
@@ -211,6 +214,51 @@ def choice(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice2, choice
 		mainstorydif(choice2p2, e)
 		time.sleep(0.5)
 		mainstorydif(choice2p3, f)
+	return return_variable
+
+def choice_strength(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice2, choice2p2, choice2p3, a, b, c, d, e, f):
+	pygame.event.get()
+	textput_wrap = textwrap.wrap(inputed, 65)
+	fir=False
+	sec=False
+	return_variable=0
+	while fir == False and sec == False:
+		pygame.event.get()
+		if pygame.key.get_pressed()[pygame.K_x] == 1:
+			sys.exit()
+		screen.fill(BLACK)
+		draw(100)
+		tavern_img = pygame.image.load(ab)
+		screen.blit(tavern_img, (25, 25))
+		for i in range(len(textput_wrap)):
+			text_printer(i, textput_wrap)
+		pygame.event.get()
+		if pygame.key.get_pressed()[pygame.K_t]:
+			fir = True
+			# table = True
+			return_variable=0
+		elif pygame.key.get_pressed()[pygame.K_b]:
+			sec = True
+			#bar= True 
+			return_variable=1
+		pygame.display.flip()
+	if fir:
+		time.sleep(0.5)
+		mainstorydif(choice1, a)
+		time.sleep(0.5)
+		mainstorydif(choice1p2, b)
+		time.sleep(0.5)
+		mainstorydif(choice1p3, c)
+		time.sleep(0.5)
+		return_2=yesno(main_tablestrength_q, "tavern_table_strength.jpg", main_tablestealth_yes, main_tablestealth_no, "tavern_table_strength.jpg", "tavern_table_strength.jpg")
+	elif sec:
+		time.sleep(0.5)
+		mainstorydif(choice2, d)
+		time.sleep(0.5)
+		mainstorydif(choice2p2, e)
+		time.sleep(0.5)
+		mainstorydif(choice2p3, f)
+	return return_variable,return_2
 
 # def castle(inputed, ):
 
@@ -243,7 +291,7 @@ main_tablestrength3 = '''Before long, you are the talk of the tavern, and everyo
 crowded around your table. They tell you about the dragon that terrorizes their town, offering you riches for its defeat.
 '''
 main_tablestealthp2 = "Under the pressure of the crowd, there’s no answer you can give but yes.  You leave the tavern with their indistinct, supportive shouts at your back. It’ll be a long journey to the castle, but when you return, it’ll be as a hero."
-
+main_tablestrength_q = "You pause to consider; do you slay the dragon for riches? (y/n?)"
 main_barp1 = '''You stride to the bar and take the last seat. After introducing yourself to the bartender, you explain that you have traveled to many lands, seen many things.
  At a sudden pang of hunger, you order some food which you promptly devour. The bartender watches you with amusement. Belatedly, you realize that you don’t have any money. 
  You sheepishly say as much when he asks for payment, thinking he might be lenient. Seemingly without any regard for what you just said, he tells you that a dragon has been terrorizing this town 
@@ -362,7 +410,7 @@ strength_dragon_wake = '''You yell unintelligibly until the dragon wakes up, and
    it slices clean through. '''
 
 strength_dragon_wake2 = '''You stand back, stunned at your own strength, and feel a little ashamed for having slain
-    such a mighty creature, for having slain any creature at all. Then you remember the damage it inflicted upon that town, and the guilt is mostly gone.
+	such a mighty creature, for having slain any creature at all. Then you remember the damage it inflicted upon that town, and the guilt is mostly gone.
 One of the dragon’s iridescent scales has fallen loose. 
 '''
 strength_dragon_wake3 = ''' You pick it up as proof of what you accomplished today,
@@ -573,11 +621,11 @@ elif manipulation == True:
 # tavern and witch hunt
 time.sleep(0.5)
 if stealth == True:
-	tavern_choice(main_tavern, fir, sec, main_tablestealth, main_tablestealth_yes, main_tablestealth_no)
+	bar_table,go_force=tavern_choice(main_tavern, fir, sec, main_tablestealth, main_tablestealth_yes, main_tablestealth_no)
 
 elif strength == True:
-	choice(main_tavern, "tavern_walkup.jpg", fir, sec, main_tablestrength, main_tablestrength2, main_tablestrength3 , main_barp1, main_barp2, main_barp3, "tavern_tables_strength.jpg", "tavern_tables_strength.jpg", "tavern_tables_strength.jpg", "tavern_bar_strength.jpg", "tavern_bar_strength.jpg", "tavern_bar_strength.jpg" )
-
+	bar_table,go_force=choice_strength(main_tavern, "tavern_walkup.jpg", fir, sec, main_tablestrength, main_tablestrength2, main_tablestrength3 , main_barp1, main_barp2, main_barp3, "tavern_table_strength.jpg", "tavern_table_strength.jpg", "tavern_table_strength.jpg", "tavern_bar_strength.jpg", "tavern_bar_strength.jpg", "tavern_bar_strength.jpg" )
+	print("bartable is " + str(bar_table)+ "and is" + str(go_force))
 elif magic == True:
 	mainstorydif(main_magicwitch, "PyreMagic-2.jpg")	
 	time.sleep(0.5)
@@ -632,18 +680,18 @@ time.sleep(0.5)
 if stealth == True:
 	mainstorydif(stealth_dragon1, "Stealth1.jpg" )
 	time.sleep(0.5)
-	choice(stealth_dragon1p1, "Stealth2.jpg", fir, sec, stealth_dragon_chand, stealth_dragon_chand2, stealth_dragon_chand3 , stealth_dragon_dragon, "PRESS X TO END", "" , "stealth4.jpg", "stealth4.jpg", "stealth4.jpg", "boop.jpg", "boop.jpg", "boop.jpg" )
+	dummy=choice(stealth_dragon1p1, "Stealth2.jpg", fir, sec, stealth_dragon_chand, stealth_dragon_chand2, stealth_dragon_chand3 , stealth_dragon_dragon, "PRESS X TO END", "" , "stealth4.jpg", "stealth4.jpg", "stealth4.jpg", "boop.jpg", "boop.jpg", "boop.jpg" )
 if strength == True: 
-	choice(strength_dragon, "dungeonstrength.jpg", fir, sec, strength_dragon_sleep, strength_dragon_sleep2, strength_dragon_sleep3,  strength_dragon_wake, strength_dragon_wake2, strength_dragon_wake3, "dungeonstrengthup.jpg", "dungeonstrength.jpg", "dungeonstrength.jpg", "dungeonstrength-3.jpg", "dungeonstrength-7.jpg", "dungeonstrength-7.jpg")
+	dummy=choice(strength_dragon, "dungeonstrength.jpg", fir, sec, strength_dragon_sleep, strength_dragon_sleep2, strength_dragon_sleep3,  strength_dragon_wake, strength_dragon_wake2, strength_dragon_wake3, "dungeonstrengthup.jpg", "dungeonstrength.jpg", "dungeonstrength.jpg", "dungeonstrength-3.jpg", "dungeonstrength-7.jpg", "dungeonstrength-7.jpg")
 if magic == True:
-	choice(magic_dragon, "dungeonmagic.jpg ", fir, sec, magic_dragon_fight, magic_dragon_fight2, magic_dragon_fight3, magic_dragon_flee, magic_dragon_flee2, magic_dragon_flee3, "dungeonmagic.jpg", xxx,  "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg", "boop.jpg")
+	dummy=choice(magic_dragon, "dungeonmagic.jpg ", fir, sec, magic_dragon_fight, magic_dragon_fight2, magic_dragon_fight3, magic_dragon_flee, magic_dragon_flee2, magic_dragon_flee3, "dungeonmagic.jpg", xxx,  "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg", "boop.jpg")
 if manipulation == True:
-	choice( manip_dungeon , "dungeoncharis.jpg", fir , sec , manip_dungeon_intim , manip_dungeon_intim2, manip_dungeon_intim3, manip_dungeon_integ, manip_dungeon_integ2, manip_dungeon_integ3, "dungeoncharis.jpg", "dungeoncharis.jpg" , "boop.jpg" , "dungeoncharis.jpg" , "dungeoncharis.jpg", "dungeroncharis.jpg" )
+	dummy=choice( manip_dungeon , "dungeoncharis.jpg", fir , sec , manip_dungeon_intim , manip_dungeon_intim2, manip_dungeon_intim3, manip_dungeon_integ, manip_dungeon_integ2, manip_dungeon_integ3, "dungeoncharis.jpg", "dungeoncharis.jpg" , "boop.jpg" , "dungeoncharis.jpg" , "dungeoncharis.jpg", "dungeroncharis.jpg" )
 time.sleep(0.5)
 mainstorydif(tav, "tavern_walkup.jpg")
 time.sleep(0.5)
 if stealth == True:
-	if bar == True:
+	if bar_table==1:
 		mainstorydif(main_bar_again1, "tavern_bar_stealth_table.jpg")
 		time.sleep(0.5)
 		mainstorydif(main_bar_again2, "tavern_bar_stealth_table.jpg")
@@ -663,8 +711,8 @@ if stealth == True:
 		mainstorydif(main_bar_again9, "stealth_rave.jpg")
 		time.sleep(0.5)
 		
-	elif table == True: 
-		if go == True:
+	elif bar_table==0: 
+		if go_force==1:
 			mainstorydif(main_table_chose1,"tavern_table_stealth.jpg")
 			time.sleep(0.5)
 			mainstorydif(main_table_chose2,"stealth_rave.jpg")
@@ -673,7 +721,7 @@ if stealth == True:
 			time.sleep(0.5)
 			mainstorydif(main_table_chose4,"stealth_rave.jpg")
 			time.sleep(0.5)
-		elif force == True:  
+		elif go_force==0:  
 			mainstorydif(main_table_forced1,"tavern_table_stealth.jpg")
 			time.sleep(0.5)
 			mainstorydif(main_table_forced2,"tavern_table_stealth.jpg")
@@ -689,7 +737,7 @@ if stealth == True:
 			mainstorydif(main_table_forced7,"stealth_rave.jpg")
 			time.sleep(0.5)
 if strength == True: 
-	if bar == True:
+	if bar_table == 1:
 		mainstorydif(main_bar_again1, "tavern_bar_strength.jpg")
 		time.sleep(0.5)
 		mainstorydif(main_bar_again2, "tavern_bar_strength.jpg")
@@ -709,8 +757,8 @@ if strength == True:
 		mainstorydif(main_bar_again9, "strength_rave.jpg")
 		time.sleep(0.5)
 		
-	elif table == True: 
-		if go == True:
+	elif bar_table == 0: 
+		if go_force == 1:
 			mainstorydif(main_table_chose1,"tavern_table_strength.jpg")
 			time.sleep(0.5)
 			mainstorydif(main_table_chose2,"strength_rave.jpg")
@@ -719,7 +767,7 @@ if strength == True:
 			time.sleep(0.5)
 			mainstorydif(main_table_chose4,"strength_rave.jpg")
 			time.sleep(0.5)
-		elif force == True:  
+		elif go_force == 0:  
 			mainstorydif(main_table_forced1,"tavern_table_strength.jpg")
 			time.sleep(0.5)
 			mainstorydif(main_table_forced2,"tavern_table_strength.jpg")
