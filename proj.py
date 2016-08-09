@@ -190,11 +190,11 @@ def choice(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice2, choice
 		pygame.event.get()
 		if pygame.key.get_pressed()[pygame.K_t]:
 			fir = True
-			table = True
+			# table = True
 			
 		elif pygame.key.get_pressed()[pygame.K_b]:
 			sec = True
-			bar= True 
+			#bar= True 
 			
 		pygame.display.flip()
 	if fir:
@@ -202,11 +202,15 @@ def choice(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice2, choice
 		mainstorydif(choice1, a)
 		time.sleep(0.5)
 		mainstorydif(choice1p2, b)
+		time.sleep(0.5)
+		mainstorydif(choice1p3, c)
 	elif sec:
 		time.sleep(0.5)
-		mainstorydif(choice2, c)
+		mainstorydif(choice2, d)
 		time.sleep(0.5)
-		mainstorydif(choice2p2, d)
+		mainstorydif(choice2p2, e)
+		time.sleep(0.5)
+		mainstorydif(choice2p3, f)
 
 # def castle(inputed, ):
 
