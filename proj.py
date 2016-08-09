@@ -284,13 +284,13 @@ main_tablestealth = "You head over to the table in the far corner of the room. A
 main_tablestealth_yes = " “Why not?” you hear yourself saying. You wouldn’t mind an influx of money. You linger for a while longer, then pay for your food and head out the door to begin the long journey to the castle."
 main_tablestealth_no = " “I think not!” you tell them. The topic changes, and you while away the night with the other tavern-goers in a blur of drinks and merriment. After some time, the woman across from you makes a comment of a polemic nature. You take offense and respond indignantly. She challenges you to a fight with the condition that the loser must fight the dragon. Of course, you lose. In your defense, you’re not at your stealthiest right now. Gathering your wounded pride and your meager belongings, you leave the tavern and begin the long journey to the castle."
 main_tablestrength = '''You head over to the table in the far corner of the room.
-After introducing yourself to the people in your vicinity, you order a hearty meal.'''
-main_tablestrength2 = '''They admire your armour and ask you about your travels. You explain that you have seen more of the world than you ever wished to,
-fearsome fauna and threatening terrain.''' 
-main_tablestrength3 = '''Before long, you are the talk of the tavern, and everyone seems to have
-crowded around your table. They tell you about the dragon that terrorizes their town, offering you riches for its defeat.
+After introducing yourself to the people in your vicinity, you order a hearty meal. They admire your armour and ask you about your travels.'''
+main_tablestrength2 = '''You explain that you have seen more of the world than you ever wished to,
+fearsome fauna and threatening terrain. Before long, you are the talk of the tavern, and everyone seems to have
+crowded around your table.''' 
+main_tablestrength3 = '''They tell you about the dragon that terrorizes their town, offering you riches for its defeat. Under the pressure of the crowd, there’s no answer you can give but yes.  You leave the tavern with their indistinct, supportive shouts at your back. It’ll be a long journey to the castle, but when you return, it’ll be as a hero.
 '''
-main_tablestealthp2 = "Under the pressure of the crowd, there’s no answer you can give but yes.  You leave the tavern with their indistinct, supportive shouts at your back. It’ll be a long journey to the castle, but when you return, it’ll be as a hero."
+main_tablestealthp2 = ""
 main_tablestrength_q = "You pause to consider; do you slay the dragon for riches? (y/n?)"
 main_barp1 = '''You stride to the bar and take the last seat. After introducing yourself to the bartender, you explain that you have traveled to many lands, seen many things.
  At a sudden pang of hunger, you order some food which you promptly devour. The bartender watches you with amusement. Belatedly, you realize that you don’t have any money. 
