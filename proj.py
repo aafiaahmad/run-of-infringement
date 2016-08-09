@@ -307,23 +307,21 @@ main_magicwitch = '''After an interminably long time, your attackers deposit you
 You are terrified to see a pyre set up outside. People flood out of the building, drinks in their hands and malice in their eyes.
 They start to herd you towards your fiery fate when a man barrels through the mob and tells you to run. You both dash away in the
 confusion, stopping only once there is no danger that they might find you. “Why did you save me?” you ask, wheezing. You’re more out
-of shape than you thought. “You are immensely powerful,” says the mysterious man. '''
-main_magicwitchp2 = ''' “There is a dragon that resides in a castle nearby,
- and it has brought nothing but destruction to this town. You must kill it.” // “Me?” you sputter. “Kill a dragon?” // “You have no
- choice,” he impresses. “Unless you want the mob to conveniently find you again.” // “And here I thought you were a good person,”
- you say, stung. “But yes, I will try to kill this dragon.” // He asks for your amulet as collateral, which annoys you even more,
+of shape than you thought. '''
+main_magicwitchp2 = '''“You are immensely powerful,” says the mysterious man. “There is a dragon that resides in a castle nearby, and it has brought nothing but destruction to this town. You must kill it.” “Me?” you sputter. “Kill a dragon?” “You have no
+ choice,” he impresses. “Unless you want the mob to conveniently find you again.” “And here I thought you were a good person,”
+ you say, stung. “But yes, I will try to kill this dragon.” He asks for your amulet as collateral, which annoys you even more,
  but you hand it over. He did save your life, after all. Ready to leave him behind, you begin your long journey to slay the dragon.'''
 main_charismawitch = '''After an interminably long time, your attackers deposit you roughly in front of the tavern.
 You are terrified to see a pyre set up outside. People flood out of the building, drinks in their hands and malice in their eyes.
 They start to herd you towards your fiery fate, but you stop in your tracks, hoping to buy yourself enough time to talk them out of
-burning you. “Move along,” a scowling man with blood stains on his clothing grumbles. // “No,” you say loudly, trying to suppress the
- trembling in your voice.
-'''
-main_charismawitchp2 = '''“Listen, I may be a witch, and you may hate me for that, but I am powerful. Surely my magic could be of some
-  use to you.” // The silence is painful, and you think they’ll go ahead and kill you all the same. Then the man speaks. “Actually,
-  there is something you can do for us, witch. Slay the dragon that lives in the castle, and we will let you go on your way.” // “All
-  right,” you say. “I accept your terms.” // Probable death is better than certain death, right? You turn to leave when you hear the
-  man’s voice again. “One more thing. The amulet.” '''
+burning you. “Move along,” a scowling man with blood stains on his clothing grumbles. “No,” you say loudly, trying to suppress the
+ trembling in your voice. “Listen, I may be a witch, and you may hate me for that, but I am powerful. Surely my magic could be of some
+  use to you.”'''
+main_charismawitchp2 = '''The silence is painful, and you think they’ll go ahead and kill you all the same. Then the man speaks. “Actually,
+  there is something you can do for us, witch. Slay the dragon that lives in the castle, and we will let you go on your way.” “All
+  right,” you say. “I accept your terms.” Probable death is better than certain death, right? You turn to leave when you hear the
+  man’s voice again. “One more thing. The amulet.”'''
 main_charismawitchp3 = '''You hand it over readily, not willing to risk him rescinding the offer.
   Terrified, you take the first steps of what will likely be a fatal journey.'''
 tav = "After a long, arduous trip back from the castle, during which you decide that nothing can make you pass through that valley again, you arrive back at the tavern that has caused you so much misery, hopefully for the last time."
@@ -419,9 +417,10 @@ walking away with a slightly heavier heart. No one said being a hero was easy.''
 magic_dragon = ''' When you enter the cavernous chamber, the dragon sits upright and fixes you to your spot with its unnerving stare,
 as though it has been waiting for you all this time. The situation is doing nothing to soothe your frayed nerves. You spent the entire
  journey stewing in terrified anticipation—you’re not ready to die, but your magic powers are so erratic and uncontrollable that you wish
- you had something else to rely on. But here you are, standing before the dragon, hoping for a miracle. Or you could flee. It’s probably not
-  too late for that, and even if it makes you a coward, at least you will avoid death. What do you do? (fight(t)/flee(b)?)
+ you had something else to rely on. 
 '''
+
+magic_dragon2 = '''But here you are, standing before the dragon, hoping for a miracle. Or you could flee. It’s probably not too late for that, and even if it makes you a coward, at least you will avoid death. What do you do? (fight(t)/flee(b)?)'''
 magic_dragon_fight = ''' You decide to stand your ground and keep your promise to your savior. If you die, it will be with honor.
 The dragon takes flight, circling the room from above. It sends ferocious spurts of fire at you that you manage to dodge. One blast
  comes especially close, singeing your clothes and skin. But now you can feel the magic surging in your veins now, powerful and impatient;
@@ -451,15 +450,17 @@ magic_dragon_flee3 = ''' He smirks. “No.” He takes out a gleaming dagger and
 manip_dungeon = ''' When you enter the cavernous chamber, the dragon sits upright and fixes you to your spot with its unnerving stare,
 as though it has been waiting for you all this time. The situation is doing nothing to soothe your frayed nerves. You’ve spent the entire
 journey stewing in terrified anticipation, and to have this moment upon you now is nothing short of overwhelming. Your only weapons are your
-words and your dagger, and though neither seem suited to this situation, they’re all you have. “Who are you?” the dragon tries to snarl in an oddly
+words and your dagger, and though neither seem suited to this situation, they’re all you have. '''
+
+manip_dungeon2 = '''“Who are you?” the dragon tries to snarl in an oddly
 high-pitched voice. You suppress nervous laughter and quickly formulate a response. You see two viable options: intimidation or ingratiation. Which
 do you choose? (intimidation(t)/ingratiation(b)?)'''
 
-manip_dungeon_intim = ''' “I am a renowned dragon slayer,” you say sonorously. “And if you refuse to cease inflicting injury after injury upon
+manip_dungeon_intim = '''“I am a renowned dragon slayer,” you say sonorously. “And if you refuse to cease inflicting injury after injury upon
  the poor town nearby, I would advise you to prepare for your end.” You expect the dragon to say something, anything, but it just stands there,
-  impassive. Then it sniffles, and a single tear falls to the ground.  '''
+  impassive. '''
 
-manip_dungeon_intim2 = '''It scorches a hole straight through the floor. Um, what is going on, exactly?
+manip_dungeon_intim2 = '''Then it sniffles, and a single tear falls to the ground. It scorches a hole straight through the floor. Um, what is going on, exactly?
    “My father… he was the one who killed all those people, and now… he’s gone.” It glares at you, if such a thing is possible for a dragon. “At the
    hands of a dragon slayer like you.” Oh. Intimidation was a really bad idea. “It appears that I was mistaken,” you say, inching backwards.
  '''
