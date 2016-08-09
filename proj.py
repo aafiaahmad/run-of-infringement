@@ -340,13 +340,10 @@ main_castle_m_3 = "Whoever is trying to kill you will not succeed, not today or 
 main_incastle_ = '''You linger outside the castle as long as you can, trying to steel yourself for the tremendous
 task that of slaying a dragon that may very well slay you. But eventually you convince yourself that it will do you no
 good to wait any longer, so you wrest open the doors and enter the dragon’s abode. You wander around for a bit, and when
-you see another set of doors as forbidding and ornate as those you passed through earlier, you know your foe can be nowhere
-else but inside.'''
+you see another set of doors as forbidding and ornate as those you passed through earlier, you know your foe can be nowhere else but inside.'''
 
 stealth_dragon1 = '''When you enter the cavernous chamber, you see the dragon asleep in the corner atop a pile of gold.
-You inch quietly towards it, hoping to catch it unaware, but your foot accidentally catches on a stray gold coin that sounds
-loudly as it careens across the cold floor. The dragon lifts its head slowly to stare at you. It uncurls itself from its sleeping
-position and bats its wings, circling the room from above. It launches deadly spurts of fire at you, which you nimbly dodge. 
+You inch quietly towards it, hoping to catch it unaware, but your foot accidentally catches on a stray gold coin that sounds loudly as it careens across the cold floor. The dragon lifts its head slowly to stare at you. It uncurls itself from its sleeping position and bats its wings, circling the room from above. It launches deadly spurts of fire at you, which you nimbly dodge. 
 '''
 stealth_dragon1p1 = '''When it pauses for a second, you take out your dagger and launch it at the dragon’s underbelly. A line of blood appears where the dagger grazes, but unfortunately,
 ‘tis but a flesh wound. The dragon continues its blazing attacks, not weakened in the slightest. In another opportune moment, you take
