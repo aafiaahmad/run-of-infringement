@@ -312,18 +312,11 @@ main_magicwitchp2 = '''“You are immensely powerful,” says the mysterious man
  choice,” he impresses. “Unless you want the mob to conveniently find you again.” “And here I thought you were a good person,”
  you say, stung. “But yes, I will try to kill this dragon.” He asks for your amulet as collateral, which annoys you even more,
  but you hand it over. He did save your life, after all. Ready to leave him behind, you begin your long journey to slay the dragon.'''
+ 
 main_charismawitch = '''After an interminably long time, your attackers deposit you roughly in front of the tavern.
-You are terrified to see a pyre set up outside. People flood out of the building, drinks in their hands and malice in their eyes.
-They start to herd you towards your fiery fate, but you stop in your tracks, hoping to buy yourself enough time to talk them out of
-burning you. “Move along,” a scowling man with blood stains on his clothing grumbles. “No,” you say loudly, trying to suppress the
- trembling in your voice. “Listen, I may be a witch, and you may hate me for that, but I am powerful. Surely my magic could be of some
-  use to you.”'''
-main_charismawitchp2 = '''The silence is painful, and you think they’ll go ahead and kill you all the same. Then the man speaks. “Actually,
-  there is something you can do for us, witch. Slay the dragon that lives in the castle, and we will let you go on your way.” “All
-  right,” you say. “I accept your terms.” Probable death is better than certain death, right? You turn to leave when you hear the
-  man’s voice again. “One more thing. The amulet.”'''
-main_charismawitchp3 = '''You hand it over readily, not willing to risk him rescinding the offer.
-  Terrified, you take the first steps of what will likely be a fatal journey.'''
+You are terrified to see a pyre set up outside. People flood out of the building, drinks in their hands and malice in their eyes. They start to herd you towards your fiery fate, but you stop in your tracks, hoping to buy yourself enough time to talk them out of burning you. “Move along,” a scowling man with blood stains on his clothing grumbles.'''
+main_charismawitchp2 = '''“No,” you say loudly, trying to suppress the trembling in your voice. “Listen, I may be a witch, and you may hate me for that, but I am powerful. Surely my magic could be of some use to you.” The silence is painful, and you think they’ll go ahead and kill you all the same. Then the man speaks. “Actually, there is something you can do for us, witch. Slay the dragon that lives in the castle, and we will let you go on your way.” “All right,” you say. “I accept your terms.” Probable death is better than certain death, right?'''
+main_charismawitchp3 = '''You turn to leave when you hear the man’s voice again. “One more thing. The amulet.” You hand it over readily, not willing to risk him rescinding the offer. Terrified, you take the first steps of what will likely be a fatal journey.'''
 tav = "After a long, arduous trip back from the castle, during which you decide that nothing can make you pass through that valley again, you arrive back at the tavern that has caused you so much misery, hopefully for the last time."
 
 main_castle_1 = "You can see the castle in the distance where it sits smugly atop a tall hill. Beneath your feet is a dusty path, which you decide to follow for now, though you’re not sure if it actually leads to the castle. If it doesn’t, well, you’ll deal with that later. As you walk further and further, the tavern shrinks in your vision until it it seems like an insignificant speck of light. But that insignificant speck is why you’re here, and a shiver of fear runs through you at the reminder of what awaits you at your destination. Why were you foolish enough to agree to this?"
@@ -353,10 +346,9 @@ else but inside.'''
 stealth_dragon1 = '''When you enter the cavernous chamber, you see the dragon asleep in the corner atop a pile of gold.
 You inch quietly towards it, hoping to catch it unaware, but your foot accidentally catches on a stray gold coin that sounds
 loudly as it careens across the cold floor. The dragon lifts its head slowly to stare at you. It uncurls itself from its sleeping
-position and bats its wings, circling the room from above. You nimbly dodge deadly spurts of fire, and when it pauses for a second,
-you take out your dagger and launch it at the dragon’s underbelly.
+position and bats its wings, circling the room from above. It launches deadly spurts of fire at you, which you nimbly dodge. 
 '''
-stealth_dragon1p1 = '''A line of blood appears where the dagger grazes, but unfortunately,
+stealth_dragon1p1 = '''When it pauses for a second, you take out your dagger and launch it at the dragon’s underbelly. A line of blood appears where the dagger grazes, but unfortunately,
 ‘tis but a flesh wound. The dragon continues its blazing attacks, not weakened in the slightest. In another opportune moment, you take
  out your ninja star, your last weapon, and eye the glimmering chandelier. If your timing and aim is perfect, you might be able
  to bring the dragon down with it. Or you could aim the star directly at the dragon. What do you do? (chandelier(t)/dragon (b)?) '''
@@ -387,8 +379,7 @@ but that’s not an enticing option either. What do you do? (sleep(t)/wake(b)?
 strength_dragon_sleep = '''  You creep towards the dragon, guilt rising within you.
 This really doesn’t seem like the right thing to do. As you get closer, you hold your sword in front of you,
 steadying yourself for the kill. Then the dragon cracks an eye open. You freeze, but don’t lower the sword.
- It lifts its head and startles you by speaking. “Don’t kill me,” it says calmly, its voice low and gravelly.
- // “Why not?” you ask, trembling. “Many innocent people have perished because of you.” //
+ It lifts its head and startles you by speaking. “Don’t kill me,” it says calmly, its voice low and gravelly. “Why not?” you ask, trembling. “Many innocent people have perished because of you.”
   “True, but I could easily stop,” it replies. “And if you choose not to kill me, I might be convinced to.” '''
 
 strength_dragon_sleep2 = ''' Something seems off—the dragon doesn’t seem as helpless as it’s acting—but you agree. The dragon shakes its head,
