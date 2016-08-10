@@ -175,6 +175,8 @@ def tavern_choice(inputed, fir, sec, choice1, choice1_1, choice1_2):
         mainstorydif(main_barp1, "tavern_bar_stealth.jpg")
         time.sleep(0.5)
         mainstorydif(main_barp2, "tavern_bar_stealth.jpg")
+        time.sleep(0.5)
+        mainstorydif(main_barp3, "tavern_bar_stealth.jpg")
     return return_variable, return2
 
 
@@ -270,7 +272,6 @@ def choice_strength(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice
     return return_variable, return_2
 
 
-# def castle(inputed, ):
 
 clock = pygame.time.Clock()
 
@@ -629,7 +630,7 @@ elif strength == True:
                                           "tavern_tables_strength.jpg", "tavern_tables_strength.jpg",
                                           "tavern_tables_strength.jpg", "tavern_bar_strength.jpg",
                                           "tavern_bar_strength.jpg", "tavern_bar_strength.jpg")
-    print("bartable is " + str(bar_table) + "and is" + str(go_force))
+    #print("bartable is " + str(bar_table) + "and is" + str(go_force))
 elif magic == True:
     mainstorydif(main_magicwitch, "PyreMagic-2.jpg")
     time.sleep(0.5)
@@ -660,9 +661,9 @@ if stealth == True:
     time.sleep(0.5)
     mainstorydif(main_castle_stealth_3, "stealthCastley.jpg")
 elif strength == True:
-    mainstorydif(main_castle_strength_1, "Strengthcastle.jpg")
+    mainstorydif(main_castle_strength_1, "strcastle.png")
     time.sleep(0.5)
-    mainstorydif(main_castle_strength_2, "Strengthcastle.jpg")
+    mainstorydif(main_castle_strength_2, "strcastle.png")
 elif magic == True:
     mainstorydif(main_castle_m_1, "CharismaCastle.jpg")  # magic and manip needs to have boulder behind sprites
     time.sleep(0.5)
@@ -700,15 +701,15 @@ if magic == True:
     end_game = choice(magic_dragon2, "dungeonmagic.jpg ", fir, sec, magic_dragon_fight, magic_dragon_fight2,
                    magic_dragon_fight3, magic_dragon_flee, magic_dragon_flee2, magic_dragon_flee3, "dungeonmagic.jpg",
                    "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg", "boop.jpg")
-    if end_game==0:
+    if end_game==1:
         sys.exit()
 if manipulation == True:
-    mainstorydif(manip_dungeon, "dungeonmagic.jpg")
-    dummy = choice(manip_dungeon2, "dungeoncharisma-fix.jpg", fir, sec, manip_dungeon_intim, manip_dungeon_intim2,
+    mainstorydif(manip_dungeon, "dungeoncharisma.jpg")
+    dummy = choice(manip_dungeon2, "dungeoncharisma.jpg", fir, sec, manip_dungeon_intim, manip_dungeon_intim2,
                    manip_dungeon_intim3, manip_dungeon_integ, manip_dungeon_integ2, manip_dungeon_integ3,
-                   "dungeoncharisma-fix.jpg", "dungeoncharisma-fix.jpg", "boop.jpg", "dungeoncharisma-fix.jpg", "dungeoncharisma-fix.jpg",
-                   "dungeoncharisma-fix.jpg")
-    if dummy == 1:
+                   "dungeoncharisma.jpg", "dungeoncharisma.jpg", "boop.jpg", "dungeoncharisma.jpg", "dungeoncharisma.jpg",
+                   "dungeoncharisma.jpg")
+    if dummy == 0:
         sys.exit()
 time.sleep(0.5)
 mainstorydif(tav, "tavern_walkup.jpg")
