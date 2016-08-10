@@ -671,7 +671,7 @@ elif manipulation == True:
 time.sleep(0.5)
 mainstorydif(main_castle_1, "tocastle.jpg")
 time.sleep(0.5)
-mainstorydif(main_castle_2, "tocastle.jpg")
+mainstorydif(main_castle_2, "black.jpg")
 time.sleep(0.5)
 mainstorydif(main_castle_3, "tocastle.jpg")
 
