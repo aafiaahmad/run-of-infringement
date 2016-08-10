@@ -1,4 +1,4 @@
-import pygame, time, sys, textwrap
+import pygame, time, sys, textwrap, random
 
 # Define some colors
 BLACK = (0, 0, 0)
@@ -20,6 +20,7 @@ green_x = 20
 white_x = 25
 green_l = 660
 white_l = 650
+numbers = [1, 2, 3, 4]
 
 fir = False
 sec = False
@@ -40,6 +41,9 @@ done = False
 
 
 # Functions
+def random_char():
+    return random.choice(numbers)
+
 def draw(hp):
     pygame.draw.rect(screen, GREEN, (green_x, 20, green_l, 360), 0)
     pygame.draw.rect(screen, BLACK, (white_x, 25, white_l, 350), 0)
@@ -59,7 +63,6 @@ def draw(hp):
     label = myfont.render("HP", 1, WHITE)
     screen.blit(label, (635, 425))
 
-
 def text(words):
     ycord = 388
     while len(words) > 0:
@@ -70,7 +73,6 @@ def text(words):
         ycord += 15
         screen.blit(label, (25, ycord))
         words = words[max:]
-
 
 def text_printer(textnumber, wrapped_text):
     myfont = pygame.font.SysFont("monospace", 15)
@@ -175,8 +177,6 @@ def tavern_choice(inputed, fir, sec, choice1, choice1_1, choice1_2):
         mainstorydif(main_barp1, "tavern_bar_stealth.jpg")
         time.sleep(0.5)
         mainstorydif(main_barp2, "tavern_bar_stealth.jpg")
-        time.sleep(0.5)
-        mainstorydif(main_barp3, "tavern_bar_stealth.jpg")
     return return_variable, return2
 
 
@@ -272,6 +272,7 @@ def choice_strength(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice
     return return_variable, return_2
 
 
+# def castle(inputed, ):
 
 clock = pygame.time.Clock()
 
@@ -394,14 +395,13 @@ It lifts its head and startles you by speaking. “Don’t kill me,” it says c
 “True, but I could easily stop,” it replies. “And if you choose not to kill me, I might be convinced to.” '''
 
 strength_dragon_sleep2 = '''Something seems off—the dragon doesn’t seem as helpless as it’s acting—but you agree. The dragon shakes its head,
-causing an iridescent scale to fall loose. // “Proof,” it says, and you could swear it’s smirking at you, “of your
-heroic deed.” // You pick it up warily, nod at the dragon, and turn around to leave. You walk triumphantly out the castle, when suddenly the dragon swoops you up in its claws. It flies along the path you took to get here, and you figure the dragon wants to spare
+causing an iridescent scale to fall loose. “Proof,” it says, and you could swear it’s smirking at you, “of your
+heroic deed.” You pick it up warily, nod at the dragon, and turn around to leave. You walk triumphantly out the castle, when suddenly the dragon swoops you up in its claws. It flies along the path you took to get here, and you figure the dragon wants to spare
 you of the long walk back.'''
 
 strength_dragon_sleep3 = '''When you see the tavern below you, you realize that your mission will have been for nothing
 if the townspeople look up and see the dragon alive and well. “What are you doing?” you yell, trying to be heard over
-the howling wind. // “You didn’t think I would be that easily stopped, did you?” the dragon growls. //
-Then it releases an intense wave of fire that razes the town to nothing more than flaming wood and detritus.
+the howling wind. “You didn’t think I would be that easily stopped, did you?” the dragon growls. Then it releases an intense wave of fire that razes the town to nothing more than flaming wood and detritus.
 You close your eyes and silently apologize to everyone who died because of your naivete. THE END.'''
 
 strength_dragon_wake = '''You yell unintelligibly until the dragon wakes up, and when it does, you can’t deny that
@@ -443,8 +443,8 @@ right to ask this of you. Once outside of the castle, you see the very person yo
 a cat toying with its prey. '''
 
 magic_dragon_flee2 = '''“What are you doing here?” you ask, indignant. If he followed you all the way here, why couldn’t he have helped you
-kill the dragon? // His next words sting. “Forgive me if I didn’t trust you to complete this mission. And as you can see, I was right.” // “Then why ask me at all?” // “You see, this was a test. I am a wizard, and I was hoping to find a honorable apprentice
-in you,” he says. // “Really?” you ask, taken aback. '''
+kill the dragon? His next words sting. “Forgive me if I didn’t trust you to complete this mission. And as you can see, I was right.” “Then why ask me at all?” “You see, this was a test. I am a wizard, and I was hoping to find a honorable apprentice
+in you,” he says. “Really?” you ask, taken aback. '''
 
 magic_dragon_flee3 = ''' He smirks. “No.” He takes out a gleaming dagger and strikes a fatal blow to your person.
 THE END. (PRESS X TO EXIT GAME)'''
@@ -467,7 +467,7 @@ manip_dungeon_intim2 = '''Then it sniffles, and a single tear falls to the groun
 hands of a dragon slayer like you.” Oh. Intimidation was a really bad idea. “It appears that I was mistaken,” you say, inching backwards.
  '''
 
-manip_dungeon_intim3 = '''“Now, if you don’t mind, I’ll just leave you in peace.” // “I don’t think so,” it hisses. The last thing you see is the scorched floor
+manip_dungeon_intim3 = '''“Now, if you don’t mind, I’ll just leave you in peace.” “I don’t think so,” it hisses. The last thing you see is the scorched floor
 where the acidic tear fell, and then you are engulfed in flames. THE END (PRESS X TO EXIT GAME). '''
 
 manip_dungeon_integ = ''' “I’m a huge fan of yours!” you exclaim, with as much enthusiasm as you can muster for a murderer.
@@ -477,7 +477,7 @@ thank you!” '''
 
 manip_dungeon_integ2 = '''Is your crazy scheme actually working? “Of course! But you know what? There’s a tavern nearby where they don’t appreciate your
 work quite as much, and as someone who wants the best for you, I would humbly suggest that you take your art elsewhere.” You hold your breath,
-wishing for the best. “I suppose you might be right,” the dragon says after a moment. // “Wonderful! I promise you won’t regret it,” you say. “Oh, and before I leave, I wonder if I might have one of your lovely iridescent scales as a souvenir?”
+wishing for the best. “I suppose you might be right,” the dragon says after a moment. “Wonderful! I promise you won’t regret it,” you say. “Oh, and before I leave, I wonder if I might have one of your lovely iridescent scales as a souvenir?”
 As proof of its “death.” '''
 
 manip_dungeon_integ3 = '''It agrees easily, scattering a few loose with a shake of its head. You pick one up and thank the dragon vigorously,
@@ -523,6 +523,7 @@ main_charisma_return2 = "“Well done,” he admits grudgingly, gruffly. He give
 main_charisma_return3 = "You leave the tavern with no intention of ever returning. You don't need anyone finding out that the dragon is still alive and well."
 main_charisma_return4 = "Who knows what great and terrible things you could achieve with a dragon who hands on your every word? THE END."
 
+random_number = random_char()
 # -------- Main Program Loop -----------
 
 pygame.event.get()
@@ -560,6 +561,28 @@ while pygame.key.get_pressed()[pygame.K_SPACE] == 0:
         stealth = False
         strength = False
         magic = False
+    elif pygame.key.get_pressed()[pygame.K_SPACE] != 0:
+         if random_number == 1:
+             stealth = True
+             strength = False
+             magic = False
+             manipulation = False
+         if random_number == 2:
+             stealth = False
+             strength = True
+             magic = False
+             manipulation = False
+         if random_number == 3:
+             stealth = False
+             strength = False
+             magic = True
+             manipulation = False
+         if random_number == 4:
+             stealth = False
+             strength = False
+             magic = False
+             manipulation = True
+
 
     if stealth == True:
         screen.fill(BLACK)
@@ -630,7 +653,7 @@ elif strength == True:
                                           "tavern_tables_strength.jpg", "tavern_tables_strength.jpg",
                                           "tavern_tables_strength.jpg", "tavern_bar_strength.jpg",
                                           "tavern_bar_strength.jpg", "tavern_bar_strength.jpg")
-    #print("bartable is " + str(bar_table) + "and is" + str(go_force))
+    print("bartable is " + str(bar_table) + "and is" + str(go_force))
 elif magic == True:
     mainstorydif(main_magicwitch, "PyreMagic-2.jpg")
     time.sleep(0.5)
@@ -646,9 +669,9 @@ elif manipulation == True:
 
 # castle walk up
 time.sleep(0.5)
-mainstorydif(main_castle_1, "black.jpg")
+mainstorydif(main_castle_1, "tocastle.jpg")
 time.sleep(0.5)
-mainstorydif(main_castle_2, "black.jpg" )
+mainstorydif(main_castle_2, "tocastle.jpg")
 time.sleep(0.5)
 mainstorydif(main_castle_3, "tocastle.jpg")
 
@@ -661,9 +684,9 @@ if stealth == True:
     time.sleep(0.5)
     mainstorydif(main_castle_stealth_3, "stealthCastley.jpg")
 elif strength == True:
-    mainstorydif(main_castle_strength_1, "strcastle.png")
+    mainstorydif(main_castle_strength_1, "Strengthcastle.jpg")
     time.sleep(0.5)
-    mainstorydif(main_castle_strength_2, "strcastle.png")
+    mainstorydif(main_castle_strength_2, "Strengthcastle.jpg")
 elif magic == True:
     mainstorydif(main_castle_m_1, "CharismaCastle.jpg")  # magic and manip needs to have boulder behind sprites
     time.sleep(0.5)
@@ -701,15 +724,15 @@ if magic == True:
     end_game = choice(magic_dragon2, "dungeonmagic.jpg ", fir, sec, magic_dragon_fight, magic_dragon_fight2,
                    magic_dragon_fight3, magic_dragon_flee, magic_dragon_flee2, magic_dragon_flee3, "dungeonmagic.jpg",
                    "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg", "dungeonmagic.jpg", "boop.jpg")
-    if end_game==1:
+    if end_game==0:
         sys.exit()
 if manipulation == True:
-    mainstorydif(manip_dungeon, "dungeoncharisma.jpg")
-    dummy = choice(manip_dungeon2, "dungeoncharisma.jpg", fir, sec, manip_dungeon_intim, manip_dungeon_intim2,
+    mainstorydif(manip_dungeon, "dungeonmagic.jpg")
+    dummy = choice(manip_dungeon2, "dungeoncharisma-fix.jpg", fir, sec, manip_dungeon_intim, manip_dungeon_intim2,
                    manip_dungeon_intim3, manip_dungeon_integ, manip_dungeon_integ2, manip_dungeon_integ3,
-                   "dungeoncharisma.jpg", "dungeoncharisma.jpg", "boop.jpg", "dungeoncharisma.jpg", "dungeoncharisma.jpg",
-                   "dungeoncharisma.jpg")
-    if dummy == 0:
+                   "dungeoncharisma-fix.jpg", "dungeoncharisma-fix.jpg", "boop.jpg", "dungeoncharisma-fix.jpg", "dungeoncharisma-fix.jpg",
+                   "dungeoncharisma-fix.jpg")
+    if dummy == 1:
         sys.exit()
 time.sleep(0.5)
 mainstorydif(tav, "tavern_walkup.jpg")
