@@ -728,10 +728,10 @@ if magic == True:
         sys.exit()
 if manipulation == True:
     mainstorydif(manip_dungeon, "dungeonmagic.jpg")
-    dummy = choice(manip_dungeon2, "dungeoncharisma-fix.jpg", fir, sec, manip_dungeon_intim, manip_dungeon_intim2,
+    dummy = choice(manip_dungeon2, "dungeoncharisma.jpg", fir, sec, manip_dungeon_intim, manip_dungeon_intim2,
                    manip_dungeon_intim3, manip_dungeon_integ, manip_dungeon_integ2, manip_dungeon_integ3,
-                   "dungeoncharisma-fix.jpg", "dungeoncharisma-fix.jpg", "boop.jpg", "dungeoncharisma-fix.jpg", "dungeoncharisma-fix.jpg",
-                   "dungeoncharisma-fix.jpg")
+                   "dungeoncharisma.jpg", "dungeoncharisma.jpg", "boop.jpg", "dungeoncharisma.jpg", "dungeoncharisma.jpg",
+                   "dungeoncharisma.jpg")
     if dummy == 1:
         sys.exit()
 time.sleep(0.5)
@@ -806,7 +806,7 @@ if strength == True:
 
     elif bar_table == 0:
         if go_force == 1:
-            mainstorydif(main_table_chose1, "tavern_tables_strength.jpg")
+            mainstorydif(main_table_chose1, "tavern_table_strength.jpg")
             time.sleep(0.5)
             mainstorydif(main_table_chose2, "strength_rave.jpg")
             time.sleep(0.5)
@@ -815,13 +815,13 @@ if strength == True:
             mainstorydif(main_table_chose4, "strength_rave.jpg")
             time.sleep(0.5)
         elif go_force == 0:
-            mainstorydif(main_table_forced1, "tavern_tables_strength.jpg")
+            mainstorydif(main_table_forced1, "tavern_table_strength.jpg")
             time.sleep(0.5)
-            mainstorydif(main_table_forced2, "tavern_tables_strength.jpg")
+            mainstorydif(main_table_forced2, "tavern_table_strength.jpg")
             time.sleep(0.5)
-            mainstorydif(main_table_forced3, "tavern_tables_strength.jpg")
+            mainstorydif(main_table_forced3, "tavern_table_strength.jpg")
             time.sleep(0.5)
-            mainstorydif(main_table_forced4, "tavern_tables_strength.jpg")
+            mainstorydif(main_table_forced4, "tavern_table_strength.jpg")
             time.sleep(0.5)
             mainstorydif(main_table_forced5, "strength_rave.jpg")
             time.sleep(0.5)
