@@ -260,8 +260,8 @@ def choice_strength(inputed, ab, fir, sec, choice1, choice1p2, choice1p3, choice
         time.sleep(0.5)
         mainstorydif(choice1p3, c)
         time.sleep(0.5)
-        return_2 = yesno(main_tablestrength_q, "tavern_tables_strength.jpg", main_tablestealth_yes, main_tablestealth_no,
-                         "tavern_tables_strength.jpg", "tavern_tables_strength.jpg")
+        return_2 = yesno(main_tablestrength_q, "tavern_table_strength.jpg", main_tablestealth_yes, main_tablestealth_no,
+                         "tavern_table_strength.jpg", "tavern_table_strength.jpg")
     elif sec:
         time.sleep(0.5)
         mainstorydif(choice2, d)
@@ -684,9 +684,9 @@ if stealth == True:
     time.sleep(0.5)
     mainstorydif(main_castle_stealth_3, "stealthCastley.jpg")
 elif strength == True:
-    mainstorydif(main_castle_strength_1, "Strengthcastle.jpg")
+    mainstorydif(main_castle_strength_1, "strcastle.jpg")
     time.sleep(0.5)
-    mainstorydif(main_castle_strength_2, "Strengthcastle.jpg")
+    mainstorydif(main_castle_strength_2, "strcastle.jpg")
 elif magic == True:
     mainstorydif(main_castle_m_1, "CharismaCastle.jpg")  # magic and manip needs to have boulder behind sprites
     time.sleep(0.5)
