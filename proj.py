@@ -650,8 +650,8 @@ if stealth == True:
 
 elif strength == True:
     bar_table, go_force = choice_strength(main_tavern, "tavern_walkup.jpg", fir, sec, main_tablestrength, main_tablestrength2, main_tablestrength3, main_barp1, main_barp2, main_barp3,
-                                          "tavern_tables_strength.jpg", "tavern_tables_strength.jpg",
-                                          "tavern_tables_strength.jpg", "tavern_bar_strength.jpg",
+                                          "tavern_table_strength.jpg", "tavern_table_strength.jpg",
+                                          "tavern_table_strength.jpg", "tavern_bar_strength.jpg",
                                           "tavern_bar_strength.jpg", "tavern_bar_strength.jpg")
     print("bartable is " + str(bar_table) + "and is" + str(go_force))
 elif magic == True:
